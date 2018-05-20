@@ -1,0 +1,26 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left sliding">
+            <a class="back iconfont icon-back link-back">返回</a>
+        </div>
+        <div class="center sliding">水产全明星</div>
+        <div class="right sliding"></div>
+    </div>
+</div>
+<div class="page swipeback page-mvp-list" data-page="mvpList">
+    <div class="page-content infinite-scroll pull-to-refresh-content">
+        <div class="pull-to-refresh-layer ">
+            <div class="preloader "></div>
+            <div class="pull-to-refresh-arrow"></div>
+        </div>
+        <div class="vue-box">
+            <a @click="openNewWindow(item)" v-for="item in infoList">
+                <img :src="item.backgroundImgUrl" :data-src="item.bannerImg" class="lazy">
+            </a>
+            <p class="load-all" v-if="!isLoading">已显示全部</p>
+            <div v-if="isLoading" class="infinite-scroll-preloader">
+                <div class="preloader "></div>
+            </div>
+        </div>
+    </div>
+</div>

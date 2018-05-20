@@ -1,0 +1,51 @@
+<div class="navbar">
+    <div class="navbar-inner navbar-on-center">
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding">平台帮助</div>
+        <div class="right sliding">
+            <a class="detail-more" ></a>
+        </div>
+    </div>
+</div>
+<div class="page swipeback toolbar-through page-platform-help" data-page="platformHelp">
+    <div class="page-content">
+        <div class="vue-box">
+            <div class="title-wrapper">
+                <div class="title">{{helpState}}</div>
+                <div class="title-detail" v-html="helpDetail"></div>
+                <div class="title-time" v-if ="helpInfo.state !== 0">处理时间：{{getDate(helpInfo.handleTime, 'second')}}</div>
+                <div class="title-button">
+                    <div class="contact-customer-service" v-if="isBuyer == 2 && helpInfo.state == 0" @click="delHelp()">撤销帮助</div>
+                    <div class="contact-customer-service" @click="contactUs()">联系客服</div>
+                </div>
+            </div>
+            <div class="refund-info">
+                <div class="refund-info-detail">退款信息</div>
+                <div class="refund-info-item-wrapper">
+                    <div class="refund-info-item">
+                        <span class="refund-info-item-title">{{userText.text}}</span>
+                        <span class="refund-info-item-detail">{{userText.content}}</span>
+                    </div>
+                    <div class="refund-info-item">
+                        <span class="refund-info-item-title">货物状态</span>
+                        <span class="refund-info-item-detail">{{helpInfo.goodsReceived?'已收货':'未收货'}}</span>
+                    </div>
+                    <div class="refund-info-item">
+                        <span class="refund-info-item-title">帮助原因</span>
+                        <span class="refund-info-item-detail">{{reasonTypeText}}</span>
+                    </div>
+                    <div class="refund-info-item special-item">
+                        <span class="refund-info-item-title">补充说明</span>
+                        <span class="refund-info-item-detail">{{helpInfo.remark || '无'}}</span>
+                    </div>
+                    <div class="refund-info-item">
+                        <span class="refund-info-item-title">申请时间</span>
+                        <span class="refund-info-item-detail">{{getDate(helpInfo.createTime, 'second')}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

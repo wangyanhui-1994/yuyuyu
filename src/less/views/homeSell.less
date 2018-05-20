@@ -1,0 +1,429 @@
+div.view-main[data-page="homeSell"] {
+    .navbar::after {
+        background-color: @bg-b9;
+    }
+
+    .index-search {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        height: 3.6rem;
+        background: none;
+        padding: 0 5%;
+
+        &:after {
+            display: none;
+        }
+
+        .searchbar-input {
+            height: 100%;
+            padding-left: 0;
+            position: relative;
+            border-radius: 0.3rem;
+            .border-box;
+            font-size: 1.6rem;
+
+            &.filter-searchbar {
+                padding-left: 5.5rem;
+            }
+
+            .home-tabbar-logo {
+                width: 6rem;
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                background: url('../img/logoTitle.png') center no-repeat;
+                background-size: 6rem auto;
+
+                &.filter-tabbar {
+                    width: 5rem;
+                    color: @text-fff;
+                    font-size: 1.6rem;
+                    overflow: hidden;
+                    vertical-align: middle;
+                    background: none;
+
+                    &:before {
+                        display: inline-block;
+                        font-size: 1.8rem;
+                        width: 1.2rem;
+                        padding-right: 0.5rem;
+                        .text-center;
+                        vertical-align: bottom;
+                    }
+                }
+            }
+
+            a {
+                display: block;
+                height: 100%;
+                width: 100%;
+                .ps-r;
+
+                .home-search-mask {
+                    .ps-a;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 100;
+                    left: 0;
+                    top: 0;
+                }
+            }
+
+            input.index-search-link {
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+                background-size: 1.7rem 1.7rem;
+                background-image: url('../img/ic_search.png');
+            }
+        }
+    }
+}
+
+.page-home-sell {
+    .page-content {
+        padding-bottom: 8rem;
+
+        .sell-number {
+            background: @bg-b9;
+            padding-bottom: 1.6rem;
+
+            a {
+                color: @text-fff;
+                .text-center;
+                margin-top: 1.6rem;
+                width: 33%;
+
+                .sell-info-num {
+                    font-size: 2rem;
+                }
+
+                .sell-info-title {
+                    font-size: 1.4rem;
+                }
+
+                & > div div {
+                    padding-top: 0.3rem;
+                }
+            }
+        }
+
+        .refresh-info {
+            margin-bottom: 0;
+            background-color: @text-fff;
+
+            & > a {
+                padding: 1.4rem 0;
+                .text-center;
+                display: block;
+                width: 25%;
+                .ps-r;
+
+                img {
+                    display: block;
+                    // width: 3.5rem;
+                    height: 3.2rem;
+                    margin: 0 auto 0.9rem;
+                }
+
+                p {
+                    margin: 0;
+                    font-size: 1.4rem;
+                    color: @text-category;
+                    letter-spacing: 0.03rem;
+                }
+
+                i {
+                    display: inline-block;
+                    padding: 0 0.35rem;
+                    height: 1.8rem;
+                    line-height: 1.8rem;
+                    color: @text-fff;
+                    .text-shadow(@text-chushou);
+                    background: @text-chushou;
+                    border-radius: 0.9rem;
+                    .ps-a;
+                    top: 0.9rem;
+                    left: 50%;
+                    margin-left: 1rem;
+                    font-size: 1.1rem;
+                }
+            }
+        }
+
+        .refresh-info-day {
+            height: 5rem;
+            background-color: @text-fff;
+
+            .refresh-text {
+                height: 3.5rem;
+                line-height: 3.5rem;
+                width: 89%;
+                margin: 0 auto;
+                background: rgba(71,184,19,0.10);
+                border-radius: 0.2rem;
+                // margin-bottom: 1.5rem;
+                position: relative;
+
+                .refresh-btn {
+                    display: inline-block;
+                    height: 2.2rem;
+                    line-height: 2.2rem;
+                    text-align: center;
+                    padding: 0 0.75rem;
+                    background: @bg-b9;
+                    border-radius: 1.1rem;
+                    font-size: 1.2rem;
+                    color: @text-fff;
+                    letter-spacing: 0.0255;
+                    position: absolute;
+                    top: 0.65rem;
+                    right: 1.2rem;
+                }
+
+                .day-and-week {
+                    font-size: 1.6rem;
+                    color: @bg-b9;
+                    letter-spacing: 0.034rem;
+                    padding-left: 1.2rem;
+                }
+            }
+        }
+
+        .recent-release-all {
+            background: @bg-fff;
+            margin-top: 1rem;
+
+            .release-title {
+                padding: 1rem;
+                line-height: 2rem;
+                border-bottom: 1px solid @border-da;
+                color: @text-name;
+                font-size: 1.6rem;
+                letter-spacing: 0.034rem;
+                overflow: hidden;
+
+                a {
+                    float: right;
+                    color: @text-subtitle;
+                    font-size: 1.4rem;
+                    letter-spacing: 0.03rem;
+                    padding-left: 5rem;
+                }
+            }
+
+            .release-title::after {
+                content: "";
+                display: block;
+                height: 0;
+                clear: both;
+                visibility: hidden;
+            }
+
+            .release-content {
+                a {
+                    color: @text-name;
+
+                    .item-content {
+                        padding-left: 0;
+
+                        .item-media {
+                            display: block;
+                            padding: 0.1rem 0 0;
+                            width: 5.8rem;
+                            height: 5.8rem;
+                            overflow: hidden;
+
+                            img {
+                                vertical-align: middle;
+                                display: block;
+                                width: 100%;
+                            }
+                        }
+
+                        .item-inner {
+                            display: block;
+                            border-bottom: 1px solid @bg-e3;
+                            margin-left: 1rem;
+
+                            .item-title {
+                                font-size: 1.6rem;
+                                letter-spacing: 0.034rem;
+                                line-height: 2.2rem;
+
+                                span {
+                                    display: inline-block;
+                                    float: right;
+                                    padding-right: 1.5rem;
+                                    font-size: 1.4rem;
+                                    color: @text-subtitle;
+                                    letter-spacing: 0.03rem;
+                                }
+
+                                .fish-kind {
+                                    display: inline-block;
+                                }
+                            }
+
+                            .item-title::after {
+                                content: "";
+                                display: block;
+                                height: 0;
+                                clear: both;
+                                visibility: hidden;
+                            }
+
+                            .item-subtitle {
+                                // padding-top: 0.3rem;
+                                font-size: 1.4rem;
+                                color: @text-subtitle;
+                                letter-spacing: 0.03rem;
+                                line-height: 2rem;
+                            }
+                        }
+
+                        .item-inner::after {
+                            background-color: @text-fff;
+                        }
+                    }
+                }
+
+                .refresh-login-status,
+                .refresh-sell-status {
+                    padding: 2rem 0;
+                }
+
+                .refresh-status {
+                    text-align: center;
+
+                    p {
+                        margin: 0;
+                        font-size: 1.6rem;
+                        color: @text-subtitle;
+                        letter-spacing: 0.03rem;
+                    }
+                }
+            }
+
+            .release-footer {
+                width: 90%;
+                margin: 0 auto;
+
+                .refresh-info-btn {
+                    display: inline-block;
+                    width: 42.5%;
+                    height: 3.5rem;
+                    line-height: 3.5rem;
+                    text-align: center;
+                    background: rgba(71,184,19,0.10);
+                    border: 1px solid @bg-b9;
+                    border-radius: 0.3rem;
+                    font-size: 1.6rem;
+                    color: @bg-b9;
+                    letter-spacing: 0.034rem;
+                    margin: 0.75rem 0;
+
+                    &.on {
+                        background: @bg-b9;
+                        border-radius: 0.3rem;
+                        font-size: 1.6rem;
+                        color: @text-fff;
+                        letter-spacing: 0.034rem;
+                    }
+                }
+
+                .refresh-sell-btn {
+                    float: right;
+                }
+            }
+
+            .release-footer::after {
+                content: "";
+                display: block;
+                height: 0;
+                clear: both;
+                visibility: hidden;
+            }
+
+            .release-footer-two {
+                width: 100%;
+                margin: 0 auto;
+                text-align: center;
+            }
+        }
+
+        .money-bible {
+            height: 6rem;
+            margin: 1rem;
+            display: block;
+            position: relative;
+
+            p {
+                display: block;
+                margin: 0;
+            }
+
+            .bible-text {
+                height: 1.5rem;
+                font-size: 1.4rem;
+                color: @text-name;
+                letter-spacing: 0.0255rem;
+                // padding: 1rem 0 0 2.5rem;
+                position: absolute;
+                top: 1.15rem;
+                left: 7.5%;
+            }
+
+            .bible-info {
+                font-size: 1.6rem;
+                color: @text-name;
+                letter-spacing: 0.034rem;
+                // padding-left: 2.5rem;
+                padding-top: 0.3rem;
+                position: absolute;
+                bottom: 1rem;
+                left: 7.5%;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .recommend-title {
+            background-color: @text-fff;
+            height: 4rem;
+            line-height: 4rem;
+            padding-left: 1rem;
+            border-bottom: 1px solid @border-DB;
+            font-size: 1.6rem;
+            color: @text-name;
+            letter-spacing: 0.034rem;
+        }
+
+        .filter-search-empty-info {
+            display: block;
+        }
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 350px) {
+    .page-home-sell .page-content .money-bible .bible-text {
+        font-size: 1rem;
+        top: 1.25rem;
+    }
+
+    .page-home-sell .page-content .money-bible .bible-info {
+        font-size: 1.3rem;
+    }
+}
+@media screen and (min-width: 350px) and (max-width: 400px) {
+    .page-home-sell .page-content .money-bible .bible-text {
+        font-size: 1.2rem;
+        top: 1.2rem;
+    }
+
+    .page-home-sell .page-content .money-bible .bible-info {
+        font-size: 1.6rem;
+    }
+}

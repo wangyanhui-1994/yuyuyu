@@ -1,0 +1,40 @@
+<div class="navbar">
+    <div class="navbar-inner navbar-on-center detail-text">
+        <div class="left sliding">
+            <a class="home-tabbar-logo filter-tabbar iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding sell-name">我卖出的</div>
+        <div class="right sliding">
+            <a class="detail-more"></a>
+        </div>
+    </div>
+</div>
+<div class="page swipeback toolbar-through page-my-sell-order" data-page="mySellOrder">
+    <div class="page-content infinite-scroll pull-to-refresh-content">
+        <div class="pull-to-refresh-layer ">
+            <div class="preloader "></div>
+            <div class="pull-to-refresh-arrow "></div>
+        </div>
+        <div class="vue-box">
+            <div class="content-box">
+                <div class="content-box">
+                    <div class="page-filter-state" v-if="isHasToBeDelivered">
+                        <span @click="toSellOrder()">您有{{isHasToBeDelivered}}笔订单待发货>></span>
+                    </div>
+                    <div claass="order-list" v-if="orderList.length">
+                        <sell-order-item v-for="item in orderList" :item="item" key="index"/>
+                    </div>
+                    <!-- Preloader -->
+                    <div class="infinite-scroll-preloader" v-if="!isShowAll">
+                        <div class="preloader "></div>
+                    </div>
+                    <p class="show-all-box" v-if="isShowAll && orderList.length">已显示全部</p>
+                </div>
+                <div class="empty-box" v-if="isInitData && !orderList.length">
+                    <img src="./img/ic_empty_order.png" alt="">
+                    <p>快去完成第一笔买卖～</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

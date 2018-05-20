@@ -1,0 +1,265 @@
+.page-order-details{
+	&.page > .page-content{
+		padding-bottom: 0;
+	}
+	.page-content{
+		color: @bg-555;
+		.order-header{
+			padding: 2rem 0 1.5rem;
+			text-align: center;
+			background: @bg-fff;
+			.header-state{
+				font-size: 1.8rem;
+				color: @bg-color;
+				font-weight: bold;
+			}
+			.header-desc{
+				font-size: 1.4rem;
+				line-height: 1.7rem;
+				color: fade(@text-85, 70);
+				margin-top: 0.5rem;
+				.guarantee{
+				 	text-align: center;
+				 	span{
+				 		padding-right: 2.2rem;
+				 		position: relative;
+				 		img{
+							width: 1.7rem;
+							position: absolute;
+							right: 0;
+							top: -0.1rem;
+						}
+				 	}
+				}
+				
+			}
+			.header-btn{
+				padding-top: 1.5rem;
+				.btn{
+					height: 2.8rem;
+					width: 11rem;
+					padding: 1.4rem 0;
+					line-height: 0;
+					font-size: 1.5rem;
+					color: @bg-555;
+					border-radius: 4px;
+					border: 1px solid @btn-bc;
+					box-sizing: border-box;
+					display: inline-block;
+					&.more-operate{
+						margin-left: 2rem;
+					}
+					&.wait{
+						background: @text-f7;
+						color: @bg-fff;
+						border: none;
+					}
+					&.blank{
+						color: @text-fff;
+						border: none;
+						background: @bg-fff;
+					}
+				}
+			}
+		}
+		.order-service{
+			padding: 4%;
+			background: @bg-fff;
+			border-top: 1px solid @border-EA;
+			.service-title{
+				font-size: 1.5rem;
+				line-height: 1.7rem;
+				.tel{
+					float: right;
+					font-size: 1.5rem;
+					color: @bg-color;
+					img{
+						width: .76rem;
+					    position: relative;
+					    top: 0.1rem;
+					    padding-left: 0.5rem;
+					}
+				}
+			}
+			.service-desc{
+				font-size: 1.4rem;
+				color: fade(@text-85, 50);
+				margin-top: 0.5rem;
+				line-height: 2rem;
+			}
+		}
+		.transport{
+			padding: 4%;
+			background: @bg-fff;
+			.transport-type{
+				font-size: 1.5rem;
+				line-height: 1.7rem;
+				.time{
+					float: right;
+				}
+			}
+			.transport-num{
+				margin-top: 0.5rem;
+				font-size: 1.4rem;
+				color: fade(@text-85, 50);
+			}
+		}
+		.offline-transfer{
+			margin-top: 1px;
+			padding: 1.5rem 4%;
+			font-size: 1.5rem; 
+			line-height: 2rem;
+			background: @bg-fff;
+			img{
+				float: right;
+			    width: .76rem;
+			    position: relative;
+			    top: 0.3rem;
+			}
+		}
+		.receive-info{
+			margin-top: 1px;
+			padding: 1.5rem 4%;
+			font-size: 1.5rem; 
+			line-height: 1.7rem;
+			background: @bg-fff;
+			.phone{
+				float: right;
+			}
+			.receive-address{
+				padding-top: 0.5rem;
+			}
+		}
+		.order-owner{
+			margin-top: 0.5rem;
+			background: @bg-fff;
+			padding: 1rem 4%;
+			.owner-img{
+				width: 3rem;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.owner-name{
+				position: relative;
+				padding-left: 4rem;
+				font-size: 1.4rem;
+				line-height: 3rem;
+				.tel{
+					float: right;
+					font-size: 1.4rem;
+					color: fade(@text-85, 50);
+					img{
+						width: .76rem;
+					    position: relative;
+					    top: 0.1rem;
+					    padding-left: 0.5rem;
+					}
+				}
+
+			}
+		}
+		.info-item{
+			padding: 1.5rem 4%;
+			background: @bg-fff;
+			border-top: 1px solid @border-EA;
+			.info-content{
+				padding-left: 6rem;
+				position: relative;
+				img{
+					width: 5rem;
+					border-radius: 5px;
+					position: absolute;
+					top: 0;
+					left: 0;
+				}
+				.main-info{
+					padding:  0.6rem 0 0.25rem;
+					.info-title{
+						font-size: 1.5rem;
+						line-height: 2rem;
+					}
+					.info-price{
+						font-size: 1.4rem;
+						line-height: 1.7rem;
+						color: fade(@text-85, 50);
+						margin-top: 0.5rem;
+					}
+				}
+				.info-num{
+					font-size: 1.5rem;
+					position: absolute;
+					line-height: 2rem;
+					right: 0;
+					top: 50%;
+					margin-top: -1rem;
+
+				}
+			}
+		}
+		.leave-message{
+			padding: 1rem 4%;
+			background: @bg-fff;
+			font-size: 1.4rem;
+			line-height: 2rem;
+			border-top: 1px solid @border-EA;
+			box-sizing: border-box;
+			span{
+				display: inline-block;
+				&.my-memo{
+    				vertical-align: top;
+				}
+				&.memo{
+					width: 77%;
+				}
+			}
+		}
+		.total-money{
+			background: @bg-fff;
+			border-top: 1px solid @border-EA;
+			padding: 0 4%;
+			height: 5.1rem;
+			line-height: 5.1rem;
+			text-align: right;
+			.total-name{
+				font-size: 1.5rem;
+			}
+			.money{
+				font-size: 1.5rem;
+				color: @bg-color;
+			}
+		}
+		.detail-result{
+			padding: 4%;
+			background: @bg-fff;
+			margin-top: 0.8rem;
+			font-size: 1.5rem;
+			color: fade(@text-85, 50);
+			line-height: 1.7rem;
+			position: relative;
+			.top{
+				margin-top: 0.5rem;
+			}
+			.copy{
+				width: 6rem;
+				height: 2.5rem;
+				padding: 1.25rem 0;
+				line-height: 0;
+				box-sizing: border-box;
+				text-align: center;
+				color: @bg-555;
+				border-radius: 5rem;
+				border: 1px solid @btn-bc;
+				position: absolute;
+				right: 4%;
+				top: 1rem;
+			}
+		}
+
+	}
+}
+@media screen and (min-width: 310px) and (max-width: 330px) {
+    .page-order-details .page-content .leave-message span.memo {
+        width: 74%;
+    }
+}

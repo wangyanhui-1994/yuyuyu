@@ -1,0 +1,38 @@
+<div class="navbar">
+    <div class="navbar-inner page-find-navbar">
+        <form class="searchbar index-search center sliding">
+            <div class="searchbar-input">
+                <a>
+                    <input type="search" placeholder="点击搜索品种名称，例如黑鱼" class="index-search-link">
+                    <div class="home-search-mask" onclick="apiCount('textfield_search_discover')"></div>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="page toolbar-through page-find no-swipeback no-animation" data-page="find">
+    <div class=" page-content  infinite-scroll">
+        <div class="find-vue-box">
+            <div class="content-block row">
+              <!-- <div class="row no-gutter"> -->
+                <a class="col-50" v-for="item in adList" @click="openNewWindow(item)">
+                    <img :src="item.img " alt="">
+                    <!-- <i class="iconfont icon-billboard"></i> -->
+                    <p class="title">{{item.title }}</p> 
+                    <p class="description">{{item.subTitle}}</p>
+                </a>
+            </div>
+             <!--banner components-->
+            <div class="img-content" v-if="bannerList.length">
+                <a class="img-inner" v-for="item in bannerList" @click="openNewWindow(item)">
+                    <img :src="item.imgUrl" alt="专区图片" class="lazy">
+                </a>
+
+            </div>
+        </div>
+    </div>
+        <div class="toolbar tabbar">
+            <tab-bar-component tab-index='2' :class-room-num='infoNumberKey'>
+            <tab-bar-component/>
+        </div>
+</div>

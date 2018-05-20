@@ -1,0 +1,72 @@
+.page-add-instruction {
+    .page-content {
+        .my-instruction {
+            background-color: @text-fff;
+            .instruction-info {
+                padding-top: 1.2rem;
+                textarea {
+                    font-size: 1.6rem;
+                    color: @text-name;
+                    display: block;
+                    border: 0;
+                    resize: none;
+                    height: 6.75rem;
+                    width: 92%;
+                    margin: 0 auto;
+                    padding: 0;
+                    line-height: 2.4rem;
+
+                    &.empty {
+                        color: @text-subtitle;
+                    }
+                }
+            }
+
+            .word-number {
+                text-align: right;
+                padding-right: 4.5%;
+                font-size: 1.2rem;
+                color: @text-subtitle;
+                display: block;
+                margin-bottom: 1.4rem;
+            }
+
+            .word-instruction {
+                margin-left: 1.4rem;
+
+                span {
+                    display: inline-block;
+                    height: 2.2rem;
+                    line-height: 2.2rem;
+                    border: 1px solid @text-subtitle;
+                    border-radius: 0.2rem;
+                    padding: 0 1rem;
+                    margin: 0 1rem 1.4rem 0;
+                    font-size: 1.2rem;
+                    color: @text-category;
+                    letter-spacing: 0.025rem;
+
+                    &.on {
+                        border-color: @bg-b9;
+                        color: @bg-b9;
+                        background: @bg-info-tag;
+                        .text-shadow(@bg-info-tag);
+                    }
+                }
+            }
+        }
+
+        .save-change {
+            width: 60%;
+            margin: 0 auto;
+            height: 4rem;
+            line-height: 4rem;
+            background: @bg-b9;
+            border-radius: 0.4rem;
+            margin-top: 3rem;
+            font-size: 1.5rem;
+            color: @text-fff;
+            text-align: center;
+        }
+    }
+}

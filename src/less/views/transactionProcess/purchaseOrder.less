@@ -1,0 +1,223 @@
+.page-purchase-order{  
+    .page-content{
+        .purchase-header{
+            color: @bg-555;
+            background: @bg-fff;
+            box-shadow: 0 1.5px 4px 0 fade(@bg-black, 10);
+            .header-content{
+                padding: 2rem 2.3rem 1.5rem 2.5rem;
+                box-sizing: border-box;
+                .header-box{
+                    position: relative;
+                    padding-left: 7.5rem;
+                    .goods-img{
+                    width: 6.5rem;
+                    border-radius: 5px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    }
+                    .header-content-text{
+                        div{
+                            width: 55%;
+                            .text-hidden;
+                        }
+                        .title{
+                            font-size: 1.7rem;
+                            color: @bg-color;
+                            font-weight: bold;
+                            line-height: 2rem;
+                        }
+                        .desc{
+                            font-size: 1.4rem;
+                            line-height: 1.7rem;
+                            height: 1.7rem;
+                            margin-top: 0.5rem;
+                        }
+                        .seller{
+                            font-size: 1.4rem;
+                            line-height: 1.7rem;
+                            margin-top: 0.6rem;
+                        }
+                        .guarantee{
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            width: 6.55rem;
+                        }
+                    }
+                }
+            }
+            .main-content{
+                .content-box{
+                    padding: 0rem 2.5rem 0.5rem;    
+                }
+                .last-box{
+                    padding-bottom: 2.5rem;
+                }
+                .cut-line{
+                    padding: 0.7rem 1.3rem;
+                    position: relative;
+                    overflow: hidden;
+                    .line{
+                        border-top:1px dashed @border-da;
+                    }
+                    .circle-left{
+                        position: absolute;
+                        top: 0;
+                        left: -7px;
+                        width: 1px;
+                        height: 14px;
+                        width: 14px;
+                        border-radius: 50%;
+                        background: @bg-body;
+                        z-index: 10;
+                    }
+                    .circle-right{
+                        position: absolute;
+                        top: 0;
+                        right: -7px;
+                        width: 14px;
+                        height: 14px;
+                        border-radius: 50%;
+                        background: @bg-body;
+                        z-index: 10;
+                    }
+                    
+                }
+                .shape{
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+                .item-content{
+                    padding-top: 1rem;
+                   .content-title{
+                        font-size: 1.5rem;
+                        color: @bg-color;
+                        line-height: 1.7rem;
+                        font-weight: bold;
+                        .modify{
+                            color: @text-f7;
+                            float: right;
+                        }
+                   } 
+                   input{
+                        margin-top: 1rem;
+                        padding: 1rem 1.5rem;
+                        background: @bg-f4;
+                        border-radius: 2px;
+                        border-width: 0;
+                        box-sizing: border-box;
+                        color: @bg-555;
+                        font-size: 1.5rem;
+                        line-height: 2.1rem;
+                        &.count{
+                            width: 74%;
+                        }
+                        &.money{
+                            width: 86.2%;
+                        }
+                        &::-webkit-input-placeholder {
+                            color: fade(@text-85,50);
+                            font-size:1.5rem;
+                            line-height: 2.1rem;
+                        }
+                   } 
+                   textarea{
+                        margin-top: 1rem;
+                        padding: 1rem 1.5rem;
+                        background: @bg-f4;
+                        border-radius: 2px;
+                        border-width: 0;
+                        box-sizing: border-box;
+                        color: @bg-555;
+                        font-size: 1.5rem;
+                        line-height: 2.1rem;
+                        width: 100%;
+                        resize: none;
+                        &.memo{
+                            width: 100%;
+                            padding: 1rem 1.5rem;
+                        }
+                        &.money{
+                            width: 100%;
+                            padding: 1rem 1.5rem;
+                        }
+                        &::-webkit-input-placeholder {
+                            color: fade(@text-85,50);
+                            font-size:1.5rem;
+                            line-height: 2.1rem;
+                        }
+                   }
+                   .address-box {
+                        margin-top: 1rem;
+                        padding: 1rem 1.5rem;
+                        background: @bg-f4;
+                        border-radius: 2px;
+                        box-sizing: border-box;
+                        font-size: 1.5rem;
+                        line-height: 2.1rem;
+                        color: @bg-555;
+                   }             
+                   .count-unit{
+                        .unit{
+                            background: @text-f7;
+                            border-radius: 5px;
+                            height: 4rem;
+                            padding: 1rem 1.1rem;
+                            box-sizing: border-box;
+                            font-size: 1.5rem;
+                            color: @bg-fff;
+                            margin-left: 1rem;
+                            img{
+                                margin-left: 3px;
+                                width: .95rem;
+                                position: relative;
+                                top: -0.2rem;
+                            }
+                        }
+                   }
+                   .yuan{
+                        font-weight: bold;
+                        line-height: 2.1rem;
+                        margin-left: 1rem;
+                   }
+                }
+            }
+        }
+        .purchase-footer{
+            padding: 2rem 0 3.5rem;
+            text-align: center;
+            .payoff{
+                background: @btn-bc;
+                width: 77.3%;
+                margin: 0 auto;
+                height: 4.4rem;
+                line-height: 0;
+                padding: 2.2rem 0;
+                color: @bg-fff;
+                font-size: 1.6rem;
+                box-sizing: border-box;
+                border-radius: 4px;
+            }
+            .pay-on{
+                background: @text-f7;
+            }
+            .pay-description{
+                padding-top: 0.5rem;
+                font-size: 1.3rem;
+                color: rgba(85,85,85,0.70);
+                line-height: 1.85rem;
+                a{
+                    color:@text-f7;
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 310px) and (max-width: 330px) {
+    .page-purchase-order .page-content .purchase-header .main-content 
+        .item-content input.count {
+        width: 68%;
+    }
+}

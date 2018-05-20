@@ -1,0 +1,73 @@
+div.page-my-collection,
+div.page-my-list {
+    .navbar {
+        &:after {
+            display: none;
+        }
+    }
+
+    .collection-list-empty {
+        padding-top: 6rem;
+        .text-center;
+        display: none;
+
+        .icon-copy {
+            width: 10rem;
+            height: 10rem;
+            border-radius: 5rem;
+            color: @text-fff;
+            font-size: 6rem;
+            .text-center;
+            line-height: 10rem;
+            background: @border-da;
+            margin: 0 auto;
+        }
+
+        p {
+            color: @text-category;
+            padding: 1rem 0 0.2rem;
+            font-size: 1.6rem;
+        }
+
+        .button {
+            width: 60%;
+            line-height: 4rem;
+            height: 4rem;
+            background: @themeColor;
+            .text-shadow(@themeColor);
+            border: 0;
+            color: @text-fff;
+            margin: 1rem auto;
+        }
+    }
+
+    .collection-empty-info {
+        color: @text-category;
+        .text-center;
+        display: none;
+        font-size: 1.6rem;
+    }
+
+    .swiper-wrapper {
+        .pull-to-refresh-layer {
+            height: 36px;
+        }
+
+        .swiper-slide {
+            background: @bg-body;
+            .text-shadow(@bg-body);
+
+            .preloader {
+                width: 2rem;
+                height: 2rem;
+                margin-top: -1rem;
+                margin-left: -1rem;
+            }
+        }
+    }
+
+    .infinite-scroll-preloader {
+        .ps-r;
+        height: 4rem;
+    }
+}

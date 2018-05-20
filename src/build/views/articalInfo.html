@@ -1,0 +1,47 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left sliding">
+            <a class="back iconfont icon-back link-back">返回</a>
+        </div>
+        <div class="center sliding artical-title" style="width: 45%">文章</div>
+        <div class="right sliding"></div>
+    </div>
+</div>
+<div class="page swipeback page-aquatic-Info" data-page="aquaticInfo">
+    <div class="page-content infinite-scroll pull-to-refresh-content">
+        <div class="pull-to-refresh-layer">
+            <div class="preloader"></div>
+            <div class="pull-to-refresh-arrow"></div>
+        </div>
+        <div class="vue-box">
+            <div class="artical-content">
+                <div class="main-content">
+                        
+                </div>
+                <div class="content-over">本文完</div>
+            </div>
+            <div class="recommend-artical"  v-if="infoList.length">
+                <div class="type-title">为你推荐其他<span>{{secondCategoryName}}</span>相关的文章</div>
+               <div class="artical-list">
+                    <classroom-article-item v-for="item in infoList" :item="item"></classroom-article-item>
+                </div>
+            </div>
+            <p class="show-all" v-if="showAll">已加载完毕</p>
+            <div class="infinite-scroll-preloader" v-if="!showAll">
+                <div class="preloader"></div>
+            </div>
+            <!-- <p class="load-all" v-if="!isLoading">已显示全部</p>
+            <div v-if="isLoading" class="infinite-scroll-preloader">
+                <div class="preloader "></div>
+            </div> -->
+        </div>
+    </div>
+    <div class="toolbar tabbar class-toolbar">
+        <div class="toolbar-inner">
+            <div class="footer-bar">
+                <div class="foot-btn" :class="useful?'favorited':'favorite'" @click="isLogin() ? changeUse() : login()"><img :src="useful?'img/after.png':'img/before.png'" alt="" class="use-font">{{useful?'已觉得有用':'我觉得有用'}}</div>
+                <div class="recommend foot-btn" @click="goShareClass()"><img src="img/share.png" alt="" class="share-font">推荐给朋友</div>
+            </div>
+        </div>  
+    </div>
+</div>

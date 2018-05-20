@@ -1,0 +1,55 @@
+<div class="navbar">
+    <div class="navbar-inner navbar-on-center">
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding">需要帮助</div>
+        <div class="right sliding">
+            <a class="detail-more" ></a>
+        </div>
+    </div>
+</div>
+<div class="page swipeback toolbar-through page-need-help" data-page="needHelp">
+    <div class="page-content">
+        <div class="vue-box">
+            <!-- 商品详情 -->
+            <div class="goods-details">
+                <div class="goods-details-title">商品</div>
+                <div class="goods-details-info">
+                    <img :src="img+'?x-oss-process=image/resize,m_fill,h_100,w_100/format,png'">
+                    <div class="goods-name-wrapper">
+                        <div class="goods-name">{{fishTypeName || '未知名称'}}</div>
+                        <div class="goods-Specifications">{{specifications || '位置规格'}}</div>                        
+                    </div>
+                    <div class="goods-num">{{numText || 0}}</div>
+                </div>
+            </div>
+            <!-- 填写表单 -->
+            <div class="form-content">
+                <div class="form-item">
+                    <label class="form-item-detail">
+                        <span>*</span>货物状态
+                    </label>
+                    <input type="text" placeholder="请选择" class="need-help-state" v-model="goodsreceivedText">
+                    <span class="icon iconfont icon-right"></span>
+                </div>
+                <div class="form-item">
+                    <label class="form-item-detail">
+                        <span>*</span>帮助原因
+                    </label>
+                    <input type="text" placeholder="请选择" class="need-help-receive" v-show="!goodsReceived" v-model="reasonTypeText">
+                    <input type="text" placeholder="请选择" class="need-help-no-receive" v-show="goodsReceived" v-model="reasonTypeText">
+                    <span class="icon iconfont icon-right"></span>
+                </div>
+                <div class="form-item-other">
+                    <label class="form-item-detail-other">补充说明：</label>
+                    <textarea class="form-item-optional" placeholder="选填" v-model='remark' maxlength="100"></textarea>
+                </div>
+            </div>
+            <!-- 提示信息 -->
+            <div class="describe">在问题未解决前，您的资金都会保留在鱼大大平台，不会转账给卖家，以保障您的资金安全</div>
+            <!-- 提交按钮 -->
+            <div class="submit-btn" :class="{'pass': isPass}" @click="submitHelp()">提交</div>
+        </div>
+    </div>
+</div>

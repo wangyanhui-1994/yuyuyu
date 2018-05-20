@@ -1,0 +1,239 @@
+.page.page-deal-info {
+    .page-content {
+        .sell-info {
+            background-color: @text-fff;
+            font-size: 1.6rem;
+
+            .item-content {
+                .item-inner {
+                    .item-title {
+                        color: @text-name;
+                        letter-spacing: 0.032rem;
+                    }
+
+                    .item-input {
+                        position: relative;
+                        font-size: 1.6rem;
+
+                        input {
+                            font-size: 1.6rem;
+                        }
+
+                        .icon-right {
+                            position: absolute;
+                            right: 0;
+                            top: 20%;
+                            display: block;
+                            color: @text-subtitle;
+                            width: 2rem;
+                            vertical-align: middle;
+                            text-align: right;
+                        }
+                    }
+                }
+
+                .item-inner::after {
+                    background-color: @text-fff;
+                }
+            }
+        }
+
+        .fish-varieties {
+            margin-top: 1rem;
+            background-color: @text-fff;
+            font-size: 1.6rem;
+
+            .item-content {
+                .item-inner {
+                    border-bottom: 1px solid @text-border;
+
+                    .deal-number-unit {
+                        position: relative;
+
+                        input {
+                            width: 65%;
+                            font-size: 1.6rem;
+                            border-right: 1px solid @text-border;
+                            display: inline-block;
+                            vertical-align: top;
+                        }
+
+                        #deal-unit {
+                            display: inline-block;
+                            width: 30%;
+                            border-right: none;
+                            color: @bg-b9;
+                            letter-spacing: 0.032rem;
+                            padding-left: 1.5rem;
+                        }
+
+                        span {
+                            display: inline-block;
+                            position: absolute;
+                            top: 1.35rem;
+                            right: 1.8rem;
+                            color: @bg-b9;
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+
+                .item-inner::after {
+                    background-color: @text-fff;
+                }
+
+                .deal-recommend {
+                    vertical-align: middle;
+                    line-height: 1.6;
+                    padding: 0.2rem 0.5rem;
+                    background: @bg-v;
+                    color: @text-fff;
+                    .text-shadow(@bg-v);
+                    border-radius: 0.3rem;
+                    font-size: 1.2rem;
+                    letter-spacing: 0.025rem;
+                    margin-left: 0.4rem;
+                }
+            }
+
+            .deal-arrow {
+                .item-input {
+                    position: relative;
+
+                    input {
+                        font-size: 1.6rem;
+                    }
+
+                    .icon-right {
+                        position: absolute;
+                        right: 0;
+                        top: 20%;
+                        display: block;
+                        color: @text-subtitle;
+                        width: 2rem;
+                        vertical-align: middle;
+                        text-align: right;
+                    }
+                }
+            }
+
+            .deal-time {
+                .item-inner {
+                    border-bottom: none;
+                }
+
+                .item-inner::after {
+                    background-color: @text-fff;
+                }
+            }
+        }
+
+        .deal-benefits {
+            background-color: @text-fff;
+            margin-top: 1rem;
+            font-size: 0;
+
+            p {
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+                margin: 0;
+                font-size: 1.9rem;
+                color: @text-name;
+                letter-spacing: 0.032rem;
+                padding-top: 1.6rem;
+                padding-bottom: 1.4rem;
+            }
+
+            .deal-benefits-info {
+                font-size: 1.5rem;
+
+                .col-50 {
+                    display: inline-block;
+                    width: 44%;
+                    height: 8.6rem;
+                    background: @bg-f3;
+                    border-radius: 4px;
+                    margin-bottom: 1.6rem;
+                    position: relative;
+
+                    .item-media {
+                        display: inline-block;
+
+                        .icon-card {
+                            color: @text-card;
+                            font-size: 3rem;
+                            position: absolute;
+                            top: 2.2rem;
+                            left: 0.5rem;
+                        }
+
+                        .icon-select {
+                            color: @text-water;
+                            font-size: 4rem;
+                            position: absolute;
+                            top: 1.5rem;
+                            left: 0.1rem;
+                        }
+                    }
+
+                    .item-inner {
+                        display: inline-block;
+                        padding-top: 0;
+                        padding-right: 0;
+                        padding-left: 2.2rem;
+                        margin-left: 0;
+
+                        input {
+                            font-size: 1.6rem;
+                        }
+                        // margin-top: -0.3rem;
+                        .deal-bene-title {
+                            font-size: 1.6rem;
+                            color: @text-name;
+                            letter-spacing: 0.032rem;
+                            margin-top: -0.3rem;
+                        }
+
+                        .deal-bene-text {
+                            font-size: 1.2rem;
+                            color: @text-subtitle;
+                            letter-spacing: 0.025rem;
+                            margin-top: 0.2rem;
+                        }
+                    }
+
+                    .item-inner::after {
+                        background-color: @bg-f3;
+                    }
+                }
+
+                .myshow {
+                    margin-left: 1.5rem;
+                }
+
+                .deal-user {
+                    margin-right: 1.5rem;
+                }
+            }
+        }
+
+        .confirm-button {
+            width: 60%;
+            margin: 0 auto;
+            height: 4rem;
+            line-height: 4rem;
+            background: @bg-b9;
+            border-radius: 6px;
+            margin-top: 3rem;
+            font-size: 1.6rem;
+            color: @text-fff;
+            text-align: center;
+        }
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 350px) {
+    .page .page-content .fish-varieties .item-content .item-inner .deal-number-unit #deal-unit {
+        padding-left: 0.5rem;
+    }
+}

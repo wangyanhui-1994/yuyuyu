@@ -1,0 +1,83 @@
+.modal-bg-invitation {
+  display: flex;
+  display: -webkit-flex;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: -100rem;
+  z-index: 9999;
+  padding: 14%;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: all 0.3s ease;
+  &.show {
+    opacity: 1;
+    top: 0;
+  }
+  .box-size();
+  .modal-invitation {
+    background-color: @bg-fff;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    .img-top {
+      width: 100%;
+      display: block;
+    }
+    .content {
+      padding: 3rem;
+      .user {
+        display: flex;
+        display: -webkit-flex;
+        justify-content: center;
+        .img-user {
+          height: 5rem;
+          border-radius: 2.5rem;
+        }
+        .div-nickname {
+          margin-left: 1rem;
+          flex-direction: column;
+          padding: 0.3rem;
+          .nickname {
+            font-size: 1.6rem;
+            color: @text-name;
+          }
+          .inviter {
+            border-radius: 0.2rem;
+            border: solid 1px @text-water;
+            color: @text-water;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 0.1rem 0.2rem;
+            display: inline-block;
+          }
+        }
+      }
+      .text {
+        margin-top: 1rem;
+        text-align: center;
+        color: @text-water;
+        font-size: 1.4rem;
+        line-height: 2rem;
+      }
+      .btn {
+        display: block;
+        width: 100%;
+        border-radius: 0.5rem;
+        height: 4rem;
+        line-height: 4rem;
+        text-align: center;
+        font-size: 1.5rem;
+        color: @bg-fff;
+        &.confirm {
+          margin-top: 1.7rem;
+          background-color: @text-water;
+        }
+        &.cancel {
+          margin-top: 1rem;
+          background-color: @text-subtitle;
+        }
+      }
+    }
+  }
+}

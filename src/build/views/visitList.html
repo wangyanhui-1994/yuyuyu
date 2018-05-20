@@ -1,0 +1,17 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding">最近访客</div>
+    </div>
+</div>
+<div class="page swipeback toolbar-through page-visit-list" data-page="visitList">
+    <div class="page-content infinite-scroll page-visit pull-to-refresh-content">
+	    <div class="visitList">
+             <empty-box text="暂无访客~" v-if="isEmpty"></empty-box>   
+	    	 <visit-list-component v-if="!isEmpty" :visit-List="visitList" :is-Loading="isLoading">
+	            <visit-list-component/>
+	    </div>
+    </div>
+</div>

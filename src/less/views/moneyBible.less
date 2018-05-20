@@ -1,0 +1,214 @@
+div.page-money-bible {
+    .page-content {
+        background-color: @bg-money;
+
+        .money-banner {
+            width: 100%;
+            margin-bottom: 1.4rem;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .money-tip {
+            padding: 0 0 0 2rem;
+
+            .money-one-tip {
+                .money-one-title {
+                    width: 54%;
+                    margin: 0 auto;
+                    background-color: @bg-moneytext;
+                    font-size: 1.6rem;
+                    color: @text-fff;
+                    letter-spacing: 0.034rem;
+                    border-radius: 2rem;
+                    line-height: 2.9rem;
+
+                    i {
+                        display: inline-block;
+                        background-color: @bg-circle;
+                        width: 2.9rem;
+                        height: 2.9rem;
+                        border-radius: 1.45rem;
+                        font-size: 1.6rem;
+                        color: @text-fff;
+                        letter-spacing: 0.034rem;
+                        text-align: center;
+                        margin: 0.18rem;
+                    }
+
+                    span {
+                        padding-left: 1.7rem;
+                    }
+                }
+
+                .money-more-info {
+                    padding: 1.4rem 0 2.4rem;
+
+                    .item-content {
+                        padding-left: 0;
+
+                        .item-media {
+                            width: 41%;
+                            padding: 0;
+
+                            img {
+                                width: 100%;
+                                display: block;
+                            }
+                        }
+
+                        .item-inner {
+                            padding: 0;
+                            margin: 0;
+
+                            p {
+                                margin: 0;
+                            }
+
+                            &:after {
+                                background-color: #F0ECD8;
+                            }
+
+                            .item-title-row {
+                                padding: 1.8rem 1rem 0 1.4rem;
+                                text-align: justify;
+                                p{
+                                    font-size: 1.2rem;
+                                }
+
+                                .item-title {
+                                    display: inline-block;
+                                    color: @bg-moneyinfo;
+                                    letter-spacing: 0.03rem;
+                                    line-height: 2.2rem;
+                                }
+                            }
+
+                            .item-title-two {
+                                font-size: 1.6rem;
+                                padding: 4.2rem 1rem 3rem 1.4rem;
+
+                                .item-subtitle {
+                                    color: @bg-moneytwo;
+                                    letter-spacing: 0.03rem;
+                                    line-height: 2.2rem;
+                                    white-space: normal;
+
+                                    .icon-bulb {
+                                        color: @money-button;
+                                        font-size: 2.2rem;
+                                        vertical-align: top;
+                                    }
+                                }
+                            }
+
+                            .btn-money {
+                                position: relative;
+                                height: 3rem;
+                                padding-top: 1rem;
+
+                                .item-text {
+                                    display: inline-block;
+                                    height: 2.6rem;
+                                    padding-right: 1rem;
+                                    line-height: 2.6rem;
+                                    background: @money-button;
+                                    .box-shadow(0, 2px, 0, @money-shw);
+                                    border-radius: 0.2rem;
+                                    font-size: 1.4rem;
+                                    color: @text-fff;
+                                    letter-spacing: 0.03rem;
+                                    padding-left: 1rem;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 1.4rem;
+
+                                    .iconfont {
+                                        padding-left: 0.3rem;
+                                        .ps-r;
+                                        top: -0.2rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .money-end {
+            width: 100%;
+
+            img {
+                width: 44%;
+            }
+
+            .end-pic {
+                padding-left: 1.25rem;
+                padding-right: 1rem;
+            }
+        }
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 350px) {
+    div.page-money-bible .page-content .money-tip .money-one-tip .money-one-title {
+        width: 70%;
+    }
+
+    div.page-money-bible .page-content .money-tip .money-one-tip .money-more-info .item-content .item-inner .item-title-row {
+        padding: 0.5rem 1rem 0 1.4rem;
+    }
+
+    div.page-money-bible .page-content .money-tip .money-one-tip .money-more-info .item-content .item-inner .item-title-two {
+        padding: 2.5rem 1rem 2rem 1.4rem;
+    }
+
+    div.page-money-bible .page-content .money-tip .money-one-tip .money-more-info .item-content .item-inner .btn-money {
+        padding-top: 0.5rem;
+    }
+
+    div.page-money-bible .page-content .money-tip .money-one-tip .money-more-info .item-content .item-inner {
+        .item-title-row,
+        .item-title-two {
+            .item-subtitle {
+                font-size: 1.4rem;
+                line-height: 1.7rem;
+            }
+        }
+    }
+}
+@media screen and (min-width: 330px){
+    div.page-money-bible .page-content .money-tip .money-one-tip .money-more-info .item-content .item-inner {
+        .item-title-row p{
+            font-size: 1.4rem;
+        }
+    }
+}
+@media screen and (min-width: 351px){
+    div.page-money-bible .page-content .money-tip .money-one-tip .money-one-title {
+        width: 62%;
+    }
+
+    div.page-money-bible .page-content .money-tip .money-one-tip .money-more-info .item-content .item-inner .item-title-row {
+        padding: 0.7rem 1rem 0 1.4rem;
+    }
+
+    div.page-money-bible .page-content .money-tip .money-one-tip .money-more-info .item-content .item-inner .item-title-two {
+        padding: 3rem 1rem 2.3rem 1.4rem;
+    }
+
+    div.page-money-bible .page-content .money-tip .money-one-tip .money-more-info .item-content .item-inner .btn-money {
+        padding-top: 0.8rem;
+    }
+
+    div.page-money-bible .page-content .money-tip .money-one-tip .money-more-info .item-content .item-inner {
+        .item-title-row,
+        .item-title-two {
+            .item-title {
+                line-height: 1.9rem;
+            }
+        }
+    }
+}

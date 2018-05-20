@@ -1,0 +1,8 @@
+{
+  "presets": ["es2015"],
+  "env": {
+    "build": {
+      "optional": ["optimisation", "minification"]
+    }
+  }
+}

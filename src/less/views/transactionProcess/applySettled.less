@@ -1,0 +1,65 @@
+.page-apply-settled{
+    .vue-box{
+        .headerImg{
+            width: 100%;
+        }
+        .form-content{
+            padding-top: 1rem;
+            .form-item{
+                padding: 0 4% 0 25%;
+                background: @bg-fff;
+                height: 5rem;
+                line-height: 5rem;
+                position: relative;
+                font-size: 1.5rem;
+                color: @text-333 / 3 * 5;
+                box-sizing: border-box;
+                border-bottom: 1px solid @bg-body;
+                label{
+                    display: inline-block;
+                    position: absolute;
+                    top: 0;
+                    left: 4%;
+                    line-height: 5rem;
+                    box-sizing: border-box;
+                }
+                .menu{
+                    text-align: right;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    box-sizing: border-box;
+                    border:none;
+                    padding: 1.45rem 0;
+                    font-size: 1.5rem;
+                    color: @text-333;
+                    &.phone{
+                        color: @text-subtitle;
+                    }
+                    &::-webkit-input-placeholder {
+                        color: fade(@text-85,50);
+                    }                    
+                }
+            }
+        }
+        .error{
+            padding-top: 1rem;
+            line-height: 2rem;
+            height: 2rem;
+            font-size: 1.4rem;
+            text-align: center;
+            color: @text-chushou;
+        }
+        .form-submit-btn{
+            line-height: 0;
+            margin: 4rem auto 0;
+            padding: 2.5rem 0;
+            text-align: center;
+            width: 77.5%;
+            color: @text-fff;
+            font-size: 1.6rem;
+            border-radius: 4px;
+            background: @themeColor;
+        }
+    }
+}

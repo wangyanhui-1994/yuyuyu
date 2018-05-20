@@ -1,0 +1,108 @@
+.page-other-info{
+	color: @text-name;
+	.center-head-pic{
+		padding: 1rem;
+		.ps-r;
+		.text-center;
+		background: @bg-fff;
+		.text-shadow(@text-fff);
+		margin-bottom: 1rem;
+		img{
+			display: block;
+			width: 25%;
+			border-radius: 50%;
+			margin: 0 auto 1rem;
+		}
+		p{
+			margin: 0;
+			i{
+				color: @text-level;
+				font-size: 2rem;
+			}
+		}
+		&>a.icon-question{
+			.ps-a;
+			right: 1rem;
+			top: 1rem;
+			color: @text-category;
+			font-size: 1.4rem;
+			display: inline-block;
+			height: 2rem;
+			line-height: 2rem;
+			&:before{
+				font-size: 1.8rem;
+				margin-right: 0.2rem;
+				vertical-align: middle;
+			}
+		}
+	}
+	.center-info{
+		margin: 0 auto 1rem;
+		background: @bg-fff;
+		.text-shadow(@text-fff);
+	}
+	.item-content{
+		&.hide{
+			display: none;
+		}
+		padding-left: 0.7rem;
+		&.first{
+			border-bottom: 1px solid @border-da;
+			padding-left: 2%;
+			color: @text-category;
+		}
+		.item-inner{
+			padding-right: 2%;
+			border-bottom: 1px solid @border-da;
+			&:after{
+				display: none;
+			}
+			&.last{
+				border-bottom: 0;
+			}
+			.item-input{
+				.text-right;
+				color: @text-mt-center;
+				&.icon-v{
+					color: @text-test;
+				}
+			}
+		}
+	}
+	.other-authentication-info{
+		display: none;
+		margin:0;
+		background: @bg-fff;
+		.text-shadow(@text-fff);
+		.other-individual,.other-company{
+			display: none;
+		}
+		&.individual{
+			display: block;
+			.other-individual{
+				display: block;
+			}
+		}
+		&.company{
+			display: block;
+			.other-company{
+				display: block;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

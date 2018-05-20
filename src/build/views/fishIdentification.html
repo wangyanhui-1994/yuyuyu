@@ -1,0 +1,69 @@
+<div class="navbar ">
+    <div class="navbar-inner default-theme-blank">
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding">鱼儿乐认证</div>
+        <div class="right"></div>
+    </div>
+</div>
+<div class="page swipeback page-fish-identification page-fish-identify-Info" data-page="fishIdentification">
+    <div class="page-content vue-box">
+        <div class="fish-identification" v-if="!isYuerle" >
+            <div class="fish-identification-header"> 
+                <img src="img/ic_yuerle@2x.png" alt="" class="lazy" width="66.85" >
+                <div class="fish-platform">
+                    <p>该服务由鱼儿乐平台提供</p>
+                    <p>点击下方按钮打通鱼儿乐数据</p>
+                </div>          
+            </div>
+            <div class="fish-identification-content">
+                <p class="fish-introduction">鱼儿乐提供了一种智能化水产养殖解决方案，让养殖户享有手机看塘、远程管理、实时监测、无线控制、数据分析、应急告警、病害上报、过程管理等等全方位的物联网管理，实现安心、放心、省心养鱼。</p>
+            </div>
+             <div class="identification-logo row list-block" v-if="!isYu2leDetail">
+                    <div class="identification-logo-content item-content col-50">
+                            <div class="item-media">
+                                <span class="iconfont icon-happy"></span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="content-title text-left">独特的标识展示</div>
+                            </div>
+                    </div>
+                    <div class="identification-logo-content item-content col-50">
+                            <div class="item-media">
+                                <span class="iconfont icon-fish-arrow"></span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="content-title text-left">养殖数据增加靠谱度</div>
+                            </div>
+                    </div>          
+            </div> 
+            <div class="fish-identification-footer" v-if="!isYu2leDetail">
+                <a class="fish-identify-btn" @click="getYuerle">授权获取鱼儿乐数据</a>
+                <!-- <a class="fish-identify-btn more" >了解鱼儿乐更多信息</a> -->
+            </div>
+            <div class="identify-success" v-if="isYu2leDetail">
+                <p>如需购买鱼儿乐设备，联系18115381185</p>
+                <div class="line"></div>  
+            </div>
+             
+        </div>
+        <div class="fish-identifyInfo" >
+            <div class="fish-identify-info-header" v-if="isYu2leMain && isYuerle">
+                <span class="iconfont icon-success"></span>
+                <p>认证完成</p>
+                <img src="img/ic_yuerle@2x.png" alt="" class="lazy" width="50.5">
+            </div>
+            <div class="fish-identify-info-content" v-if="isYuerle || isYu2leDetail">
+                <p class="content-title">认证信息</p>
+                <div class="identify-info">
+                       <p>姓名：{{userName}}</p>
+                       <p>塘口数量：{{pondNum}}个</p> 
+                       <p>初次使用鱼儿乐时间：{{createTime}}</p>         
+                </div>
+                <p class="content-memo" v-if="isYuerle">*以上信息会展示在你的个人主页</p>
+            </div>
+        </div>
+    </div>
+
+</div>

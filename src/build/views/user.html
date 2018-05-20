@@ -1,0 +1,201 @@
+<div class="navbar">
+    <div class="navbar-inner user-title navbar-user-header">
+        <div class="center sliding">个人中心</div>
+    </div>
+</div>
+<div class="page page-user no-swipeback no-animation" data-page="user">
+    <div class="page-content">
+        <div class="vue-model">
+            <div class="user-header list-block media-list" :class="{'login-succ': (userInfo.id || weixinData.imgUrl)}">
+                <div class="item-link item-content" @click="userLogin">
+                    <div class="user-pic item-media chang-user-info">
+                        <img :src="headImg" :class="{'active': userInfo.imgUrl}" class="user-head-pic chang-user-info" width="65" class="lazy" />
+                        <img v-if="isLogin" src="img/change.png" class="change-info chang-user-info" >
+                    </div>
+                    <div class="row item-inner chang-user-info">
+                        <div class="col-50">
+                            <span class="login">未登录</span>
+                            <div class="user-info">
+                                <p class="user-name chang-user-info">
+                                    <span>{{userInfo.nickname || weixinData.nickname || '匿名用户'}}</span>
+                                </p>
+                                <p class="user-tell-number chang-user-info">
+                                    {{weixinData.imgUrl ? '绑定手机号，解锁其他功能' : ('手机号：' + getMyPhoneNum)}}
+                                </p>
+                            </div>
+                        </div>
+                        <a class="col-50">
+                            <div class="modify-text" :class="{'bg-color': isLogin}">
+                                {{userHeadRightText}}
+                                <img src="img/my_arrow.svg" class="my-arrow">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="user-area-check" v-if="isLogin && !userInfo.cityId">
+                 <a href="#" @click="goMyCenter" onclick="apiCount('btn_myCenter_hintToInfo')">
+                     <p>完善你所在的地区，获得10分靠谱指数奖励！</p>
+                     <span class="iconfont icon-right"></span>
+                 </a>
+                
+            </div>
+            <div class="user-info-driver-check">
+                <p class="driver-checking" v-if="0 === userInfo.driverState" @click="fishCarCheckIng"><span class="iconfont icon-info"></span>鱼车信息审核中，请耐心等待</p>
+                <p class="driver-reject" v-if="2 == userInfo.driverState" @click="catRejectInfo(userInfo.driverRefuseDescribe)">
+                    <span class="iconfont icon-info"></span> 鱼车信息审核未通过，点击查看原因
+                </p>
+                <p class="driver-frozen" v-if="3 == userInfo.driverState" @click="frozenMsg">
+                    <span class="iconfont icon-info"></span> 鱼车司机身份已被冻结，如有疑问联系客服
+                </p>
+
+                <p class="enter-auth-check" v-if="0 == userInfo.enterpriseAuthenticationState" @click="authCheckInfo">
+                    <span class="iconfont icon-info"></span> 企业认证审核中
+                </p>
+                <p class="enter-auth-reject" v-if="2 == userInfo.enterpriseAuthenticationState" @click="showAuthRejectInfo(userInfo.enterpriseAuthenticationDescribe, 1)">
+                    <span class="iconfont icon-info"></span> 企业认证审核未通过，点击查看原因
+                </p>
+
+                <p class="personal-auth-check" v-if="0 == userInfo.personalAuthenticationState" @click="authCheckInfo">
+                    <span class="iconfont icon-info"></span> 个人认证审核中
+                </p>
+                <p class="personal-auth-reject" v-if="2 == userInfo.personalAuthenticationState" @click="showAuthRejectInfo(userInfo.personalAuthenticationDescribe, 0)">
+                    <span class="iconfont icon-info"></span> 个人认证审核未通过，点击查看原因
+                </p>
+
+            </div>
+            <!-- <div class="user-info-list row">
+                <a class="my-sell-list col-33" @click="isLogin ? myListSell() : login()">
+                    <div>
+                        <span class="user-sell-num">{{userInfo.sellNumber || 0}}</span>个
+                        <div class="num-title">我的出售</div>
+                    </div>
+                </a>
+                <a class="my-buy-list col-33" @click="isLogin ? myListBuy() : login()">
+                    <div>
+                        <span class="user-buy-num">{{userInfo.buyNumber || 0}}</span>个
+                        <div class="num-title">我的求购</div>
+                    </div>
+                </a>
+                <a class="my-fish-car-list col-33" @click="isLogin ? goFishDemand() : login()">
+                    <div>
+                        <span class="user-fish-car-num">{{userInfo.fishCarDemandCount || 0}}</span>个
+                        <div class="num-title">叫鱼车需求</div>
+                    </div>
+                </a>
+            </div> -->
+            <div class="user-info-list">
+                <a @click="isLogin ? myListSell() : login()">
+                    <img src="img/icon_chushou.png" class="user-img">
+                    <div class="num-title">出售中</div>
+                </a>
+                <a @click="isLogin ? myListBuy() : login()">
+                    <img src="img/want_buy.png" class="user-img">
+                    <div class="num-title">求购中</div>
+                </a>
+                <a @click="isLogin ? listSell() : login()">
+                    <img src="img/maichu.png" class="user-img">
+                    <div class="num-title">我卖出的</div>
+                    <span v-if="addSellCount > 0 && addSellCount < 99" class="more buy-more">{{addSellCount}}</span>
+                    <span v-if="addSellCount > 99" class="more sell-more">99+</span>
+                </a>
+                <a @click="isLogin ? listBuy() : login()">
+                    <img src="img/buyin.png" class="user-img">
+                    <div class="num-title">我买到的</div>
+                    <span v-if="addBuyCount > 0 && addBuyCount < 99" class="more buy-more">{{addBuyCount}}</span>
+                    <span v-if="addBuyCount > 99" class="more sell-more">99+</span>
+                </a>
+            </div>
+
+            <div class="my-info">
+                <div class="my-info-title">
+                    个人中心
+                </div>
+                <div class="my-info-all row">
+                    <a class="my-info-level col-25" @click="isLogin ? goMyMember() : login()">
+                        <b  class="add-points" v-if="addedPoints > 0 && addedPoints < 99 ">+{{addedPoints}}</b>
+                        <b  class="add-points" v-if="addedPoints > 99">99+</b>
+                        <!-- <span class="iconfont" :class="'icon-v' + (userInfo.level || 0)"></span> -->
+                        <img class="level-pic" :src="'./img/ic_level_'+ (userInfo.level || 0)+'.png'" >
+                        <p class="my-title">我的等级</p>
+                    </a>
+                    <a class="my-info-certification col-25" @click="goIdentity">
+                        <b  class="certification" v-if="isShowGoAuth">去认证</b>
+                        <span class="iconfont icon-certification"></span>
+                        <p class="my-title">{{authText}}</p>
+                    </a>
+                    <a class="my-info-card col-25" @click="isLogin ? refreshInfo() : login()">
+                        <span class="iconfont icon-refresh"></span>
+                        <p class="my-title">刷新信息</p>
+                    </a>
+                    <a class="my-info-notice col-25" @click="isLogin ? goMyVisitList() : login()">
+                        <i v-if="visitorCount > 0 && visitorCount < 99">{{visitorCount}}</i>
+                        <i v-if="visitorCount > 99">99+</i>
+                        <span class="iconfont icon-guests"></span>
+                        <p class="my-title">最近访客</p>
+                    </a>
+                </div>
+
+            </div>
+            
+            <div class="my-info">
+                <div class="my-info-title">
+                    我的服务
+                </div>
+                <div class="my-info-all row">
+                    <a class="col-25" @click="isLogin ? goMyRecordList() : login()">
+                        <span class="iconfont icon-myTrades"></span>
+                        <p class="my-title">我的成交</p>
+                    </a>
+                    <!-- <a class="my-info-certification col-25" @click="isLogin ? shareMyShop() : login()">
+                        <span class="iconfont icon-shop"></span>
+                        <p class="my-title">我的店铺</p>
+                    </a> -->
+                    <a class="my-info-certification col-25" @click="isLogin ? goFishDemand() : login()">
+                        <img src="img/fish_car.svg" class="fish-car">
+                        <p class="my-title">鱼车订单</p>
+                    </a>
+                    <a class="my-info-card col-25" @click="isLogin ? goMyCollection() : login()">
+                        <span class="iconfont icon-collection-active"></span>
+                        <p class="my-title">我的收藏</p>
+                    </a>
+                    <a class="my-info-notice col-25" @click="isLogin ? uploadCert() : login()">
+                        <span class="iconfont icon-verification"></span>
+                        <p class="my-title">资质证书</p>
+                    </a>
+                </div>
+                <div class="my-info-all row">
+                    <a class="col-25"  @click="isLogin ? driverBtnClick() : login()">
+                        <span class="iconfont icon-fish-car"></span>
+                        <p class="my-title">{{driverBtnText}}</p>
+                    </a>
+                    <a class="my-info-certification col-25" @click="isLogin ? inviteFriends() : login()">
+                        <span class="iconfont icon-invite"></span>
+                        <p class="my-title">邀请好友</p>
+                    </a>
+                    <a class="my-info-card col-25" @click="bindAccount">
+                        <span class="iconfont icon-lock"></span>
+                        <p class="my-title">绑定账号</p>
+                    </a>
+                    <a class="my-info-notice col-25"  @click="helpCenter">
+                        <span class="iconfont icon-help"></span>
+                        <p class="my-title">赚钱宝典</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact" @click="contactUs">
+                <span class="iconfont icon-call"></span>
+                <span class="contact-name">联系客服：18115381185</span>
+            </div>
+
+            <div class="my-version" v-if="versionNumber">
+                当前版本：<span>{{versionNumber}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="toolbar tabbar">
+        <tab-bar-component tab-index='5' :class-room-num="infoNumberKey">
+            <tab-bar-component/>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <!-- Now, Left and Center parts reflect page title and page links, let's slide them -->
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding">分享我的行程</div>
+    </div>
+</div>
+<div class="page swipeback page-share-my-trip" data-page="shareMyTrip">
+    <div class="page-content">
+        <div class="share-trip-user">
+            <div class="share-trip-user-header">
+                <div class="user-head-img">
+                  <p></p>
+                    <img class="head-img"  :src="imgUrl ? (imgUrl + '?x-oss-process=image/resize,m_fill,h_100,w_100/circle,r_100/format,png') : './img/defimg.png'" alt="">
+                </div>
+
+                <div class="share-trip-user-nickname">{{query.contactName || '匿名用户'}}</div>
+                <div class="share-trip-user-auth-state">以下是我{{query.date ?
+                    (Number(query.date.split('-')[1]) >= 10 ?
+                    query.date.split('-')[1] :
+                    query.date.split('-')[1].replace('0', '')) : ''
+                    }}月{{query.date ?
+                    (Number(query.date.split('-')[2]) >= 10 ?
+                    query.date.split('-')[2] :
+                    query.date.split('-')[2].replace('0', '')) : ''
+                    }}日的行程，欢迎联系</div>
+                <div class="share-trip-line">
+                    <div class="left">
+                        <div class="title">{{query.departureProvinceName}}</div>
+                        <span>出发地</span>
+                    </div>
+                    <div class="center"></div>
+                    <div class="right">
+                        <div class="title">{{query.destinationProvinceName}}</div>
+                        <span>目的地</span>
+                    </div>
+                </div>
+            </div>
+            <div class="share-trip-user-code">
+                <p>经常转发我的行程卡片，提高曝光</p>
+                <p>让自己每天都有货可拉~</p>
+            </div>
+        </div>
+        <div class="share-trip-share">
+          <p><span>将我的邀请卡片转发</span></p>
+            <share-component
+                    @weixin_share_friend="weixinShareFriend"
+                    @weixin_share_circle="weixinShareCircle"
+                    @qq_share_friend="qqShareFriend">
+            </share-component>
+        </div>
+    </div>
+</div>

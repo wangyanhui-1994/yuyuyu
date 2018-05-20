@@ -1,0 +1,36 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding">实力展示</div>
+        <div class="right">
+        </div>
+    </div>
+</div>
+<div class="page swipeback page-strength-show" data-page="strengthShow">
+    <div class="page-content vue-box">
+        <!-- my experience -->
+        <div class="my-experience">
+           <div class="text-info">
+             <textarea placeholder="介绍下你自己的经历，例如从业经验、养殖面积、为哪些大客户供货等，增加别人的信任感" maxlength="500" v-model="userInfo.abilityDesc"></textarea>
+           </div>
+           <div class="word-number">
+             <b>{{userInfo.abilityDesc.length}}</b>/500
+           </div>
+        </div>
+        <!-- my picture -->
+        <div class="my-picture">
+          <div class="pic-info">
+            <p>上传证明实力的照片，最多5张，如获奖证书</p>
+            <div class="pic-info-list">
+                <span class="pic-info-img" v-for="(item, index) in userInfo.abilityImgList">
+                    <b class="iconfont icon-del" @click="deleteItem(index)"></b><img :src="item + '?x-oss-process=image/resize,m_fill,h_80,w_80/format,png'" alt="">
+                </span>
+                <span class="pic-info-add" v-if="!userInfo.abilityImgList || (userInfo.abilityImgList && userInfo.abilityImgList.length < 5)" @click="postHeadPic()"><i class="iconfont icon-add"></i></span>
+          </div>
+        </div>
+        <img style="z-index: -999;visibility: hidden; " data-src="img/ic_category_commonfish.png " src="img/app_icon_108.png " class="lazy " width="32 " alt=" ">
+    </div>
+    <div class="save-change" @click="updateUserInfo()">保存修改</div>
+</div>

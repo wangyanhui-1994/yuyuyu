@@ -1,0 +1,49 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <form class="searchbar index-search search-header sliding">
+            <div class="searchbar-input">
+                <a class="iconfont icon-back back">返回</a>
+                <input type="text" placeholder="填写品种名称，例如黑鱼" class="index-search-link search-page-input">
+                <b class="searchbar-clear iconfont icon-clear"></b>
+                <span class="search-button"  onclick="apiCount('btn_nav_search')">搜索</span>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="page swipeback toolbar-through page-search" data-page="search">
+    <div class="page-content">
+        <div class="search-content">
+            <div class="search-val" onclick="apiCount('btn_list_search')">点击搜索 <span></span></div>
+            <div class="search-return-list" onclick="apiCount('cell_search_hint')"></div>
+        </div>
+        <div class="search-empty-result">
+            <div class="iconfont icon-empty-search"></div>
+            <p class="title">没有找到相关鱼种</p>
+        </div>
+        <div class="serch-history">
+            <div class="title row">
+                <span class="col-40">搜索历史</span>
+                <span class="col-40 search-clear-history" onclick="apiCount('btn_search_history_clear')">清空历史</span>
+            </div>
+            <div class="search-history-list" onclick="apiCount('btn_search_history_cell')"></div>
+        </div>
+    </div>
+    <!-- <div class="toolbar tabbar">
+        <div class="toolbar-inner">
+            <a href="./views/home.html" class="link no-animation">
+                <div class="iconfont icon-home"></div>
+                <div>鱼大大</div>
+            </a>
+            <a href="./views/infomation.html" class="link edit-info no-animation">
+                <div class="tab-border"> 
+                    <div class="iconfont icon-edit"></div>
+                    <div>发布信息</div>
+                </div>
+            </a>
+            <a href="views/user.html" class="link active no-animation">
+                <div class="iconfont icon-user"></div>
+                <div>个人中心</div>
+            </a>
+        </div>
+    </div> -->
+</div>

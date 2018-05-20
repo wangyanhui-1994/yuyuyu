@@ -1,0 +1,61 @@
+.picker-modal.picker-invite-code {
+    background: @bg-fff;
+    .text-shadow(@text-fff);
+    height: 35rem;
+    .text-center;
+    z-index: 15000;
+    .picker-invite-code-img {
+        .ps-r;
+        margin: 3rem 0;
+        background: url(../img/loading.gif) center no-repeat;
+        background-size: 5rem 5rem;
+        .picker-invite-code-header{
+            p{
+                padding-top: 0;
+                padding-bottom: 1rem;
+                color: @text-subtitle;
+                font-size: 1.6rem;
+                &.code{
+                    height: 4rem;
+                    font-size: 3rem;
+                    line-height: 3rem;
+                    color: @text-invite-code;
+                    font-weight: bold;
+                }
+            }
+        }
+        .picker-invite-code-content {
+            img {
+                height: 14rem;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+		img.picker-invite-head-img{
+			position: absolute;
+			width: 4rem;
+			height: 4rem;
+			top: 13rem;
+			display: block;
+			left: 50%;
+			margin-left: -2rem;
+		}
+        p {
+            margin: 0;
+            padding-top: 1rem;
+            color: @text-name;
+            height: 2rem;
+            line-height: 2rem;
+            overflow: hidden;
+            font-size: 1.8rem;
+        }
+    }
+    .close-picker-invite-code {
+        line-height: 4rem;
+        height: 4rem;
+        font-size: 1.8rem;
+        color: @text-category;
+        background: @border-da;
+        .text-shadow(@border-da);
+    }
+}

@@ -1,0 +1,17 @@
+
+#dir
+node_modules/
+.idea/
+.DS_Store
+./coverage
+mochawesome-report/
+zip/
+*.log
+
+
+
+#file
+src/build/js/*.min.js
+src/build/css/*.css
+src/build/js/imgHash
+yarn.lock

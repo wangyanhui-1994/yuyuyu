@@ -1,0 +1,266 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <!-- Now, Left and Center parts reflect page title and page links, let's slide them -->
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding release-info-title">我要求购</div>
+        <!-- Right part doesn't related to other pages -->
+        <div class="right"></div>
+    </div>
+</div>
+<div class="page swipeback page-release-info" data-page="releaseInfo">
+    <div class="page-content vue-box">
+        <div class="list-block release-infomation" v-if="2 == subInfo.type">
+            <!-- 10 word title -->
+            <div class="item-content word-title release-text-tag-box">
+                <div class="item-inner">
+                    <div class="item-input release-info-header-title">
+                        <input type="text" placeholder="10字以内的标题" @keyup="checkText('title')" maxlength="10" v-model="subInfo.title">
+                    </div>
+                </div>
+            </div>
+            <!-- release info -->
+            <a :href="'./views/addInstruction.html?fishParentTypeName=' + subInfo.fishParentTypeName + '&type=' + subInfo.type">
+                <div class="add-info">
+                    <p :class="!subInfo.description && 'add-default'">{{subInfo.description ? subInfo.description : '输入补充说明'}}</p>
+                </div>
+            </a>
+            <p class="release-tages-list" v-if="subInfo.descriptionTags.length">
+                <span class="iconfont icon-auto-end" v-for="item in subInfo.descriptionTags">{{item.name}}</span>
+            </p>
+            <!-- five pic -->
+            <div class="release-info-header release-no-border">
+                <div class="release-info-pic">
+                    <div class="release-info-pic-list">
+                        <span class="release-info-img" v-for="(item, index) in subInfo.imgs">
+                            <i class="iconfont icon-del" @click="deleteInfoPic(index)"></i>
+                            <img :src="item + imgPath(9)" alt="">
+                            <span v-if="0 == index">封面</span>
+                        </span>
+                        <span class="col-20 release-info-pic-add add" :style="{height: height + 'px',overflow:'hidden'}" @click="addInfoPic()" v-if="subInfo.imgs && subInfo.imgs.length < 5">
+                            <i class="iconfont icon-add add" style="lineHeight: height * 0.5 + 'px'"></i>
+                            <p class="add" :style="{lineHeight: height*0.4 + 'px'}">添加图片</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="release-info-pic-tip" v-if="2 == subInfo.type">多上传真实的图片容易成交哟，最多传5张</p>
+        <div class="release-infomation list-block">
+            <!-- <div class="release-goods-title">商品详情</div> -->
+            <!-- sell  varieties-->
+            <div class="item-content">
+                <div class="item-inner">
+                    <div class="item-title label">{{1 == subInfo.type ? '求购品种' : '出售品种'}}</div>
+                    <div class="item-input release-back-select-fish">
+                        <span class="release-fish-name">{{subInfo.fishTypeName}}</span>
+                        <span class="back" @click="resetFish()">[重新选择鱼种]</span>
+                    </div>
+                </div>
+            </div>
+            <div class="item-content border-none">
+                <div class="item-inner">
+                    <div class="item-title label">规格</div>
+                    <div class="item-input">
+                        <input type="text" v-model="subInfo.specifications" maxlength="20" placeholder="请填写规格" @keyup="checkText('specifications')">
+                    </div>
+                </div>
+            </div>
+            <div class="item-content release-spec-list">
+                <div class="item-inner">
+                    <div class="item-title label"></div>
+                    <div class="item-input release-spec-list-box">
+                        <span v-for="(item, index) in subInfo.quantityTags" @click="selectquantityTag(item, index)" :class="item.selected && 'on'">{{item.name}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-content">
+                <div class="item-inner">
+                    <div class="item-title label release-totle-number">
+                        {{1 == subInfo.type ? '求购数量' : '供货数量'}}
+                        <span v-if="1 == subInfo.type">推荐</span>
+                    </div>
+                    <div class="item-input release-write-stock">
+                        <input type="text" placeholder="请填写数量" maxlength="15" @keyup="checkText('stock')" v-model="subInfo.stock">
+                    </div>
+                </div>
+            </div>
+            <div class="item-content" v-if="1 == subInfo.type">
+                <div class="item-inner">
+                    <div class="item-title label release-buy-time">
+                        求购时间
+                        <span>推荐</span>
+                    </div>
+                    <div class="item-input release-write-time">
+                        <input type="text" readonly placeholder="请选择">
+                        <span class="iconfont icon-right"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="item-content" v-if="2 == subInfo.type">
+                <div class="item-inner">
+                    <div class="item-title label release-address-label">
+                        所在地区
+                        <span>推荐</span>
+                    </div>
+                    <div class="item-input release-write-address">
+                        <input type="text" @click="selectAddress()" v-model="subInfo.address" readonly placeholder="请选择">
+                        <span class="iconfont icon-right"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="item-content" v-if="2 == subInfo.type">
+                <div class="item-inner">
+                    <div class="item-title label release-has-cargo">
+                        是否现货
+                        <span>推荐</span>
+                    </div>
+                    <div class="item-input release-write-cargo">
+                        <input type="text" readonly placeholder="请选择">
+                        <span class="iconfont icon-right"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="item-content" v-if="2 == subInfo.type && isHasGoods">
+                <a class="item-inner" href="./views/chooseDate.html">
+                    <div class="item-title label release-issue-time">
+                        上市时间
+                    </div>
+                    <div class="item-input release-write-issue">
+                        <input type="text" readonly placeholder="请选择" v-model="subInfo.demandInfoSale.marketTime">
+                        <span class="iconfont icon-right"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="item-content" v-if="2 == subInfo.type">
+                <div class="item-inner">
+                    <div class="item-title label release-logistics-service">
+                        物流服务
+                    </div>
+                    <div class="item-input release-write-service">
+                        <input type="text" readonly placeholder="请选择">
+                        <span class="iconfont icon-right"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="item-content" v-if="2 == subInfo.type && isMyPhone" @click="selectTransaction">
+                <div class="item-inner no-drug-select">
+                    <div class="item-title label">
+                        是否支持担保交易
+                        <span><img src="./img/help_bak.png" alt=""></span>
+                    </div>
+                    <div class="item-input">
+                        <label class="label-switch no-drug-item">
+                          <input type="checkbox" v-model='transaction'>
+                          <div class="checkbox no-drug-item"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="align-top" v-if="1 == subInfo.type">
+                <div class="item-content">
+                    <a class="item-inner" :href="'./views/addInstruction.html?fishParentTypeName=' + subInfo.fishParentTypeName + '&type=' + subInfo.type">
+                        <div class="item-title label release-info-discription-label">具体要求</div>
+                        <div class="item-input release-info-discription">
+                            <textarea readonly placeholder="可注明特殊说明，例如养殖方式、水质、投入品等情况等" v-model="subInfo.description"></textarea>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-content release-discription-list" v-if="subInfo.descriptionTags.length">
+                    <div class="item-inner">
+                        <div class="item-title label"></div>
+                        <div class="item-input release-discription-list-box">
+                            <span class="iconfont icon-auto-end" v-for="item in subInfo.descriptionTags">{{item.name}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- published price -->
+        <div class="published-price" v-if="2 == subInfo.type">
+            <div class="published-price-pic" @click="openOrClosePrice()">
+                <b class="publish-pic"><s></s><i></i></b>
+                <div class="open-price" :class="isClose && 'close'">
+                    <span class="iconfont icon-money"></span>
+                </div>
+                <div class="close-price" :class="isClose && 'close'">
+                    <span class="iconfont icon-lock"></span>
+                </div>
+            </div>
+            <div class="published-price-text">
+                <p class="price-left" :class="!isClose && 'on'">开个价</p>
+                <p class="price-right" :class="isClose && 'on'">不开价</p>
+            </div>
+        </div>
+        <div class="release-infomation list-block" v-if="!isClose && 2 == subInfo.type">
+            <div class="item-content release-price-info">
+                <a class="item-inner" href="./views/releasePrice.html">
+                    <div class="item-title label">价格</div>
+                    <div class="item-input release-write-price">
+                        <input type="text" placeholder="请填写" readonly v-model="priceText">
+                        <span class="iconfont icon-right"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <p v-if="2 == subInfo.type && !isClose" class="release-info-pic-tip">填了价格的信息会优先展示</p>
+        <div class="release-user-info list-block">
+            <div class="item-content">
+                <div class="item-inner">
+                    <div class="item-title label">联系人姓名</div>
+                    <div class="item-input release-write-contact">
+                        <input type="text" placeholder="请填写真实姓名" @keyup="checkText('contactName')" v-model="subInfo.contactName" maxlength="10">
+                    </div>
+                </div>
+            </div>
+            <div class="item-content">
+                <div class="item-inner">
+                    <div class="item-title label release-address-label">
+                        手机号
+                        <span>推荐</span>
+                    </div>
+                    <div class="item-input release-write-tell">
+                        <input type="number" placeholder="请填写手机号" @keyup="checkPhoneLength()" v-model="subInfo.requirementPhone" maxlength="11">
+                    </div>
+                </div>
+            </div>
+            <div class="item-content" v-if="2 == subInfo.type" @click="selectDrug">
+                <div class="item-inner no-drug-select">
+                    <div class="item-title label">
+                        我保证使用无药残的方式养殖
+                        <span><img src="./img/help.png" alt=""></span>
+                    </div>
+                    <div class="item-input">
+                        <label class="label-switch no-drug-item">
+                          <input type="checkbox" v-model='pollutionFree'>
+                          <div class="checkbox no-drug-item"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="item-content" v-if="1 == subInfo.type">
+                <div class="item-inner">
+                    <div class="item-title label release-address-label">
+                        所在地区
+                        <span>推荐</span>
+                    </div>
+                    <div class="item-input release-write-address">
+                        <input type="text" readonly @click="selectAddress()" v-model="subInfo.address" placeholder="请选择">
+                        <span class="iconfont icon-right"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>*请确保手机号码真实，稍后会有工作人员联系你</p>
+    </div>
+    <div class="toolbar tabbar">
+        <div class="toolbar-inner">
+            <a class="link release-sub-info" :class="!isSendInfo && 'pass'" @click="subInfo()">
+                <div>发布{{1 == type ? '求购' : '出售' }}信息</div>
+            </a>
+        </div>
+    </div>
+</div>

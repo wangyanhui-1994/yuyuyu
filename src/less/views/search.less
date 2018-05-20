@@ -1,0 +1,187 @@
+.search-header {
+    &.index-search>.searchbar-input {
+        padding-left: 5.5rem;
+        padding-right: 4.5rem;
+        background: none;
+        line-height: 3.4rem;
+        .back {
+            .ps-a;
+            height: 100%;
+            width: 5rem;
+            color: @text-fff;
+            left: 0;
+            top: 0;
+            font-size: 1.6rem;
+            overflow: hidden;
+            vertical-align: middle;
+            line-height: 3.4rem;
+            &:before {
+                display: inline-block;
+                font-size: 2.2rem;
+                width: 1.2rem;
+                padding-right: 0.5rem;
+                .text-center;
+                vertical-align: bottom;
+            }
+        }
+        .search-button {
+            display: block;
+            .ps-a;
+            right: 0;
+            width: 4.5rem;
+            .text-center;
+            color: @text-fff;
+            top: 0;
+            height: 100%;
+            font-size: 1.6rem;
+            overflow: hidden;
+        }
+        input[type='text'] {
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            display: block;
+            border: none;
+            -webkit-appearance: none;
+            appearance: none;
+            border-radius: 0.3rem;
+            font-family: inherit;
+            color: #000;
+            font-size: 14px;
+            font-weight: 400;
+            padding: 0 28px;
+            background-color: #fff;
+            background-repeat: no-repeat;
+            background-position: 8px center;
+        }
+        .searchbar-clear {
+            width: 2.8rem;
+            right: 4.5rem;
+            height: 100%;
+            opacity: 0;
+            background: none;
+            .transition(all, @appAnimateTime, @appAnimate);
+            .text-center;
+            z-index: -10;
+            &:before {
+                background: @bg-666;
+                border-radius: 50%;
+                color: @text-fff;
+                padding: 0.3rem;
+                .text-shadow(@bg-666);
+                font-size: 1.4rem;
+            }
+            &.on {
+                opacity: 1;
+                z-index: 10;
+                pointer-events: auto;
+            }
+        }
+    }
+    &.release-select {
+        &.index-search>.searchbar-input {
+            padding-right: 0;
+            .search-button {
+                display: none;
+            }
+            .searchbar-clear {
+                right: 0;
+            }
+        }
+    }
+}
+
+.serch-history {
+    display: none;
+    background: @bg-fff;
+    .text-shadow(@text-fff);
+    padding: 2%;
+    .ps-r;
+    z-index: 1000;
+    .title {
+        line-height: 3.5rem;
+        height: 3.5rem;
+        color: @text-category;
+        .search-clear-history {
+            .text-right;
+            color: @themeColor;
+        }
+    }
+    .search-history-list {
+        overflow: hidden;
+        color: @text-category;
+        a {
+            color: @text-category;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            margin-right: 0.5rem;
+            padding: 0 0.5rem;
+            height: 3rem;
+            line-height: 3rem;
+            max-width: 20rem;
+            .text-hidden;
+            border: 1px solid @text-category;
+            border-radius: 0.3rem;
+        }
+    }
+}
+
+.search-content {
+    background: @bg-fff;
+    .text-shadow(@text-fff);
+    .search-val {
+        line-height: 4rem;
+        padding-left: 3.5rem;
+        background: url('../img/ic_search.png') 0.8rem center no-repeat;
+        background-size: 2rem auto;
+        color: @text-search;
+        height: 0;
+        overflow: hidden;
+        .transition(height,
+        @appAnimateTime,
+        @appAnimate);
+    }
+    &.on {
+        margin-bottom: 1rem;
+        .search-val {
+            height: 4rem;
+        }
+    }
+    .search-return-list {
+        a {
+            display: block;
+            line-height: 4rem;
+            .text-hidden;
+            color: @text-search;
+            overflow: hidden;
+            border-top: 1px solid @border-da;
+            padding: 0 1rem;
+        }
+    }
+}
+
+.search-empty-result, .search-val-empty {
+    padding-top: 6rem;
+    .text-center;
+    display: none;
+    .icon-empty-search {
+        width: 10rem;
+        height: 10rem;
+        border-radius: 5rem;
+        color: @text-fff;
+        font-size: 6rem;
+        .text-center;
+        line-height: 10rem;
+        background: @border-da;
+        margin: 0 auto;
+    }
+    p {
+        color: @text-subtitle;
+        margin: 0;
+        &.title {
+            color: @text-category;
+            padding: 1rem 0 0.2rem;
+            font-size: 1.6rem;
+        }
+    }
+}

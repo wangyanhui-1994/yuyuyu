@@ -1,0 +1,30 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left sliding">
+            <a class="back iconfont icon-back link-back">返回</a>
+        </div>
+        <div class="center sliding title">在线课堂</div>
+        <div class="right sliding"></div>
+    </div>
+</div>
+<div class="page swipeback page-aquatic-list" data-page="aquaticList">
+    <div class="page-content infinite-scroll pull-to-refresh-content">
+        <div class="pull-to-refresh-layer">
+            <div class="preloader"></div>
+            <div class="pull-to-refresh-arrow"></div>
+        </div>
+        <div class="vue-box">
+            <div class="list-class" v-if="secondCategary.length > 1">
+                <div class="class-item"  v-for="(item,index) in secondCategary" @click="goSecond(item)"> #{{item.name}}<div v-if="(index + 1)  % 3 != 0 && index != secondCategary.length - 1 "></div></div>
+                <div class="class-line" v-if="lineNumer" v-for="line in lineNumer" :class="'line-'+line"></div>
+            </div>
+            <div class="artical-list" v-if="infoList.length" onclick="apiCount('cell_education_category_list')">
+                <classroom-article-item v-for="item in infoList" :item="item"></classroom-article-item>
+            </div>
+            <p class="show-all" v-show="showAll">已加载完毕</p>
+            <div class="infinite-scroll-preloader" v-show="!showAll">
+                    <div class="preloader"></div>
+            </div>
+        </div>
+    </div>
+</div>

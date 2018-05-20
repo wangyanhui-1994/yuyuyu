@@ -1,0 +1,72 @@
+.page-bind-account{
+    .page-content{
+        .title{
+            color: @text-name;
+            line-height: 4rem;
+            background: @bg-fff;
+            .text-shadow(@bg-fff);
+            .text-hidden;
+            padding: 0 3%;
+            border-bottom:1px solid @border-da;
+        }
+        .bind-account-content{
+            background: @bg-fff;
+            .text-shadow(@bg-fff);
+            .text-center;
+            .col-50{
+                padding: 1rem 0;
+                width: 50%;
+                & > .iconfont{
+                    display: block;
+                    margin:0 auto;
+                    font-size: 2.4rem;
+                    width: 3rem;
+                    height: 3rem;
+                    line-height: 3rem;
+                    border-radius: 1.5rem;
+                    background: @bg-v;
+                    .text-shadow(@bg-v);
+                    color: @text-fff;
+                    &.icon-weixin{
+                        background: @themeColor;
+                        .text-shadow(@themeColor);
+                    }
+                }
+                &.phone{
+                    border-right:1px solid @border-da;
+                    .iconfont{
+                        line-height:2.5rem;
+                    }
+                }
+                p{
+                    margin:0.5rem 0;
+                    font-size: 1.6rem;
+                }
+                .bind-account-weixin, .bind-account-phone{
+                    span{
+                        display: none;
+                        color: @themeColor;
+                        &.btn{
+                            width: 50%;
+                            margin-left: 25%;
+                            height: 2rem;
+                            line-height: 2rem;
+                            border: 1px solid @themeColor;
+                            border-radius: 0.3rem;
+                        }
+                    }
+                    &.unbind{
+                        .bind-phone, .bind-weixin{
+                            display: block;
+                        }
+                    }
+                    &.bind{
+                        .text{
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

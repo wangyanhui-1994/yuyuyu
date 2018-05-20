@@ -1,0 +1,109 @@
+.page-visit{
+	.visit-info{
+		.list-box{
+			background: @bg-fff;
+			.item-content{
+				border-bottom:  1px solid @border-DB;
+				padding: 1.4rem 1rem 1.4rem 1.8rem;
+				.item-media{
+					padding: 0;
+					width: 5rem;
+					height: 5rem;
+					overflow: hidden;
+		            display: inline-block;
+					img{
+						width: 100%;
+					    display: block;
+					    border-radius: 50%;
+					}
+				}
+				.item-inner{
+					padding:0;
+					margin-left: 1.4rem;
+					.inner-content{
+						width: 100%;
+					}
+
+					.rec-user-name{
+						padding-right: 6rem;
+						position: relative;
+						.user-name-box{
+							white-space: nowrap;
+						    overflow: hidden;
+						    text-overflow: ellipsis;
+						    word-break: keep-all;
+						    vertical-align: middle;
+						    position: relative;
+						    display: inline-block;
+							span{
+						    	display: inline-block;
+
+						    }
+							.user-name-title{
+								font-size: 1.6rem;
+								line-height: 2.25rem;
+								color: @text-name;
+						    }
+						    .level-box{
+						    	position: absolute;
+						    	right: 0;
+						    	bottom: 0.3rem;
+						    }
+						}
+						.user-visit-time{
+							position: absolute;
+							right: 0;
+							bottom: 0;
+							font-size: 1.4rem;
+							line-height: 2rem;
+							color: @text-search;
+						}
+						
+					}
+					.rec-user-memo{
+						.col-70{
+							width: 70%;
+							font-size: 1.4rem;
+							line-height: 2rem;
+							color: @text-search;
+							overflow: hidden;
+		    				text-overflow: ellipsis;
+		    				word-break: keep-all;
+		    				white-space: nowrap;
+						}
+						.col-30{
+							width: 30%;
+							span{
+								display: inline-block;
+							    float: right;
+							    border-radius: .3rem;
+							    background: @bg-v;
+							    color: #fff;
+							    padding: .2rem .5rem;
+							    text-shadow: 1px -1px 1px @bg-v;
+							    margin-left: .2rem;
+							    font-size: 1.2rem;
+							    line-height: 1.65rem;
+							}
+						}
+					}
+					&::after{
+						display: none;
+					}
+				}
+
+			}
+		}
+		.load-all{
+	        font-size: 1.4rem;
+	        text-align: center;
+	        color: @text-category;
+	        margin: 0;
+	        padding: 0.7rem;
+	    }
+	    .icon-collection-active {
+	        color: @star;
+	        font-size: 1.2rem;
+	    }
+	}
+}

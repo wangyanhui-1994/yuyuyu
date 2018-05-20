@@ -1,0 +1,27 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <!-- Now, Left and Center parts reflect page title and page links, let's slide them -->
+        <div class="left sliding">
+            <a></a>
+        </div>
+        <div class="left sliding">
+            <!-- <a class="iconfont icon-back" href="views/home.html">返回</a> -->
+        </div>
+        <div class="center sliding">提示</div>
+    </div>
+</div>
+<div class="page page-submit-deal-succ no-swipeback no-animation" data-page="submitDealSucc">
+    <div class="page-content">
+        <div class="release-succ-head vue-box">
+            <div class="iconfont icon-tick"></div>
+            <div class="release-succ-text">提交成功</div>
+            <p>24小时内会有客服回电确认信息</p>
+            <div class="row release-succ-back-btn">
+                <a @click="closeDealView()" class="button col-45">回到信息详情</a>
+            </div>
+        </div>
+        <div class="release-succ-list">
+            <p>注意：审核通过后才会显示在信息详情中，请耐心等待</p>
+        </div>
+    </div>
+</div>

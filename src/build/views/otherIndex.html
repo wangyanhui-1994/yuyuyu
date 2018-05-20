@@ -1,0 +1,185 @@
+<div class="navbar">
+    <div class="navbar-inner other-index">
+        <!-- Now, Left and Center parts reflect page title and page links, let's slide them -->
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding">个人主页</div>
+    </div>
+</div>
+<div class="page swipeback page-other-index" data-page="otherIndex">
+    <div class="page-content pull-to-refresh-content other-index-refresh">
+        <div class="pull-to-refresh-layer">
+            <div class="preloader"></div>
+            <div class="pull-to-refresh-arrow"></div>
+        </div>
+        <div class="vue-box">
+            <div class="user-head">
+                <div class="user-head-index">
+                    <div class="head-content">
+                        <img class="haed-img" :src="headUrl(userInfo.imgUrl)" alt="">
+                        <img class="icon" v-if="userInfo.userGuaranteed" src="./img/ic_shop_danbao.png" alt="">
+                        <div class="user-des">
+                            <p class="user-title">{{userInfo.nickname||"匿名用户"}}</p>
+                            <p class="user-level">{{userInfo.level}}级 
+                                <i  v-for="item in levelArray(userInfo.level)" class="iconfont icon-collection-active"></i> 
+                            </p>
+                            <p class="user-sale">已成交过{{tradesCount}}笔</p>
+                        </div>
+                        <div class="invite-friend" v-if="isMyShop" @click="inviteFriends()">邀请好友</div>
+                    </div>
+                </div>
+                <div class="user-medal">
+                    <div class="medal-title">{{isMyShop ? '我的勋章':'他的勋章'}}</div>
+                    <div class="medal-list" v-if="medalCount">
+                        <div class="medal-content" v-for="(item,index) in medalList" @click = "goMainMedal()" v-if="item.medalCount">
+                            <img :src="'img/medal'+item.id+'.png'" alt="">
+                            <div class="medal-name">{{item.name}}</div>
+                        </div>
+                    </div>
+                    <div class="his-medal-empty empty-title" v-if="!isMyShop && !medalCount">
+                        TA还没有获得勋章
+                    </div>
+                    <div class="my-medal-empty" v-if="isMyShop && !medalCount">
+                        <div class="empty-title">
+                        我居然还没有获得勋章
+                        </div>
+                        <a class="study" href="views/aquaticClassroom.html">
+                            去学习
+                        </a>
+                    </div>
+                </div>
+               <!--  <div class="user-pic">
+                    <img :src="headUrl(userInfo.imgUrl)" alt="">
+                </div>
+                <div class="user-head-info">
+                    <div class="head-info-title">{{userInfo.nickname||"匿名用户"}}</div>
+                    <div class="head-info-description">
+                        <span class="user-level" v-if="userInfo.level>0">
+                              <i  v-for="item in levelArray(userInfo.level)" class="iconfont icon-collection-active"></i> 
+                        </span>
+                        <span class="level-title" v-if="userInfo.level>0">{{userInfo.level}}级 </span>
+                        <p class="level-title " v-if="tradesCount > 0" :class="(userInfo.level === 0) ? 'deal-new':'deal-count'">
+                        成交{{tradesCount}}笔</p>
+                    </div>
+                </div> -->
+                <!-- <div class="user-head-top"></div>
+                <div class="user-pic">
+                    <img :src="headUrl(userInfo.imgUrl)" alt="">
+                </div>
+                <div class="user-head-info">
+                    <div class="head-info-title">{{userInfo.nickname||"匿名用户"}}</div>
+                    <div class="head-info-description">
+                        <span class="user-level" v-if="userInfo.level>0">
+                              <i  v-for="item in levelArray(userInfo.level)" class="iconfont icon-collection-active"></i> 
+                        </span>
+                        <span class="level-title" v-if="userInfo.level>0">{{userInfo.level}}级 </span>
+                        <p class="level-title " v-if="tradesCount > 0" :class="(userInfo.level === 0) ? 'deal-new':'deal-count'">
+                        成交{{tradesCount}}笔</p>
+                    </div>
+                </div> -->
+                <div class="user-head-help" v-if="isMyShop && (!userInfo.abilityDesc && (!userInfo.abilityImgList || !userInfo.abilityImgList.length))">
+                    <div class="help-content">完整的实力展示可以帮助用户了解你快速建立起信任，帮助成交~</div>
+                     <a href="views/strengthShow.html" >去填写实力展示</a>
+                </div>
+            </div>
+            <!-- <div class="user-header row">
+                <div class="other-level col-33">
+                    <span class="iconfont" :class="'icon-v' + userInfo.level"></span>
+                    <p>等级</p>
+                </div>
+                <div class="user-pic col-33">
+                    <img :src="userInfo.imgUrl ? (userInfo.imgUrl + '?x-oss-process=image/resize,m_fill,h_100,w_100/circle,r_100/format,png') : 'img/defimg.png'" class="lazy" />
+                </div>
+                <div class="col-33 other-cat">
+                    <span>{{recentScanTimes}}</span>
+                    <p>近期浏览</p>
+                </div>
+                <p class="col-100 text-hidden">{{userInfo.nickname || '匿名用户'}}</p>
+            </div> -->
+            <!-- strength show -->
+            <!-- 实力展示 -->
+            <div class="other-index-cert">
+                <div class="cert-list-title" v-if="1 == userInfo.personalAuthenticationState || 1 == userInfo.enterpriseAuthenticationState || fishCertificateList.length||buyFishTypes.length">
+                    相关认证
+                </div>
+                <div class="cert-list" onclick="apiCount('cell_profile_certificate')">
+                    <a v-if="1 == userInfo.personalAuthenticationState">
+                        <span class="cert-label water">个</span>已通过个人实名认证
+                    </a>
+                    <a v-if="1 == userInfo.enterpriseAuthenticationState" class="open-cert-button">
+                        <span class="cert-label identity">企</span>企业认证：{{userInfo.enterpriseName}}
+                    </a>
+
+                    <a v-for="item in fishCertificateList" class="iconfont icon-right open-cert-button" :data-url="(item.path || item.url) + '@1o'" @click="veiwCert">
+                        <span class="cert-label" :class="getCertInfo(item.type).classes">
+                             {{getCertInfo(item.type).label}}
+                            </span>{{'具备“' + getCertInfo(item.type).certName + '”-' + (item.fish_type_name || item.fishTypeName)}}
+                    </a>
+
+                    <a href="views/transactionProcess/guaranteeDesc.html" v-if="userInfo.userGuaranteed" class="danbao-info iconfont icon-right">
+                        <span class="cert-label bao-label">保</span>
+                        支持鱼大大担保交易
+                    </a>
+
+                    <a v-if="buyFishTypes && buyFishTypes.length" class="open-cert-button buy-fish-list">
+                        <span class="cert-label buy-label">求</span>长期求购：
+                        <b v-if="item" v-for="(item, index) in buyFishTypes">{{item.name + ((index + 1) == buyFishTypes.length ? '' : '、')}}</b>
+                    </a>                    
+                </div>
+            </div>
+            <div class="shop-strength" v-if="(userInfo.abilityDesc || (userInfo.abilityImgList && userInfo.abilityImgList.length))">
+                <div  v-if="userInfo.abilityDesc || (userInfo.abilityImgList && userInfo.abilityImgList.length)">
+                    <div class="item-input shop-strength-info" v-if="userInfo.abilityDesc">
+                        <span>{{userInfo.abilityDesc}}</span>
+                    </div>
+                    <div class="shop-strength-pic" v-if="userInfo.abilityImgList && userInfo.abilityImgList.length">
+                        <span class="shop-pic"
+                              v-for="(item, index) in userInfo.abilityImgList"
+                              :class="{'on': (index + 1) % 4 == 0}"
+                              @click="catPic(item)">
+                            <img :src="item + '?x-oss-process=image/resize,m_fill,h_80,w_80/format,png'" alt="">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="other-index-list" v-show="saleDemandsCount || buyDemandsCount">
+                <div class="other-sell-list" v-show="saleDemandsCount">
+                    <div class="title row">
+                        <div class="col-50">正在出售({{saleDemandsCount}})</div>
+                    </div>
+                    <div class="list  list-block media-list" onclick="apiCount('cell_profile_sellMore')"></div>
+                    <div class="other-all-buy-info other-sell-cat-all" onclick="apiCount('cell_profile_purchaseMore')">
+                        <a class="btn iconfont icon-go" :href="'views/otherList.html?id=' + currentUserId + '&type=2'">更多出售的信息</a>
+                    </div>
+                </div>
+                <!-- <div class="other-buy-list" v-show="buyDemandsCount">
+                    <div class="title row">
+                        <div class="col-50">正在求购({{buyDemandsCount}})</div>
+                    </div>
+                    <div class="list" onclick="apiCount('cell_profile_purchaseItem')"></div>
+                    <div class="other-all-buy-info other-buy-cat-all" onclick="apiCount('cell_profile_purchaseMore')">
+                        <a class="btn iconfont icon-go" :href="'views/otherList.html?id=' + currentUserId + '&type=1'">更多求购的信息</a>
+                    </div>
+                </div> -->
+            </div>
+            <div class="empty-info" v-show="!saleDemandsCount && !buyDemandsCount">
+                <div class="empty-info-pic">
+                    <i class=" iconfont icon-copy"></i>
+                </div>
+                <p>{{isMyShop ? '快去发布一个信息吧~' : '他比较懒，还没有发布过信息'}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="toolbar tabbar">
+        <div v-if="!isMyShop" class="toolbar-inner other-footer-call" @click="callPhone(phone)">
+            <a class="iconfont icon-call">电话联系</a>
+        </div>
+
+        <div v-if="isMyShop" class="toolbar-inner other-footer-call" @click="goMyShop">
+            <a class="iconfont icon-share">分享我的店铺 增加曝光</a>
+        </div>
+    </div>
+</div>
+

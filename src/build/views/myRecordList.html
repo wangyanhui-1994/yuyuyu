@@ -1,0 +1,23 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding ">我的成交(共<b>0</b>笔) </div>
+    </div>
+</div>
+<div class="page swipeback toolbar-through page-my-record-list" data-page="myRecordList">
+    <div class="page-content infinite-scroll pull-to-refresh-content">
+        <div class="vue-record"> 
+            <empty-box text="暂无成交信息~" v-if="isEmpty"></empty-box>         
+            <record-list-component v-show="!isEmpty" :record-List="recordList" :is-Loading="isLoading"/>
+        </div>  
+	</div >   
+    <div class="toolbar tabbar">
+        <div class="toolbar-inner">
+                <div class="record-footer" @click="myListSell">
+                <button href="#" class="btn">我要上报</button>
+                <p>选择一条出售信息->提交成交信息</p>
+        </div>  
+    </div>
+</div>

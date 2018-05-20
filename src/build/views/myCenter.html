@@ -1,0 +1,68 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <!-- Now, Left and Center parts reflect page title and page links, let's slide them -->
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding">个人资料</div>
+    </div>
+</div>
+<div class="page swipeback page-my-center" data-page="myCenter">
+    <div class="page-content vue-box">
+        <div class="list-block">
+            <div class="item-content my-center-head" @click="postHeadPic()">
+                <div class="item-inner">
+                    <div class="item-title label">头像</div>
+                    <div class="item-input iconfont icon-right">
+                        <img :src="userInfo.imgUrl ? (userInfo.imgUrl + imgPath(8)) : 'img/defimg.png'" alt="头像">
+                    </div>
+                </div>
+            </div>
+            <div class="item-content my-center-nickname" @click="goEditName()">
+                <div class="item-inner">
+                    <div class="item-title label">名字</div>
+                    <div class="item-input iconfont icon-right center-name"><span>{{userInfo.nickname || '匿名用户'}}</span></div>
+                </div>
+            </div>
+            <div class="item-content my-center-phone">
+                <div class="item-inner">
+                    <div class="item-title label">手机号码</div>
+                    <div class="item-input iconfont icon-right"><span>{{userInfo.phone}}</span></div>
+                </div>
+            </div>
+            <div class="item-content my-center-address" @click="selectAddress()">
+                <div class="item-inner">
+                    <div class="item-title label">所在地区</div>
+                    <div class="item-input iconfont icon-right"><span>{{getAddress}}</span></div>
+                </div>
+            </div>
+        </div>
+        <!-- strength show -->
+        <div class="list-block strength-show">
+              <div class="align-top">
+                  <div class="item-content">
+                        <div class="item-inner item-show">
+                            <div class="item-title">实力展示</div>
+                            <a href="./views/strengthShow.html"
+                               class="item-input iconfont icon-right user-info-show"
+                               :class="(!userInfo.abilityDesc || userInfo.abilityDesc.length <= 15) && 'text-right'">
+                                <span>{{userInfo.abilityDesc || '请填写'}}</span>
+                            </a>
+                        </div>
+                  </div>
+              </div>
+            <div class="strength-show-pic" v-if="userInfo.abilityImgList && userInfo.abilityImgList.length">
+                  <div class="pic-info-my">
+                        <span class="pic-info-img"
+                              v-for="item in userInfo.abilityImgList"
+                              @click="catPic(item)">
+                            <img :src="item + '?x-oss-process=image/resize,m_fill,h_80,w_80/format,png'" alt="">
+                        </span>
+                  </div>
+            </div>
+        </div>
+        <div class="my-center-logout button" @click="logOut()">
+            退出登录
+        </div>
+    </div>
+</div>

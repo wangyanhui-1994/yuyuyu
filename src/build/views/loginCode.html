@@ -1,0 +1,25 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <!-- Now, Left and Center parts reflect page title and page links, let's slide them -->
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding">验证码</div>
+        <div class="right sliding"></div>
+    </div>
+</div>
+<div class="page swipeback page-login-code" data-page="loginCode">
+    <div class="page-content">
+        <p class="login-code-title">短信验证码已发送到你的手机</p>
+        <p class="login-code-phone">XXXXXXXXXXX</p>
+        <div class="login-code-write">
+            <input type="tel" />
+            <span class="login-code-mask"></span>
+            <span class="login-code-mask mask2"></span>
+            <span class="login-code-mask mask3"></span>
+            <span class="login-code-mask mask4"></span>
+        </div>
+        <p class="login-code-voice" onclick="apiCount('btn_resend_code')">收不到验证码？点击这里</p>
+        <a class="button login-code-submit">登录</a>
+    </div>
+</div>

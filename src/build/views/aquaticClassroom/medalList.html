@@ -1,0 +1,27 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding medal-list-name">勋章</div>
+        <div class="right sliding"></div>
+    </div>
+</div>
+<div class="page swipeback toolbar-through page-medal-List" data-page="medalList" >
+    <div class="page-content infinite-scroll vue-box"  :class="hasMedal?'bg-blue':'bg-empty' ">
+           <!-- 勋章列表 -->
+            <div class="medal-info" >
+                <div class="medal-info-header">
+                    <p>{{getYearWeek()}}</p>
+                    <p>{{userName?"他":"我"}}共获得过<span>{{medalInfo.medalCount}}</span>次{{medalInfo.name}}</p>
+                </div>
+                <div class="medal-info-list">
+                    <a href="" v-for="item in medalInfo.weekMedalList" @click="goInfo(item)">
+                        <img :src="'img/medal'+medalInfo.id +'.png'" alt="">
+                        <p class="week">第{{item.weekOfYear}}周</p>
+                        <p class="time">{{item.year}}年</p>
+                    </a>
+                </div>
+            </div> 
+    </div>
+</div>

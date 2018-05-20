@@ -1,0 +1,71 @@
+<div class="navbar">
+    <div class="navbar-inner navbar-on-center detail-text">
+        <div class="left sliding">
+            <a class="iconfont icon-back back pay-flow-view-close">返回</a>
+        </div>
+        <div class="center sliding">采购单</div>
+        <div class="right sliding contact-service">联系客服</div>
+    </div>
+</div>
+<div class="page no-swipeback no-animation page-purchase-order" data-page="purchaseOrder">
+    <div class="page-content infinite-scroll">
+        <div class="vue-box">
+            <div class="purchase-header">
+                <div class="header-content">
+                    <div class="header-box">
+                        <img class="goods-img" :src="img+'?x-oss-process=image/resize,m_fill,h_100,w_100/format,png'" >
+                        <div class="header-content-text">
+                            <div class="title">{{fishTypeName}}</div>
+                            <div class="desc">{{quantityTags}}</div>
+                            <div class="seller">来自{{contactName}}</div>
+                            <img class="guarantee" src="img/guarantee.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="main-content">
+                    <div class="cut-line">
+                        <div class="line"></div>
+                        <div class="circle-left"></div>
+                        <div class="circle-right"></div>
+                    </div>
+                    <div class="content-box">
+                        <div class="item-content">
+                            <div class="content-title">购买数量</div>
+                            <div class="count-unit">
+                                <input type="number" class="count" placeholder="输入购买数量" v-model="orderInfo.num" maxlength="8" @keyup="checkBuyLength()">
+                                <span class="unit unit-text">{{unitText}}<img src="img/wei.png"></span>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <div class="content-title">成交总价</div>
+                            <input type="number" class="money" v-model="orderInfo.money" placeholder="输入成交总金额" maxlength="8" @keyup="checkBuyLength()">
+                            <span class="yuan">元</span>
+                        </div>
+                        <div class="item-content">
+                            <div class="content-title">留言备注</div>
+                            <textarea class="memo" rows="2" placeholder="可以输入留言给卖家" v-model="orderInfo.buyerRemark" maxlength="100"></textarea>
+                           
+                        </div>
+                    </div>
+                    <div class="cut-line">
+                        <div class="line"></div>
+                        <div class="circle-left"></div>
+                        <div class="circle-right"></div>
+                    </div>
+                    <div class="content-box last-box">
+                        <div class="item-content">
+                            <div class="content-title">收货地址<span class="modify" @click="changeAddress()" v-if="address">修改</span></div>
+                            <textarea type="text" class="address" rows="2" placeholder="请输入你的地址"  @click="changeAddress()" readonly="readonly" v-if ="!address"></textarea>
+                            <div class="address-box" v-html="address" v-if="address" @click="changeAddress()"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="purchase-footer">
+                <div class="payoff" :class="{'pay-on': payOn}" @click="goToPay">立即支付 <span v-if="orderInfo.money">¥{{orderInfo.money}}</span></div>
+                <div class="pay-description">本次交易支持鱼大大担保交易，查看<a @click="aboutItem()">相关条款>></a></div>
+            </div>
+        </div>
+    </div>
+</div>

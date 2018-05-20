@@ -1,0 +1,31 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+            <a class="back iconfont icon-back">返回</a>
+        </div>
+        <div class="center sliding">价格</div>
+    </div>
+</div>
+<div class="page-release-price page swipeback" data-page="releasePrice">
+    <div class="page-content vue-box">
+        <div class="list-block">
+            <div class="item-content low-price">
+                <div class="item-inner">
+                    <div class="item-title label">最低价格</div>
+                    <div class="item-input">
+                        <input type="text" v-model="lowerPrice" maxlength="8" @keyup="checkText('lowerPrice')" placeholder="请填写最低价格">
+                    </div>
+                </div>
+            </div>
+            <div class="item-content expect-price">
+                <div class="item-inner">
+                    <div class="item-title label">期望价格</div>
+                    <div class="item-input">
+                        <input type="text" v-model="price" maxlength="8" @keyup="checkText('price')" placeholder="请填写期望价格">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="save-change" @click="saveEdit()">保存修改</div>
+    </div>
+</div>

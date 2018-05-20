@@ -1,0 +1,106 @@
+.page-logistics-info{
+    .vue-box{
+        padding-top: 1rem;
+        .form-content{
+            .form-item{
+                padding-left: 25%;
+                background: @bg-fff;
+                height: 5rem;
+                line-height: 5rem;
+                position: relative;
+                font-size: 1.5rem;
+                color: @text-333 / 3 * 5;
+                label{
+                    display: inline-block;
+                    position: absolute;
+                    top: 0;
+                    left: 4%;
+                    line-height: 5rem;
+                    box-sizing: border-box;
+                }
+            }
+            .form-first-item{
+                padding-right: 8%;
+                .firstMenu{
+                    text-align: right;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    box-sizing: border-box;
+                    border:none;
+                    padding: 1.45rem 0;
+                    font-size: 1.5rem;
+                }
+                input{
+                    color: @text-333;
+                    &::-webkit-input-placeholder {
+                        color: @text-333 / 3 * 5;
+                    }
+                }
+                .first-menu-date{
+                    color: @text-invite-code;
+                }
+                .icon{
+                    display: inline-block;
+                    position: absolute;
+                    right: 3%;
+                    top: 0;
+                    line-height: 5rem;
+                    color: fade(@text-85,50);
+                    font-size: 1.5rem;
+                }
+            }
+            .line{
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+                border-bottom: 1px solid @bg-body;
+            }
+            .form-item-order-num{
+                margin-top: 0.5rem;
+                padding-right: 4%;
+                .secondMenu{
+                    text-align: right;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    box-sizing: border-box;
+                    border:none;
+                    padding: 1.45rem 0;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        .describe{
+            padding: 0.8rem 4% 0;
+            line-height: 2rem;
+            font-size: 1.4rem;
+            color: fade(@text-333 / 3 * 5,50);
+        }
+        .form-submit-btn{
+            line-height: 0;
+            padding: 2.5rem 0;
+            text-align: center;
+            width: 77.5%;
+            margin: 4rem auto 0;
+            background: @btn-bc;
+            color: @text-fff;
+            font-size: 1.6rem;
+            border-radius: 4px;
+            &.pass{
+                background: @themeColor;
+            }
+        }
+    }
+    .toolbar-inner{
+        padding: 0;
+        background: @bg-v;
+        .text-shadow(@bg-v);
+        a{
+            color: @bg-fff;
+            div{
+                font-size: 1.8rem;
+            }
+        }
+    }
+}

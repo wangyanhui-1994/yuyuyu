@@ -1,0 +1,94 @@
+.page-invite-friends-list {
+    .page-content {
+        .invite-friends-list {
+            background: @bg-fff;
+            .text-shadow(@text-fff);
+            font-size: 1.6rem;
+            color: @text-name;
+            line-height: 4rem;
+            // padding-left: 2%;
+            border-bottom: 1px solid @border-da;
+            .row {
+                border-bottom: 1px solid @border-da;
+                &.last {
+                    border-bottom: none;
+                }
+                span {
+                    .text-hidden;
+                    width: 20%;
+                    display: block;
+                    float: left;
+                    &.left {
+                        text-align: left;
+                        width: 40%;
+                    }
+                    &.right {
+                        text-align: right;
+                        padding-right: 0.5rem;
+                        width: 40%;
+                    }
+                    &.invite-time {
+                        color: @text-subtitle;
+                    }
+                }
+            }
+
+            .invite-item{
+                position: relative;
+                border-bottom: 1px solid @border-da;
+                padding: 1.2rem 6.2rem 1.2rem 1.2rem;
+                font-size: 1.4rem;
+                display: block;
+                width: 100%;
+                overflow: hidden;
+                box-sizing: border-box;
+                .content{
+                    color: rgba(85,85,85,0.50);
+                    font-size: 1.4rem;
+                    .text-hidden;
+                    p{
+                        margin: 0;
+                        line-height: 1.5;
+                        text-align: left;
+                        font-size: 1.2rem;
+                        &.title{
+                            color: #555;
+                            padding-bottom: 0.2rem;
+                            font-size: 1.4rem;
+                            span{
+                                margin: 0 5px;
+                                color: #FF7800;
+                                display: inline-block;
+                                .text-hidden;
+                                max-width: 135px;
+                                vertical-align: middle;
+                                position: relative;
+                                top: -1px;
+                            }
+                        }
+                    }
+                }
+                .right{
+                    color: @text-level;
+                    position: absolute;
+                    right: 1.2rem;
+                    top: 0;
+                    display: flex;
+                    align-items: center;
+                    height: 100%;
+                    i{
+                        color: #b5b5b5;
+                    }
+                }
+            }
+        }
+        p{
+        	.text-center;
+        	color: @text-subtitle;
+        	font-size: 1.6rem;
+        	span{
+        		padding: 0 0.2rem;
+        	}
+        }
+    }
+}

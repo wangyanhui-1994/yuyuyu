@@ -1,0 +1,32 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding">勋章</div>
+    </div>
+</div>
+<div class="page swipeback toolbar-through page-my-medal" data-page="myMedal">
+    <div class="page-content infinite-scroll">
+    	<div class="vue-box">
+            <div class="medal-header">
+                <img src="img/jixunzhanghead.png" alt="">
+            </div>
+            <div class="medal-type" >
+                <div class="type" :class="index == 2 ? 'third':'' "  v-for="(item,index) in medalList">
+                    <div class="type-content" @click="goMedalInfo(item)" :class="item.medalCount? '':'type-empty'" v-if="hideEmptyMedal(item.medalCount)">
+                        <div :class="[item.medalCount ? 'medal-left':'medal-right' , item.medalCount? 'medal-full':'medal-empty']">
+                            <img :src="item.medalCount ? 'img/medal'+item.id+'.png' : 'img/medalempty'+item.id+'.png'" alt="">
+                        </div>
+                        <div class="des-content">
+                            <div :class="item.medalCount ? 'des-cen':'des-left'">
+                                <img :src="'img/week'+item.id+'.png'" alt="">
+                                <div class="des-num">{{item.medalCount ? item.medalCount +'次':'未获取'}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    	</div>
+    </div>
+</div>

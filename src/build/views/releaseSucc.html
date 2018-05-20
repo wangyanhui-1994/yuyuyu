@@ -1,0 +1,31 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <!-- Now, Left and Center parts reflect page title and page links, let's slide them -->
+        <div class="left sliding">
+            <a class="iconfont icon-back" href="views/homeBuy.html">返回首页</a>
+        </div>
+        <div class="left sliding">
+            <!-- <a class="iconfont icon-back" href="views/home.html">返回</a> -->
+        </div>
+        <div class="center sliding">发布成功</div>
+    </div>
+</div>
+<div class="page page-release-succ no-swipeback no-animation" data-page="releaseSucc">
+    <div class="page-content">
+        <div class="release-succ-head">
+            <div class="iconfont icon-tick"></div>
+            <div class="release-succ-text">恭喜！发布成功</div>
+            <p><i></i>24小时内会有客服回电联系，请保持手机畅通</p>
+            <p><i></i><span>注意：审核通过后信息才会在首页展示</span></p>
+            <div class="row release-succ-back-btn">
+                <a href="views/release.html" class="button col-45 first" onclick="apiCount('btn_postAgain')">再发一次</a>
+                <a href="views/homeBuy.html" class="button col-45" class="button col-45 first" onclick="apiCount('btn_goHome')">返回首页</a>
+            </div>
+        </div>
+        <div class="release-succ-list">
+            <div class="title"><span class="iconfont icon-down"></span>推荐你这些“<span class="release-succ-name"></span>”</div>
+            <div class="list-view list-block media-list" onclick="apiCount('cell_recommendDemand')"></div>
+        </div>
+        <img style="z-index: -999;visibility: hidden; " data-src="img/ic_category_commonfish.png " src="img/app_icon_108.png " class="lazy " width="32 " alt=" ">
+    </div>
+</div>

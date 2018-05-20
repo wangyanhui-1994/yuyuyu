@@ -1,0 +1,62 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left sliding">
+            <a class="home-tabbar-logo back filter-tabbar iconfont icon-back link-back">返回</a>
+        </div>
+        <div class="center sliding">我的出售</div>
+        <div class="subnavbar my-collection-tab sliding">
+            <!-- Buttons row as tabs controller in Subnavbar-->
+            <div class="buttons-row">
+                <!-- Link to 1st tab, active -->
+                <a href="#tab1" class="button active tab-link">出售信息</a>
+                <!-- Link to 2nd tab -->
+                <a href="#tab2" class="button tab-link">求购信息</a>
+                <!-- Link to 3rd tab -->
+                <!-- <a href="#tab3" class="button tab-link">Tab 3</a> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page swipeback page-my-list" data-page="myList">
+    <!-- Tabs swipeable wrapper, required to switch tabs with swipes -->
+    <div class="tabs-swipeable-wrap">
+        <!-- Tabs, tabs wrapper -->
+        <div class="tabs">
+            <!-- Tab 1, active by default -->
+            <div id="tab1" class="page-content tab infinite-scroll pull-to-refresh-content sell-refresh-content">
+                <div class="pull-to-refresh-layer ">
+                    <div class="preloader "></div>
+                    <div class="pull-to-refresh-arrow"></div>
+                </div>
+                <div class="collection-list-info sell-collection-list-info  list-block media-list" style="padding-top: 5px;"></div>
+                <p class="collection-empty-info   sell-collection-empty-info">已显示全部</p>
+                <!-- Preloader -->
+                <div class="infinite-scroll-preloader sell-infinite-scroll-preloader">
+                    <div class="preloader "></div>
+                </div>
+                <div class="collection-list-empty sell-collection-list-empty">
+                    <div class="iconfont icon-copy"></div>
+                    <p>你还没有发布过出售信息！</p>
+                </div>
+            </div>
+            <!-- Tab 2 -->
+            <div id="tab2" class="page-content tab infinite-scroll pull-to-refresh-content buy-refresh-content">
+                <div class="pull-to-refresh-layer ">
+                    <div class="preloader "></div>
+                    <div class="pull-to-refresh-arrow"></div>
+                </div>
+                <div class="collection-list-info  buy-collection-list-info"></div>
+                <p class="collection-empty-info  buy-collection-empty-info">已显示全部</p>
+                <!-- Preloader -->
+                <div class="infinite-scroll-preloader buy-infinite-scroll-preloader">
+                    <div class="preloader "></div>
+                </div>
+                <div class="collection-list-empty  buy-collection-list-empty">
+                    <div class="iconfont icon-copy"></div>
+                    <p>你还没有发布过求购信息！</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img style="z-index: -999;visibility: hidden; " data-src="img/ic_category_commonfish.png " src="img/app_icon_108.png " class="lazy " width="32 " alt=" ">
+</div>

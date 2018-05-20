@@ -1,0 +1,99 @@
+.page-release-fish-car-demand, .page-release-fish-car-trip {
+    .page-content {
+        padding-top: 6.4rem;
+        .align-top{
+            margin-bottom: 1rem;
+            .item-inner{
+                &:after{
+                    display: none;
+                }
+            }
+        }
+        .align-top, & > .item-content {
+            background: @bg-fff;
+            .text-shadow(@bg-fff);
+            overflow-x: hidden;
+            .item-content {
+                textarea {
+                    line-height: 2rem;
+                    height: 8rem;
+                    font-size: 1.6rem;
+                }
+            }
+            .item-inner{
+                &:after{
+                    left: 3.1rem;
+                }
+                &.hide-after:after{
+                    display: none;
+                }
+                .item-title{
+                    width: 2rem;
+                    margin-right: 1.2rem;
+                    display: inline-block;
+                    &.label{
+                        height: 2rem;
+                        border-radius: 1rem;
+                        background: @text-category;
+                        color: @text-fff;
+                        font-size: 1rem;
+                        .text-shadow(@text-category);
+                        .text-center;
+                        line-height: 2.2rem;
+                        margin-right: 1rem;
+                        &.label-end{
+                            background: @bg-v;
+                            .text-shadow(@bg-v);
+                        }
+                        &.label-start{
+                            background: @text-print;
+                            .text-shadow(@text-print);
+                        }
+                    }
+                    &.icon-time{
+                        font-size: 2.2rem;
+                        width: 2.6rem;
+                        color: @text-category;
+                    }
+                    &.icon-call, &.icon-active-user{
+                        color: @text-category;
+                    }
+                }
+                .item-input{
+                    input{
+                        font-size: 1.6rem;
+                        color: @text-name;
+                    }
+                }
+            }
+        }
+
+        .last-child{
+            border-bottom:1px solid @border-da;
+        }
+        p {
+            margin: 1.5rem 15%;
+            line-height: 1.6;
+            font-size: 1.6rem;
+            color: @text-category;
+            .text-center;
+        }
+    }
+
+    .toolbar {
+        .toolbar-inner {
+            padding: 0;
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: @text-test;
+                .text-shadow(@text-test);
+                font-size: 1.8rem;
+                line-height: 5rem;
+                .text-center;
+                color: @text-fff;
+            }
+        }
+    }
+}

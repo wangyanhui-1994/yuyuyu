@@ -1,0 +1,91 @@
+.page-my-medal{  
+    background: @bg-blue;
+    .page-content{
+    	.vue-box{
+    		background: url(../img/guang.png) top left no-repeat @bg-blue;
+    		background-size: contain;
+    	}
+    	.medal-header{
+    		width: 100%;
+    		img{
+    			display: block;
+    			width: 73.6%;
+    			margin: 0 auto;
+    		}
+    	}
+    	.medal-type{
+    		padding-top: 4.45rem;
+    		.type{
+    			width: 100%;
+    			padding-bottom: 7.05rem;
+                padding-bottom: 15%;
+    			.type-content{
+    				position: relative;
+					width: 60.8%;
+    				padding: 1.1rem 8.9% 1.1rem 11.2%;
+    				background: rgba(0,0,0,0.20);
+					border-radius: 5rem;
+					margin: 0 auto;
+    				box-sizing: border-box;
+    				.medal-right{
+    					position: absolute;
+    					bottom: -1.65rem;
+						right: -0.8rem;
+    				}
+    				.medal-left{
+    					position: absolute;
+    					bottom: -1.65rem;
+						left: -0.8rem;
+    				}
+    				.medal-full{
+	    				img{
+	    					width: 8.85rem;
+	    				}
+	    			}
+	    			.medal-empty{
+	    				bottom: -1.15rem;
+	    				img{
+	    					width: 7.7rem;
+	    				}
+	    			}
+	    			.des-content{
+						.des-cen{
+							text-align: center;
+							width: 7rem;
+							float: right;
+						}
+						.des-left{
+							text-align: center;
+							width: 7rem;
+							float: left;
+						}
+						.des-num{
+							font-size: 1.6rem;
+							font-weight: bold;
+							color: @bg-fff;
+							line-height: 2rem;					
+    						margin-top: -0.5rem;
+						}
+						img{
+							width: 7rem;
+						}
+					}
+    			}
+                .type-empty{
+                    background: rgba(255,255,255,0.20);
+                }
+    			.des-content:after{ 
+    				content:"."; 
+    				height:0; 
+    				visibility:hidden; 
+    				display:block; 
+    				clear:both; 
+    			}
+    			&.third{
+    				padding: 0;
+    			}
+				
+    		}
+    	}
+    }
+}

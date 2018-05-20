@@ -1,0 +1,144 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <form class="searchbar index-search center sliding">
+            <div class="searchbar-input">
+                <a>
+                    <input type="search" placeholder="点击搜索品种名称，例如黑鱼" class="index-search-link">
+                    <div class="home-search-mask" onclick="apiCount('textfield_search_home')"></div>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="page toolbar-through page-home-sell no-swipeback no-animation" data-page="homeSell">
+    <div class="page-content pull-to-refresh-content infinite-scroll">
+        <div class="pull-to-refresh-layer">
+            <div class="preloader"></div>
+            <div class="pull-to-refresh-arrow"></div>
+        </div>
+        <div class="home-vue-box">
+            <!-- brower and level and sell -->
+            <div class="sell-number row">
+                <a class="sell-brower-number col-33">
+                    <div>
+                        <span class="sell-info-num">{{userData.recentScanTimes || 0}}</span>
+                        <div class="sell-info-title">最近浏览次数</div>
+                    </div>
+                </a>
+                <a class="sell-level-number col-33">
+                    <div>
+                        <span class="sell-info-num">{{userData.level || 0}}</span>
+                        <div class="sell-info-title">我的等级</div>
+                    </div>
+                </a>
+                <a class="sell-my-number col-33">
+                    <div>
+                        <span class="sell-info-num">{{userData.saleDemandsCount || 0}}</span>
+                        <div class="sell-info-title">我的出售</div>
+                    </div>
+                </a>
+            </div>
+            <!-- Refresh the information -->
+            <div class="refresh-info row">
+                <a href="views/filter.html?type=1" onclick="apiCount('btn_wanttobuy')" class="col-25 buy-info">
+                    <img src="img/icon_buy.png" alt="">
+                    <p>求购大厅</p>
+                </a>
+
+                <a class="col-25 shop-info" @click="isLogin ? goMyShop() : login()">
+                    <img src="img/ic_myShop.png" alt="">
+                    <p>我的店铺</p>
+                </a>
+
+                <a href="views/fishMarket.html" class="col-25 fish-market">
+                    <i>新</i>
+                    <img src="img/ic_market.png" alt="">
+                    <p>批发市场</p>
+                </a>
+
+                <a class="col-25 find-FishCar" href="views/fishCar.html?isFishCar=0" onclick="apiCount('btn_sell_fishcar')">
+                    <img src="img/ic_yucheb.png" alt="">
+                    <p>找鱼车</p>
+                </a>
+            </div>
+            <div class="refresh-info-day" v-if="isLogin && userData.refreshTip">
+                <div class="refresh-text">
+                    <span class="three-day day-and-week">{{userData.refreshTip}}</span>
+                    <a class="refresh-btn" onclick="apiCount('btn_sell_hintRefreshClick')" href="views/myList.html?type=2">立即刷新</a>
+                </div>
+            </div>
+            <!-- recent release -->
+            <div class="recent-release-all">
+                <div class="release-title">
+                    最近发布
+                    <a class="iconfont icon-right" onclick="apiCount('btn_sell_moreInfo')" href="views/myList.html?type=2" v-if="isLogin">查看更多</a>
+                </div>
+                <div class="release-content">
+                    <!-- 1种显示发布后的状态 -->
+                    <div class="hsa-sell-info" v-if="userData && userData.recentPublished && userData.recentPublished.length">
+                        <a class="list-block recent-info"
+                           v-for="item in userData.recentPublished"
+                           v-if="item"
+                           :href="'views/selldetail.html?id=' + item.id"
+                           oclick="apiCount('cell_sell_recentInfo')">
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <img src="img/app_icon_108.png" class="lazy" :data-src="item.imgList && item.imgList.length ? (item.imgList[0] + '?x-oss-process=image/resize,m_fill,h_100,w_100/format,png') : 'img/app_icon_108.png'">
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title">
+                                        <div class="fish-kind">{{item.fishTypeName}}</div><span>{{getDealTime(item.sort * 1000)}}</span></div>
+                                    <div class="item-subtitle">{{(item.provinceName || '') + (item.cityName || '')}}
+                                        <span v-if="item.quantityTagList && item.quantityTagList.length"> | {{item.quantityTagList[0].tagName}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="release-footer">
+                            <a class="refresh-info-btn on"
+                               href="views/myList.html?type=2"
+                               onclick="apiCount('btn_sell_refreshInfo')">刷新信息</a>
+                            <a class="refresh-info-btn refresh-sell-btn"
+                               href="views/filter.html?type=2&release=true"
+                               onclick="apiCount('btn_sell_postSellInfo')">发布出售信息</a>
+                        </div>
+                    </div>
+                    <!-- 2种发布出售信息状态 -->
+                    <!-- 3种未登录的状态 -->
+                    <div class="refresh-status" onclick="apiCount('btn_sell_help')">
+                        <p class="refresh-login-status" v-if="!isLogin">登录后，就可以发信息赚大钱啦</p>
+                        <p class="refresh-sell-status" v-if="isLogin && (!userData.recentPublished || !userData.recentPublished.length)">多发布点信息，生意才能更好~</p>
+                    </div>
+                </div>
+
+                <!-- 其他发布按钮状态 -->
+                <div class="release-footer release-footer-two">
+                    <a class="refresh-info-btn refresh-two-sell"
+                       v-if="isLogin && (!userData.recentPublished || !userData.recentPublished.length)"
+                       href="views/filter.html?type=2&release=true">发布出售信息</a>
+                    <a class="refresh-info-btn refresh-two-login" v-if="!isLogin" @click="loginViewShow()">现在去登录</a>
+                </div>
+            </div>
+            <!-- 赚钱宝典 -->
+            <a class="money-bible" href="views/moneyBible.html">
+                <p class="bible-text">赚钱宝典</p>
+                <p class="bible-info">教你如何坐在家里赚大钱</p>
+                <img src="./img/bg_tutor.png" alt="">
+            </a>
+            <!-- 为你推荐 -->
+            <div class="recommend-title">为你推荐</div>
+            <div class="recommend-sell-list" onclick="apiCount('cell_sell_recommendLIst')"></div>
+            <p class="filter-search-empty-info" v-if="showAll">已显示全部</p>
+            <!-- Preloader -->
+            <div class="infinite-scroll-preloader" v-if="!showAll">
+                <div class="preloader "></div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="toolbar tabbar">
+        <tab-bar-component tab-index='2' :class-room-num='infoNumberKey'>
+            <tab-bar-component/>
+    </div>
+</div>

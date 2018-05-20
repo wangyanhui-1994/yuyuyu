@@ -1,0 +1,163 @@
+.page-release {
+  .navbar {
+    height: 5.4rem;
+    line-height: 5.4rem;
+    background: @themeColor;
+    .text-shadow(@themeColor);
+    color: @text-fff;
+  }
+  .page-content {
+    margin: 0;
+    a {
+      padding: 2.5rem 2rem;
+      background: @bg-fff;
+      .text-shadow(@text-fff);
+      vertical-align: middle;
+      img {
+        display: block;
+        width: 5.5rem;
+        .auto;
+      }
+      p {
+        padding-top: 0.5rem;
+        margin: 0;
+        color: @text-subtitle;
+        .text-hidden;
+        font-size: 1.6rem;
+        span {
+          padding: 0.2rem 0.5rem;
+          background: @text-price;
+          .text-shadow(@text-price);
+          color: @text-fff;
+          font-size: 1.6rem;
+          margin-left: 0.5rem;
+          vertical-align: middle;
+        }
+      }
+      .title {
+        font-size: 2.4rem;
+        color: @text-name;
+      }
+      border-top: 1px solid @border-da;
+      background: @bg-fff;
+      .text-shadow(@text-fff);
+      &.link {
+        border-top: 0;
+      }
+    }
+  }
+}
+
+.left > a.release-close {
+  font-size: 2.4rem;
+}
+
+.release-select-model, .my-list-guide-model, .share-to-weixin-model, .fish-car-modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 55555;
+  background: @bg-black-5;
+  .text-shadow(@bg-black-5);
+  left: 0;
+  top: -1000px;
+  //transform: scale(0.001);
+  transition: all 0.3s ease;
+  //-webkit-transform: scale(0.001);
+  -webkit-transition: all 0.3s ease;
+  opacity: 0;
+  &.on {
+    //transform: scale(1);
+    //-webkit-transform: scale(1);
+    opacity: 1;
+    top: 0;
+  }
+  .content {
+    height: 40%;
+    width: 70%;
+    margin: 50% auto 0;
+    background: @bg-fff;
+    border-radius: 0.5rem;
+    .text-shadow(@bg-fff);
+    padding: 0 1rem;
+    display: block;
+    &.my-list-guide-content {
+      font-size: 1.4rem;
+      color: @text-category;
+      padding: 10% 0;
+      .box-size();
+      .text-center;
+      .guide-title {
+        color: @text-name;
+        font-size: 1.6rem;
+        padding: 5% 0;
+      }
+      .guide-logo {
+        width: 21%;
+        margin: 0 auto;
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+    a {
+      display: block;
+      width: 100%;
+      height: 50%;
+      &:first-child {
+        border-bottom: 1px solid @border-da;
+      }
+      &.share-to-friends, &.share-to-friends-circle{
+        span{
+          width: 60%;
+          &.first-child{
+            width: 40%;
+          }
+        }
+      }
+      span {
+        display: inline-block;
+        height: 100%;
+        width: 49%;
+        float: left;
+        .text-center;
+        font-size: 2.4rem;
+        color: @text-name;
+        -webkit-box-align: center;
+        &.row {
+          display: -webkit-box;
+        }
+        &.first-child {
+          img {
+            display: block;
+            width: 5rem;
+            .ps-r;
+            top: 50%;
+            margin: 0 auto;
+            margin-top: -2.5rem;
+          }
+        }
+      }
+    }
+  }
+  .footer {
+    .text-center;
+    color: @text-fff;
+    font-size: 4rem;
+    padding-top: 3rem;
+    height: 4rem;
+    background-image: url('../img/icon_close.png');
+    background-position: center;
+    background-size: 4rem;
+    background-repeat: no-repeat;
+  }
+}
+
+.fish-car-modal .content a span.first-child img{
+  margin-top: -1.7rem;
+}
+
+.release-close.back:before {
+  font-size: 2.4rem;
+}

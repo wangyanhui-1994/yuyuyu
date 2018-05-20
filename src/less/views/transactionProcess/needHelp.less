@@ -1,0 +1,156 @@
+.page-need-help{
+    .vue-box{
+        .goods-details{
+            background: @bg-fff;
+            padding: 1rem 4% 1.5rem;
+            .goods-details-title{
+                font-size: 1.6rem;
+                font-weight: bold;
+                color: @text-333 / 3 * 5;
+                height: 1.7rem;
+                line-height: 1.7rem;
+                padding-bottom: 1.5rem;
+            }
+            .goods-details-info{
+                width: 100%;
+                height: 50px;
+                position: relative;
+                img{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 50px;
+                }
+                .goods-name-wrapper{
+                    display: inline-block;
+                    padding-left: 60px;
+                    padding-right: 25%;
+                    .goods-name{
+                        font-size: 1.5rem;
+                        color: @text-333 / 3 * 5;
+                        height: 20px;
+                        line-height: 20px;
+                        padding-top: 5.5px;
+                    }
+                    .goods-Specifications{
+                        padding-top: 5px;
+                        font-size: 1.4rem;
+                        color: fade(@text-85,50);
+                        height: 17px;
+                        line-height: 17px;
+                    }
+                }
+                .goods-num{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    display: inline-block;
+                    text-align: right;
+                    height: 50px;
+                    line-height: 50px;
+                }
+            }
+        }
+        .form-content{
+            padding-top: 0.5rem;
+            .form-item{
+                padding: 0 8% 0 25%;
+                background: @bg-fff;
+                position: relative;
+                height: 5rem;
+                line-height: 5rem;
+                border-bottom: 1px solid @bg-body;
+                font-size: 1.5rem;
+                color: @text-333 / 3 * 5;
+                label{
+                    display: inline-block;
+                    position: absolute;
+                    top: 0;
+                    left: 4%;
+                    line-height: 5rem;
+                    box-sizing: border-box;
+                    span{
+                        padding-right: 0.5rem;
+                        color: @text-orange;
+                    }
+                }
+                input{
+                    text-align: right;
+                    display: inline-block;
+                    width: 100%;
+                    height: 5rem;
+                    box-sizing: border-box;
+                    border:none;
+                    padding: 1.5rem 0;
+                    font-size: 1.5rem;
+                    line-height: 2rem;
+                    color: @text-333 / 3 * 5;
+                    &::-webkit-input-placeholder {
+                        color: fade(@text-333 / 3 * 5,50);
+                        line-height: normal;
+                    }
+                }
+                .icon{
+                    display: inline-block;
+                    position: absolute;
+                    top: -1px;
+                    right: 3%;
+                    line-height: 5rem;
+                    color: fade(@text-85,50);
+                    font-size: 1.5rem;
+                }
+            }
+            .form-item-other{
+                padding: 1.5rem 4% 1.5rem 25%;
+                background: @bg-fff;
+                position: relative;
+                height: 11rem;
+                box-sizing: border-box;
+                border-bottom: 1px solid @bg-body;
+                font-size: 1.5rem;
+                color: @text-333 / 3 * 5;
+                .form-item-detail-other{
+                    position: absolute;
+                    height: 2rem;
+                    line-height: 2rem;
+                    top: 1.5rem;
+                    left: 4%;
+                }
+                .form-item-optional{
+                    display: block;
+                    padding: 0;
+                    resize: none;
+                    border: 0;
+                    text-align: left;
+                    width: 100%;
+                    height: 100%;
+                    font-size: 1.5rem;
+                    line-height: 2rem;
+                    &::-webkit-input-placeholder {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+        .describe{
+            padding: 1rem 4% 0 4%;
+            line-height: 2rem;
+            font-size: 1.4rem;
+            color: @text-invite-code;
+        }
+        .submit-btn{
+            line-height: 0;
+            padding: 2.2rem 0;
+            text-align: center;
+            width: 77.5%;
+            margin: 4.5rem auto 0;
+            background: @btn-bc;
+            color: @text-fff;
+            font-size: 1.6rem;
+            border-radius: 0.4rem;
+            &.pass{
+                background: @themeColor;
+            }
+        }
+    }
+}

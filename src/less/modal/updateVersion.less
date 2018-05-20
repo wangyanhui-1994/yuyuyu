@@ -1,0 +1,162 @@
+.update-app-modal {
+    background: @bg-black-5;
+    position: fixed;
+    left: 0;
+    top: -100rem;
+    width: 72%;
+    height: 100%;
+    z-index: 99999;
+    padding: 0 14%;
+    opacity: 0;
+    transition: all 0.3s ease;
+    .update-content {
+        width: 100%;
+        .box-size();
+        background: @bg-fff;
+        .ps-r;
+        border-radius: 0.5rem;
+        padding-top:15rem;
+        padding-bottom: 10rem;
+        min-height: 30%;
+        max-height: 80%;
+        top: 50%;
+        margin-top: -50%;
+        .update-content-top {
+            border-radius: 0.5rem;
+            .ps-a;
+            top: -3rem;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            img{
+                display: block;
+                width: 100%;
+            }
+        }
+        .update-content-text{
+            padding:0 2.5rem;
+            line-height: 1.8rem;
+            color: @text-category;
+            font-size: 1.6rem;
+            max-height: 20rem;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+    .title {
+        font-size: 2rem;
+        color: @text-name;
+        margin-top: 0;
+        margin-bottom: 0.8rem;
+        padding:0 2.5rem;
+        position: absolute;
+        top: 11rem;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+        line-height: 1.2;
+    }
+    .update-btn-box {
+        padding:2rem 2rem 3rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+        &>div{
+            display: none;
+        }
+        .update-btn {
+            width: 100%;
+            border-radius: 0.5rem;
+            height: 4rem;
+            line-height: 4rem;
+            color: @text-fff;
+            background: @text-chushou;
+            display: block;
+            .text-center;
+            font-size: 1.8rem;
+            margin-top: 1rem;
+            .text-shadow(@text-chushou);
+            &.small-version-update, &.large-version-update{
+                margin-top: 0;
+            }
+            &.default-btn {
+                background: @text-subtitle;
+                .text-shadow(@text-subtitle);
+            }
+        }
+    }
+    &.large{
+        top: 0;
+        opacity: 1;
+        .update-content{
+            padding-bottom: 14rem;
+            .update-btn-box {
+                &>div.large-version{
+                    display: block;
+                }
+            }
+        }
+        
+        &.force{
+            .large-version-cancel{
+                display: none;
+            }
+        }
+    }
+    &.small{
+        top: 0;
+        opacity: 1;
+        .update-content{
+            .update-btn-box {
+                &>div.small-version{
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 350px) and (max-width: 400px) {
+    .update-app-modal {
+        .title{
+            font-size: 1.8rem;
+            padding-top: 0;
+        }
+        .update-btn-box {
+            .update-btn {
+                font-size: 1.6rem;
+            }
+        }
+        .update-content{
+            padding-top: 15.5rem;
+        }
+    }
+}
+
+@media screen and (max-width: 349px) {
+    .update-app-modal {
+        .title{
+            font-size: 1.6rem;
+            padding-top: 0;
+        }
+        .update-btn-box {
+            .update-btn {
+                font-size: 1.4rem;
+            }
+        }
+        .update-content{
+            padding-top: 13rem;
+            .update-btn-box {
+                .update-btn{
+                    height: 3.5rem;
+                    line-height: 3.5rem;
+                }
+            }
+            .update-content-text{
+                font-size: 1.4rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding">有用的文章 </div>
+    </div>
+</div>
+<div class="page swipeback toolbar-through page-aquatic-artical" data-page="aquaticArtical">
+    <div class="page-content infinite-scroll pull-to-refresh-content">
+        <div class="pull-to-refresh-layer">
+            <div class="preloader"></div>
+            <div class="pull-to-refresh-arrow"></div>
+        </div>
+    	<div class="vue-box" style="height: 100%;">
+    		<div class="artical-list" v-if="infoList.length">
+                <classroom-article-item v-for="item in infoList" :item="item"></classroom-article-item>
+            </div>
+            <p class="show-all" v-if="showAll">已加载完毕</p>
+            <div class="infinite-scroll-preloader" v-if="!showAll">
+                <div class="preloader"></div>
+            </div>
+            <div class="artical-empty-modal" v-if="!infoList.length">
+                <img src="img/youyongtishi2.png" alt="">
+                <div class="empty-title">还没有保存有用的文章</div>
+                <div class="empty-btn" @click="goToLook">现在去看</div>
+            </div>
+    	</div>
+        
+    </div>
+    
+</div>

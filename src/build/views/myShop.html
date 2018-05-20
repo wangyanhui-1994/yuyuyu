@@ -1,0 +1,49 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <!-- Now, Left and Center parts reflect page title and page links, let's slide them -->
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding">分享我的店铺</div>
+    </div>
+</div>
+<div class="page swipeback page-my-shop" data-page="myShop">
+    <div class="page-content">
+        <div class="invite-user">
+            <div class="invite-user-header">
+                <div class="user-level pull-left">
+                    <span class="iconfont" :class="'icon-v' + (inviteData.level || 0)"></span>
+                    <p class="level">等级</p>
+                </div>
+                <div class="user-head-img">
+                    <p></p>
+                    <img class="head-img" :src="inviteData.imgUrl ? (inviteData.imgUrl + '?x-oss-process=image/resize,m_fill,h_100,w_100/circle,r_100/format,png') : './img/defimg.png'" alt="">
+                </div>
+                <div class="user-release-num pull-right">
+                    <span>{{(inviteData.publishedDemandsCount) || 0}}</span>
+                    <p>发布信息</p>
+                </div>
+                <div class="invite-user-nickname">{{inviteData.nickname || '匿名用户'}}</div>
+                <div class="invite-user-auth-state">
+					<span class="btn" v-if="!!authText">
+						{{'已完成' + authText}}
+					</span>
+                </div>
+            </div>
+            <div class="invite-user-code">
+                <div class="invite-code">
+                  <p>点击下方按钮多分享我的店铺</p>
+                  <p>吸引客流 增加成交~</p>
+                </div>
+            </div>
+        </div>
+        <div class="invite-share">
+            <p><span>将我的邀请卡片转发</span></p>
+            <share-component
+                    @weixin_share_friend="weixinShareFriend"
+                    @weixin_share_circle="weixinShareCircle"
+                    @qq_share_friend="qqShareFriend">
+            </share-component>
+        </div>
+    </div>
+</div>

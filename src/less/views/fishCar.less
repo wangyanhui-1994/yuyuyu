@@ -1,0 +1,184 @@
+.navbar {
+    .fish-car-header {
+        height: 5.4rem;
+        .ps-r;
+        border-bottom: 1px solid #E7E7E7;
+        .border.right {
+            position: relative;
+            background: #FFFFFF;
+            border: 1px solid #DEDEDE;
+            border-radius: 1.5rem;
+            color: #747474;
+            height: 3rem;
+            line-height: 3rem;
+            padding: 0 3rem 0 1.5rem;
+            font-size: 1.4rem;
+            margin-right: 0.8rem;
+            i {
+                .ps-a;
+                right: 1.5rem;
+                transform: rotate(90deg);
+            }
+        }
+        .select-city {
+            padding: 1rem 1.5rem;
+            .ps-a;
+            left: 0;
+            width: 100%;
+            height: 4.4rem;
+            top:5.4rem;
+            display: none;
+            border-bottom: 1px solid #E7E7E7;
+            color: @text-category;
+            background: @bg-fff;
+            .text-shadow(@text-fff);
+            font-size: 1.6rem;
+            .box-size();
+            overflow: hidden;
+            .count-driver {
+                width: 50%;
+                float: left;
+                color: @text-category;
+                line-height: 2.4rem;
+                .text-left;
+            }
+            #select-city-input {
+                float: right;
+                max-width: 50%;
+                min-width: 10%;
+                color: @text-category;
+                line-height: 2.4rem;
+                .text-right;
+                i{
+                    display: inline-block;
+                    width: 0;
+                    height: 0;
+                    border-left: 4px solid transparent;
+                    border-right: 4px solid transparent;
+                    border-top: 6px solid @text-category;
+                    .ps-r;
+                    top: -0.1rem;
+                }
+            }
+        }
+    }
+}
+
+div[data-page="fishCar"]{
+    .navbar{
+        .fish-car-header{
+            .select-city{
+                display: block;
+            }
+        }
+    }
+}
+
+.pages > .page-fish-car {
+    background-color: @bg-f5;
+    .text-shadow(@bg-f5);
+    .page-content {
+        padding-top: 9.8rem;
+        position: static;
+        &.over-hide {
+            overflow: hidden;
+        }
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .page-list-view {
+        .list {
+            padding: 1rem 2%;
+        }
+    }
+    .toolbar {
+        a {
+            width: 100%;
+            margin: 0 auto;
+            height: 3.5rem;
+            line-height: 3.5rem;
+            div {
+                font-size: 1.4rem;
+                .ps-r;
+                padding-right: 7.5rem;
+                p{
+                    margin: 0;
+                    width: 100%;
+                    .text-left;
+                    color: @text-category;
+                }
+                span{
+                    color: @text-fff;
+                    border-radius: .3rem;
+                    background: @text-test;
+                    .text-shadow(@text-test);
+                    font-size: 1.6rem;
+                    width: 7.5rem;
+                    .ps-a;
+                    right: 0;
+                    top: 0;
+                }
+            }
+        }
+    }
+}
+
+/*
+*鱼车司机填写信息头部公用style
+*/
+.post-driver-header{
+    background-color: #EFEFF1;
+    padding: 2rem 15%;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    &:after{
+        display: block;
+        width: 45%;
+        height: 0rem;
+        overflow: hidden;
+        border-bottom:1px solid #979797;
+        color: #979797;
+        left: 27.5%;
+        position: absolute;
+        top: 3.4rem;
+        content: '.';
+    }
+    div {
+        span{
+            display: inline-block;
+            width: 2.8rem;
+            height: 2.8rem;
+            line-height: 2.8rem;
+            border-radius: 1.4rem;
+            color: #fff;
+            font-size: 1.8rem;
+            background: @text-a9;
+            position: relative;
+            z-index: 10;
+        }
+        p{
+            margin:0;
+            margin-top: 0.5rem;
+            font-size: 1.6rem;
+            color: @text-a9;
+        }
+        &.on{
+            p{
+                color: @bg-v;
+            }
+            span{
+                background: @bg-v;
+            }
+        }
+    }
+    .left{
+        float: left;
+    }
+    .right{
+        float: right;
+    }
+}
+
+

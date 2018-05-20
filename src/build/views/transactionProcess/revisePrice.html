@@ -1,0 +1,30 @@
+<div class="navbar">
+    <div class="navbar-inner navbar-on-center">
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding">修改价格</div>
+        <div class="right sliding">
+            <a class="detail-more" ></a>
+        </div>
+    </div>
+</div>
+<div class="page swipeback toolbar-through page-revise-price" data-page="revisePrice">
+    <div class="page-content">
+        <div class="vue-box">
+            <div class="form-content">
+                <div class="form-item form-original-price">
+                    <span class="form-item-detail">原价</span>
+                    <span class="form-original-price-num">{{payTotalMoney | orderPriceFormatter}}元</span>
+                </div>
+                <div class="form-item from-item-input">
+                    <label class="form-item-detail">修改后价格</label>
+                    <input type="number" v-model="newPrice" placeholder="请输入">
+                    <span class="company">元</span>
+                </div>
+            </div>
+            <div class="describe">请在协调后调整价格</div>
+            <div class="form-submit-btn" :class="{'pass': isPass}" @click="updatePrice">修改完成</div>
+        </div>
+    </div>
+</div>

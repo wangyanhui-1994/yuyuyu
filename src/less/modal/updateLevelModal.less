@@ -1,0 +1,100 @@
+.update-level-modal{
+	position: fixed;
+	left: 0;
+	top: -1000rem;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	z-index: 5555;
+	background: rgba(0,0,0,.7);
+	padding: 0 13%;
+	box-sizing: border-box;
+	transition: all 0.3s ease;
+	&.show{
+		top: 0;
+	}
+	.modal-content{
+		width: 100%;
+		background: @bg-fff;
+		padding: 4.5rem 0 3rem;
+		text-align: center;
+		border: 1px solid #979797;
+		border-radius: 5px;
+		position: relative;
+		box-sizing: border-box;
+		.header{
+			position: absolute;
+			height: 45px;
+			line-height: 45px;
+			background: @bg-update-level;
+			width: 106%;
+			left: -3%;
+			top: -1px;
+			color: @text-fff;
+			font-size: 1.8rem;
+			text-shadow: 2px 2px 0 #C22D0C;
+			border-radius: 5px;
+			box-shadow: 0 2px 0 0 #C8583F;
+			z-index: 10;
+		}
+		i{
+			display: block;
+			position: absolute;
+			width: 25px;
+			top: 25px;
+			z-index: 0;
+			&.bg-icon-right{
+				right: -18px;
+			}
+			&.bg-icon-left{
+				left: -18px;
+				transform:rotate(180deg)
+			}
+			img{
+				display: block;
+				width: 100%;
+			}
+		}
+		.content{
+			z-index: 10;
+			position: relative;
+			background-color: #fff;
+			background-image: url('../img/pic_bg_star.png');
+			background-size: 90% auto;
+			background-repeat: no-repeat;
+			background-position: center 1rem;
+			padding-top: 3rem;
+			div.content-level{
+				padding-bottom: 2rem;
+			}
+			p{
+				margin: 0;
+				padding-bottom: 3rem;
+				.text-hidden;
+				width: 100%;
+				font-size: 1.6rem;
+			}
+			.btn-sure{
+				background: #FFEC14;
+				box-shadow: 0 6px 0 0 #E4AA06;
+				border-radius: 36px;
+				display: inline-block;
+				width: 13rem;
+				height: 3.5rem;
+				line-height: 3.5rem;
+				color: #FF512E;
+			}
+			.content-level{
+				width: 100%;
+				i{
+					display: inline-block;
+					font-size: 2.2rem;
+					color: #FAC66C;
+					position: static;
+					margin-left: -7px;
+				}
+			}
+		}
+	}
+}

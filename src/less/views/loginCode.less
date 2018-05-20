@@ -1,0 +1,92 @@
+    .page-login-code {
+        .text-center;
+        padding: 1rem 0;
+        color: @text-category;
+        font-size: 1.6rem;
+        overflow: hidden;
+        width: 100%;
+        p {
+            margin: 0.5rem 0;
+        }
+        .login-code-write {
+            width: 21.5rem;
+            margin: 1.5rem auto 0;
+            padding-left: 2rem;
+            .ps-r;
+            border: 1px solid @text-subtitle;
+            border-radius: 0.3rem;
+            .text-shadow(@border-da);
+            background: @border-da;
+            input {
+                width: 28rem;
+                height: 100%;
+                background: none;
+                .text-shadow(@border-da);
+                padding: 1rem 0;
+                height: 3rem;
+                line-height: 3rem;
+                font-size: 3rem;
+                letter-spacing: 4.3rem;
+                outline: none;
+                border: none;
+                pointer-events: all;
+            }
+            span {
+                height: 100%;
+                .ps-a;
+                width: 0%;
+                border-right: 1px solid @text-subtitle;
+                top: 0;
+                z-index: 9;
+                left: 25%;
+                &.mask2 {
+                    left: 50%;
+                }
+                &.mask3 {
+                    left: 75%;
+                }
+                &.mask4 {
+                    left: 102%;
+                    width: 30%;
+                    border: 0;
+                    background: @bg-body;
+                }
+            }
+        }
+        .login-code-voice {
+            width: 24rem;
+            margin: 0.5rem auto 1.5rem;
+            color: @themeColor;
+        }
+        a.button {
+            width: 60%;
+            margin: 0 auto;
+            background: @border-da;
+            .text-shadow(@border-da);
+            height: 4rem;
+            line-height: 4rem;
+            border: 0;
+            color: @text-fff;
+            font-size: 1.8rem;
+            &.on {
+                background: @themeColor;
+                .text-shadow(@themeColor);
+            }
+        }
+        .user-protocol {
+            color: @text-subtitle;
+            font-size: 1.2rem;
+            a {
+                color: @themeColor;
+            }
+        }
+    }
+
+
+
+
+    .page-login-code{
+        .page-content{
+            overflow-x: hidden;
+        }
+    }

@@ -1,0 +1,58 @@
+{
+  "name": "Yudada",
+  "Version": "0.1",
+  "main": "bundle.js",
+  "author": "Cash",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jjskay/framework7-demo/issues",
+    "email": "404784102@qq.com"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "cover-test": "istanbul cover _mocha",
+    "unit-test": "mocha --reporter mochawesome",
+    "less": "gulp less",
+    "dev": "webpack-dev-server --hot --host 0.0.0.0 --open",
+    "host-dev": "webpack-dev-server --hot",
+    "watch": "webpack --watch && webpck",
+    "produce": "gulp && webpack",
+    "watch-less": "gulp watch",
+    "zip": "gulp clean && gulp zip",
+    "build": "cnpm i && gulp less && webpack && gulp zip",
+    "build-dev": "cnpm i && gulp less && webpack && gulp clean:map && gulp zip && mocha --reporter mochawesome"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.7",
+    "babel": "^6.5.2",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^6.4.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.9.0",
+    "chai": "^3.5.0",
+    "css-loader": "^0.27.3",
+    "del": "^2.2.2",
+    "eslint": "^3.19.0",
+    "file-loader": "^0.10.1",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-less": "^3.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-zip": "^3.2.0",
+    "json-loader": "^0.5.4",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "mocha": "^3.2.0",
+    "mochawesome": "^2.0.4",
+    "vue-loader": "^11.3.1",
+    "vue-style-loader": "^2.0.4",
+    "vue-template-compiler": "^2.2.4",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.16.5"
+  },
+  "dependencies": {
+    "vue": "^2.2.4"
+  }
+}

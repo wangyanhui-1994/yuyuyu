@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="img/logo.png"/>
+    <!-- Path to Framework7 Library CSS, iOS Theme -->
+    <link rel="stylesheet" href="css/lib/framework7.ios.min.css">
+    <!-- Path to Framework7 color related styles, iOS Theme -->
+    <link rel="stylesheet" href="css/lib/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>鱼大大-Demo</title>
+</head>
+
+<body>
+<!-- Views -->
+<div class="views">
+    <!-- Your main view, should have "view-main" class -->
+    <!-- entry page! -->
+    <div class="view view-main navbar-through">
+        <div class="navbar"></div>
+        <div class="pages">
+            <div class="page"></div>
+        </div>
+        <!-- Bottom Toolbar-->
+    </div>
+    <!-- another view -->
+    <div class="view view-login">
+        <div class="navbar"></div>
+        <div class="pages">
+            <div class="page"></div>
+        </div>
+    </div>
+
+    <div class="view view-release-fish">
+        <div class="navbar"></div>
+        <div class="pages">
+            <div class="page"></div>
+        </div>
+    </div>
+
+    <div class="view view-submit-deal">
+        <div class="navbar"></div>
+        <div class="pages">
+            <div class="page"></div>
+        </div>
+    </div>
+
+    <div class="view view-pay-flow">
+        <div class="navbar"></div>
+        <div class="pages">
+            <div class="page"></div>
+        </div>
+    </div>
+</div>
+<!-- all popup -->
+<!-- Picker -->
+<div class="release-select-model">
+    <div class="content row">
+        <a href="views/filter.html?type=2&release=true" class="row">
+            <span class="col-50 first-child"><img src="./img/icon_want_sell.png" style="margin-top:-3rem" alt="我要卖"></span>
+            <span class="col-50 row">我要出售</span>
+        </a>
+        <a href="views/filter.html?type=1&release=true" class="row">
+            <span class="col-50 first-child"><img src="./img/icon_buy.png" alt="我要买"></span>
+            <span class="col-50 row">我要求购</span>
+        </a>
+    </div>
+    <div class="footer"></div>
+</div>
+
+<div class="share-to-weixin-model modal-close">
+    <div class="content row">
+        <a class="row external share-to-friends">
+            <span class="col-40 first-child"><img src="./img/icon_weixin.png" alt="微信好友"></span>
+            <span class="col-60 row">微信好友</span>
+        </a>
+        <a class="row external share-to-friends-circle">
+            <span class="col-40 first-child"><img style="width:4rem;margin-top:-2rem" src="./img/circleFriends.png"
+                                                  alt="微信朋友圈"></span>
+            <span class="col-60 row">微信朋友圈</span>
+        </a>
+    </div>
+    <div class="footer"></div>
+</div>
+
+<div class="my-list-guide-model">
+    <div class="content my-list-guide-content">
+        <div class="guide-logo">
+            <img src="./img/icon_refreshInfo.png" alt="">
+        </div>
+        <div class="guide-title">新增"刷新信息"功能</div>
+        <div>刷新之后，信息会置顶哟~</div>
+        <div>1.只有审核通过的信息可以使用</div>
+        <div>2.每条信息每天可以刷新一次</div>
+        <div>3.一天最多刷新10次~</div>
+    </div>
+    <div class="footer"></div>
+</div>
+
+<!--邀请弹框-->
+<div class="modal-bg-invitation">
+    <div class="modal-invitation">
+        <img class="img-top" src="./img/modal_invitation_top.png" />
+
+        <div class="content">
+            <div class="user">
+                <img class="img-user" src="./img/ic_avatar_default.png"/>
+                <div class="div-nickname">
+                    <div class="nickname">
+                        蔡小雨
+                    </div>
+                    <div class="inviter">
+                        邀请人
+                    </div>
+                </div>
+            </div>
+            <div class="text">
+
+            </div>
+            <div class="btn confirm"></div>
+            <div class="btn cancel"></div>
+        </div>
+    </div>
+</div>
+
+<!--版本更新model-->
+<div class="update-app-modal">
+    <div class="update-content">
+        <div class="update-content-top">
+            <img src="./img/modal_bg_top.png" alt="">
+        </div>
+        <p class="title">快升级到最新版本</p>
+        <div class="update-content-text">
+
+        </div>
+        <div class="update-btn-box">
+            <div class="large-version">
+                <span class="update-btn large-version-update">立即升级</span>
+                <span class="update-btn default-btn large-version-cancel">我再想想</span>
+            </div>
+            <div class="small-version">
+                <span class="update-btn small-version-update">马上体验新版本</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 鱼车modal -->
+<div class="fish-car-modal modal-close">
+    <div class="content row">
+        <a class="row">
+            <span class="col-40 first-child"><img src="./img/ic_truck.png" alt="我是司机"></span>
+            <span class="col-60 row">我是司机</span>
+        </a>
+        <a class="row">
+            <span class="col-40 first-child"><img style="width:4rem;margin-top:-2rem" src="./img/ic_fisherman.png"
+                                                  alt="我是货主"></span>
+            <span class="col-60 row">我是货主</span>
+        </a>
+    </div>
+    <div class="footer"></div>
+</div>
+
+<div class="update-level-modal">
+    <div class="modal-content">
+        <div class="header">恭喜你</div>
+        <i class="bg-icon-left"><img src="./img/up_level.png" alt=""></i>
+        <i class="bg-icon-right"><img src="./img/up_level.png" alt=""></i>
+        <div class="content">
+            <div class="content-level"></div>
+            <p>升级到等级V<span></span>,继续加油~</p>
+            <div class="btn-sure">我知道了</div>
+        </div>
+    </div>
+</div>
+<!-- 在线课堂引导登录modal -->
+<div class="save-article-confirm-modal">
+    <div class="modal-content">
+        <img src="./img/ic_article_zan.png" alt="">
+        <p class="title">想保存有用的文章？</p>
+        <p>登录后就可以保存文章啦</p>
+        <div class="btn">现在就登录</div>
+    </div>
+</div>
+
+<div class="news-function-model">
+    <img src="img/yudada_news.png" alt="">
+</div>
+
+<div class="aquatic-score-modal school-report-card">
+    <img src="img/chengjidantishi.png" alt="" class="school-report-separate">
+</div>
+
+<!--<script src="http://10.228.17.26:1234/target/target-script-min.js#anonymous"></script>-->
+<script src="./js/common.min.js" crossorigin="anonymous"></script>
+<script src="./js/lib/qrcode.js"></script>
+</body>
+</html>

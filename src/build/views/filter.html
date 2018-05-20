@@ -1,0 +1,100 @@
+<div class="navbar">
+    <div class="navbar-inner navbar-on-center filter-navbar">
+        <div class="filter-header sliding">
+            <form class="searchbar index-search">
+                <div class="searchbar-input filter-searchbar">
+                    <a class="home-tabbar-logo filter-tabbar iconfont icon-back back">返回</a>
+                    <a>
+                        <input type="search" placeholder="填写品种名称，例如黑鱼" class="index-search-link">
+                        <div class="home-search-mask"></div>
+                    </a>
+                </div>
+            </form>
+            <div class="filter-tab">
+                <div class="filter-tab-title tab1" data-index="0" onclick="apiCount('btn_filter_fishtype');">
+                    <span>全部鱼种</span>
+                    <b class="filter-tab-icon"></b>
+                </div>
+                <div class="filter-tab-title on tab2" data-index="1" onclick="apiCount('btn_filter_location');">
+                    <span>地区</span>
+                    <b class="filter-tab-icon"></b>
+                    <i class="left"></i><i class="right"></i>
+                </div>
+                <div class="filter-tab-title tab3" data-index="2" onclick="apiCount('btn_filter_type');">
+                    <span>出售</span>
+                    <b class="filter-tab-icon"></b>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page swipeback page-filter" data-page="filter">
+    <div class="page-content infinite-scroll pull-to-refresh-content">
+        <div class="pull-to-refresh-layer ">
+            <div class="preloader "></div>
+            <div class="pull-to-refresh-arrow "></div>
+        </div>
+        <div class="filter-member-img"></div>
+        <div class="filter-tab">
+            <div class="filter-tab-title tab1" data-index="0" onclick="apiCount('btn_filter_fishtype');">
+                <span>全部鱼种</span>
+                <b class="filter-tab-icon"></b>
+            </div>
+            <div class="filter-tab-title on tab2" data-index="1" onclick="apiCount('btn_filter_location');">
+                <span>地区</span>
+                <b class="filter-tab-icon"></b>
+                <i class="left"></i><i class="right"></i>
+            </div>
+            <div class="filter-tab-title tab3" data-index="2" onclick="apiCount('btn_filter_type');">
+                <span>出售</span>
+                <b class="filter-tab-icon"></b>
+            </div>
+        </div>
+        <div class="fish-banner">
+            <img src="./img/fish_banner.png" alt="">
+        </div>
+        <div class="filter-list  list-block media-list"></div>
+        <div class="filter-empty-search-result">
+            <div class="iconfont icon-empty-search"></div>
+            <p class="title">没有找到符合条件的结果</p>
+            <p>换个条件试试吧</p>
+        </div>
+        <p class="filter-search-empty-info">已显示全部</p>
+        <!-- Preloader -->
+        <div class="infinite-scroll-preloader ">
+            <div class="preloader "></div>
+        </div>
+    </div>
+    <!-- mask -->
+    <div class="winodw-mask "></div>
+    <img style="z-index: -999;visibility: hidden; " data-src="img/ic_category_commonfish.png "
+         src="img/app_icon_108.png" class="lazy banner-btn" width="32 " alt=" " >
+    <!-- tab content -->
+    <div class="filter-tabs-content ">
+        <div class="filter-tab-content row filter-fish-type">
+            <div class="col-35 "></div>
+            <div class="col-65 "></div>
+        </div>
+        <div class="filter-tab-content row filter-district">
+            <div class="col-35 "></div>
+            <div class="col-65 "></div>
+        </div>
+        <div class="filter-tab-content row filter-info-type">
+            <p class="iconfont filter-sell icon-tick " data-type="2" onclick="apiCount('btn_filter_location_item1')">
+                出售</p>
+            <p class="iconfont filter-buy icon-tick " data-type="1" onclick="apiCount('btn_filter_location_item2')">
+                求购</p>
+        </div>
+    </div>
+    <div class="toolbar tabbar ">
+        <div class="toolbar-inner ">
+            <!-- Toolbar links -->
+            <a class="link filter-need-release">
+                <div class="tabbat-text iconfont icon-edit "><span>我也要卖鱼</span></div>
+            </a>
+            <a class="link filter-release-next" onclick="apiCount('btn_text_fishType_next');">
+                <div>下一步</div>
+            </a>
+        </div>
+    </div>
+</div>

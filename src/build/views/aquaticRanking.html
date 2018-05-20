@@ -1,0 +1,36 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding">学习排行榜</div>
+    </div>
+</div>
+<div class="page swipeback toolbar-through page-aquatic-ranking" data-page="aquaticRanking">
+    <div class="page-content infinite-scroll pull-to-refresh-content">
+        <div class="pull-to-refresh-layer">
+            <div class="preloader"></div>
+            <div class="pull-to-refresh-arrow"></div>
+        </div>
+    	<div class="vue-box">
+            <div class="week-prize" v-if="isPrize" @click="goToPrize()">快来看看本周奖品 <span>>></span></div>
+    		<div class="ranking-top " :class="isLogin? 'login-padding' : ''">
+		    	<img :src="imgUrl" alt="">
+		    	<div class="ranking-content">
+		    		<div class="title">{{nickname}}</div>
+		    		<div class="memo">{{isLogin ? '本周学习共'+ studySeconds:'开启你的学习之路'}}</div>
+		    	</div>
+		    	<div class="btn" v-if="!isLogin" @click="loginViewShow()">去登录</div>
+	    		<div class="level" v-if="isLogin && studyInfodata.rank">第<span>{{studyInfodata.rank }}</span>名</div>
+                <div class="level" v-if="isLogin && !studyInfodata.rank">未上榜</div>
+	   		</div>
+	   		<div class="ranking-item" onclick="apiCount('cell_education_rank_user')">
+	   			<classroom-rank-item v-for="item in rankList" :item="item"></classroom-rank-item>
+	   			<!-- <p class="show-all" v-if="showAll">已加载完毕</p>
+                <div class="infinite-scroll-preloader" v-if="!showAll">
+                    <div class="preloader"></div>
+                </div> -->
+	   		</div>
+    	</div>
+    </div>
+</div>

@@ -1,0 +1,283 @@
+.page-share-my-trip {
+    .page-content {
+        background: @bg-fff;
+        padding: 7rem 3rem 2rem;
+
+        .share-trip-user {
+            // padding-bottom: 6rem;
+            height: 74%;
+        }
+
+        .share-trip-user-header {
+            height: 64%;
+            .text-hidden;
+            .text-center;
+            // padding: 2.5rem 0 1.5rem;
+            background-image: linear-gradient(0deg, @bg-share-trip-end 0%, @bg-share-trip-start 100%);
+            background-image: -webkit-linear-gradient(top, @bg-share-trip-end 0%,@bg-share-trip-start 100%);
+            box-shadow: 0 0 10px 0 @bg-black-4;
+            color: @text-fff;
+
+            .user-head-img {
+                p {
+                    width: 100%;
+                    height: 10%;
+                }
+                width: 24%;
+                // height: 35%;
+                .auto;
+                display: inline-block;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    border-radius: 50%;
+                    border: 2px solid @bg-white-4;
+                    .box-size();
+                }
+            }
+            // .user-head-img::before{
+            //   content: '';
+            //   display: block;
+            //   height: 10%;
+            // }
+            .user-level,
+            .user-release-num {
+                width: 38%;
+                font-size: 1.6rem;
+                padding-top: 0.8rem;
+
+                span {
+                    font-size: 2.2rem;
+
+                    &.iconfont {
+                        font-size: 3rem;
+                        top: -0.5rem;
+                        .ps-r;
+                    }
+                }
+
+                p {
+                    margin: 0.3rem 0;
+
+                    &.level {
+                        .ps-r;
+                        top: -1rem;
+                    }
+                }
+            }
+
+            .share-trip-user-nickname {
+                height: 13%;
+                // padding: 1.2rem 0 1rem;
+                font-size: 1.8rem;
+                .text-hidden;
+                width: 100%;
+            }
+
+            .share-trip-user-nickname::before {
+                content: '';
+                display: block;
+                height: 4%;
+            }
+
+            .share-trip-user-auth-state {
+                border-bottom: 1px dashed @text-fff;
+                // padding-bottom: 2rem;
+                height: 17%;
+
+                span {
+                    display: inline-block;
+                    padding: 0.5rem 1rem;
+                    border: 1px solid @text-fff;
+                    border-radius: 0.3rem;
+                }
+            }
+
+            .share-trip-user-auth-state::before {
+                content: '';
+                display: block;
+                height: 2%;
+            }
+
+            .share-trip-line {
+                height: 35%;
+                overflow: hidden;
+                // padding-top: 2rem;
+                & > div {
+                    width: 43%;
+
+                    .title {
+                        font-size: 2.2rem;
+                        padding-bottom: 0.5rem;
+                        .text-hidden;
+                        width: 100%;
+                        .text-center;
+                    }
+
+                    span {
+                        padding: 0.2rem 0.5rem;
+                        border-radius: 0.3rem;
+                        background: @text-name-4;
+                        display: inline-block;
+                    }
+
+                    &.left {
+                        float: left;
+                    }
+
+                    &.right {
+                        float: right;
+                    }
+
+                    &.center {
+                        width: 12%;
+                        height: 5rem;
+                        margin: 0 auto;
+                        display: inline-block;
+                        .ps-r;
+
+                        &:before {
+                            .ps-a;
+                            width: 100%;
+                            left: 0;
+                            content: ' ';
+                            top: 1.5rem;
+                            height: 0.2rem;
+                            border-radius: 0.1rem;
+                            background: @text-fff;
+                        }
+
+                        &:after {
+                            .ps-a;
+                            right: 0;
+                            width: 1.2rem;
+                            height: 0.2rem;
+                            content: ' ';
+                            top: 1.1rem;
+                            border-radius: 0.1rem;
+                            background: @text-fff;
+                            transform: rotate(35deg);
+                            -webkit-transform: rotate(35deg);
+                        }
+                    }
+                }
+            }
+
+            .share-trip-line::before {
+                content: '';
+                display: block;
+                height: 7%;
+            }
+        }
+
+        .share-trip-user-code {
+            // margin-top: 3rem;
+            font-size: 1.4rem;
+            color: @text-name;
+            .text-center;
+            // padding: 1rem 0;
+            height: 32%;
+
+            p {
+                margin: 0;
+                line-height: 1.6;
+
+                span {
+                    color: @text-chushou;
+                }
+            }
+
+            img {
+                display: none;
+                width: 0;
+                height: 0;
+                overflow: hidden;
+            }
+        }
+
+        .share-trip-user-code::before {
+            content: '';
+            display: block;
+            height: 28%;
+        }
+
+        .share-trip-share {
+            .text-center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            padding: 0 3rem;
+            width: 100%;
+            .box-size();
+            height: 26%;
+
+            & > p {
+                .ps-r;
+
+                span {
+                    .ps-r;
+                    display: inline-block;
+                    background: @text-fff;
+                    padding: 0 1rem;
+                }
+
+                &:before {
+                    content: ' ';
+                    width: 100%;
+                    .ps-a;
+                    left: 0;
+                    top: 0.9rem;
+                    height: 0;
+                    border-bottom: 1px solid @text-a9;
+                }
+            }
+
+            .invite-share-tab {
+                min-height: 0;
+                height: 70%;
+
+                .weixin-friends img,
+                .weixin-friends-circle img {
+                    padding-top: 0;
+                }
+
+                .weixin-friends img,
+                .weixin-friends-circle img {
+                    width: 4rem;
+                    padding-bottom: 0;
+                }
+
+                .invite-share-items {
+                    height: 85%;
+
+                    .qq-friends .iconfont {
+                        vertical-align: top;
+                    }
+
+                    .qq-friends p {
+                        margin-top: 0;
+                    }
+                }
+
+                .invite-share-items::before {
+                    content: '';
+                    display: block;
+                    height: 8%;
+                }
+
+                .invite-share-items:nth-child(3)::before {
+                    content: '';
+                    display: block;
+                    height: 1%;
+                }
+            }
+        }
+
+        .bg-card-level,
+        .bg-card-pic,
+        canvas {
+            display: none;
+        }
+    }
+}

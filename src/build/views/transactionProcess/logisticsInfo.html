@@ -1,0 +1,36 @@
+<div class="navbar">
+    <div class="navbar-inner navbar-on-center">
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding">填写物流信息</div>
+        <div class="right sliding">
+            <a class="detail-more" ></a>
+        </div>
+    </div>
+</div>
+<div class="page swipeback toolbar-through page-logistics-info" data-page="logisticsInfo">
+    <div class="page-content">
+        <div class="vue-box">
+            <div class="form-content">
+                <div class="form-item form-first-item">
+                    <label>发货日期</label>
+                    <input class="firstMenu first-menu-date logistics-info-date" readonly v-model="dateNumber" type="text" placeholder="请选择">
+                    <span class="icon iconfont icon-right"></span>
+                </div>
+                <div class="line"></div>
+                <div class="form-item form-first-item">
+                    <label>物流方式</label>
+                    <input class="firstMenu first-menu-logistics logistics-info-type" type="text" placeholder="空运">
+                    <span class="icon iconfont icon-right"></span>
+                </div>
+                <div class="form-item form-item-order-num">
+                    <label>{{text}}</label>
+                    <input class="secondMenu" v-model="number" type="text" placeholder="请填写" maxlength="20">
+                </div>
+            </div>
+            <div class="describe">请在发货后及时填写物流信息</div>
+            <div class="form-submit-btn" :class="{'pass': isPass}" @click="submit">填写完成</div>
+        </div>
+    </div>
+</div>

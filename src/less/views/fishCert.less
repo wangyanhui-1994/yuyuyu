@@ -1,0 +1,104 @@
+.page-fish-cert {
+    .page-content {
+        padding-bottom: 0;
+    }
+    .fish-cert-head {
+        background: @bg-fff;
+        .text-shadow(@text-fff);
+        padding: 0.5rem 2% 1rem;
+        margin-bottom: 1rem;
+        p {
+            margin: 0;
+            line-height: 1.4;
+            color: @text-name;
+            &.title {
+                color: @text-category;
+                font-style: 1.6rem;
+                padding: 0.7rem 0;
+            }
+            &.border-bottom {
+                border-bottom: 1px solid @border-da;
+                padding-bottom: 0.7rem;
+            }
+        }
+        .button {
+            // margin: 1rem auto 0;
+            // width: 70%;
+            background: @themeColor;
+            .text-shadow(@themeColor);
+            color: #fff;
+            font-size: 1.6rem;
+            border: 0;
+            line-height: 3.5rem;
+            height: 3.5rem;
+        }
+    }
+    .fish-cert-content {
+        background: @bg-fff;
+        .text-shadow(@text-fff);
+        display: none;
+        &.show {
+            display: block;
+        }
+        .title {
+            color: @text-category;
+            padding: 0 2%;
+            border-bottom: 1px solid @border-da;
+            font-style: 1.6rem;
+            line-height: 3rem;
+        }
+        .fish-cert-list {
+            padding: 1rem 0;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid @border-cert;
+            overflow: hidden;
+            display: block;
+            .col-50 {
+                .text-center;
+                width:46%;
+                float: left;
+                margin:0 2% 1rem;
+                &>.ps-r {
+                    overflow: hidden;
+                    width: 100%;
+                    height: 100px;
+                    background: #e2e2e2;
+                }
+                .ps-a {
+                    width: 60%;
+                    display: block;
+                    left: 20%;
+                    top: 50%;
+                    margin-top: -1.5rem;
+                    height: 3rem;
+                    line-height: 3rem;
+                    border-radius: 1.5rem;
+                    background: @bg-black-7;
+                    .text-shadow(@bg-black-7);
+                    color: @text-fff;
+                }
+                img {
+                    display: block;
+                    width: 100%;
+                }
+                p {
+                    overflow: hidden;
+                    margin: 0;
+                    &.cert-name {
+                        padding-top: 0.5rem;
+                        color: @text-name;
+                        font-size: 1.4rem;
+                    }
+                    color: @text-category;
+                    font-size: 1.2rem;
+                }
+                .fish-cert-button {
+                    color: @text-price;
+                    span {
+                        padding: 0.2rem;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,156 @@
+.page-fish-market .page-content{
+	.fish-market-box{
+		.fish-market-header{
+			position: relative;
+			height: 11rem;
+			img.market-photo{
+				display: block;
+				width: 100%;
+				height: 11rem;
+				background:@bg-black-4;
+			}
+			&-content{
+				.text-center;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform:translate(-50%;-50%);
+				width: 28rem;
+				color: @text-fff;
+				p.address-title{
+					margin:0;
+					font-size: 1.8rem;
+					line-height: 2.5rem;
+					letter-spacing: 0.038rem;
+					text-shadow: 2px 2px 2px @bg-fff;
+				}
+				p.address{
+					margin:0;
+					font-size: 1.4rem;
+					line-height: 2rem;
+					letter-spacing: 0.0295rem;
+					word-break:break-all;	
+					text-shadow: 1px 1px 2px @text-ba;
+					
+				}
+				i{
+					margin-right: 0.25rem;
+					position: relative;
+                    top: -0.1rem;
+				}
+						
+			}
+			.arrow-up{
+					 width:0; 
+					 height:0; 
+					 border-left:0.5rem solid transparent;
+					 border-right:0.5rem solid transparent;
+					 border-bottom:0.5rem solid #fff;
+					 position: absolute;
+					 bottom: 0;
+					 left: 49%;
+				}	
+			.right{
+					position: absolute;
+					top: 4.8rem;
+					right: 1.64rem;
+				  }
+		}
+		.same{
+			margin-top: 1rem;
+		}
+	}
+}
+.fish-market-list{
+		padding-left: 1.8rem;
+		background-color: @text-fff;
+		.item-content{
+			padding: 1.6rem 0;
+			border-bottom: 0.1rem solid @text-border;
+			position: relative;
+			.item-media{
+				display: inline-block;
+				width: 4rem;
+				height: 4rem;
+				overflow: hidden;
+				img{
+					width: 100%;
+					border-radius: 50%;
+					display: block;
+				}
+			}
+			.item-inner{
+				padding: 0 0 0 0.8rem;
+				margin: 0;
+				&:after {
+                        display: none;
+                    }
+				.item-title-row{
+					padding: 0;
+					background: none;
+					.item-title{
+						font-size: 1.6rem;
+						color:@text-name;
+						letter-spacing: 0.034rem;
+						line-height: 2.25rem;
+						height: 2.25rem;
+					}										
+				}
+				.item-subtitle{
+						font-size: 1.4rem;
+						color: @text-category;
+						letter-spacing: 0.0295rem;
+						margin-top: 0.2rem;
+						line-height: 2rem;
+						height: 2rem;
+					}
+				.item-btn{
+						width: 8.25rem;
+						height: 3.2rem;
+						position: absolute;
+						top: 0.6rem;
+						right: 1.6rem;
+						border: 0.1rem solid @bg-b9;
+						border-radius: 0.3rem;
+						.border-box;
+						padding: 0.3rem 1rem;
+						i{
+							font-size: 2rem;
+							color: @bg-b9;
+							
+						}
+						span{
+							font-size: 1.4rem;
+							letter-spacing: 0.0295rem;
+							line-height: 1.6rem;
+							color: @bg-b9;
+							margin-left: 0.62rem;
+						}
+					}
+					.item-add{
+						width: 8.25rem;
+						height: 3.2rem;
+						position: absolute;
+						top: 0.6rem;
+						right: 1.6rem;
+						.border-box;
+						padding: 0.3rem 1rem;
+						text-align: center;
+						i{
+							color:@text-chushou;
+						}
+
+					}	
+			}
+
+		}
+		p{
+			.text-center;
+			margin: 0;
+			font-size: 1.4rem;
+			line-height: 1.45rem;
+			color: @bg-b9;
+			padding: 1.3rem 0;
+
+		}
+	}

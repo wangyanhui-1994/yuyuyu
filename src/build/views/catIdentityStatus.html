@@ -1,0 +1,114 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <!-- Now, Left and Center parts reflect page title and page links, let's slide them -->
+        <div class="left">
+            <a class="back iconfont icon-back">返回</a>
+        </div>
+        <div class="center popup-center-size">实名认证</div>
+        <div class="right">
+            <span style="visibility: hidden">0</span>
+        </div>
+    </div>
+</div>
+<div class="page swipeback page-identity-status" data-page="catIdentityStatus">
+    <div class="page-content list-block">
+        <div class="individual-authentication">
+            <div class="item-content title">
+                <!-- <div class="item-inner">
+                    <div class="item-title label">状态类型</div>
+                    <div class="item-input">个人认证</div>
+                </div> -->
+                个人认证
+            </div>
+            <div class="item-content faild-border">
+                <div class="item-inner">
+                    <div class="item-title label">状态</div>
+                    <div class="item-input individual-authentication-status-text">
+                        <span class="iconfont icon-info"></span>
+                        <span class="iconfont icon-tick"></span>
+                        <span class="text"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="individual-ing">
+                <p class="individual-info-text">我们将尽快完成审核工作</p>
+                <p class="individual-info-text">请耐心等待</p>
+                <a class="button cancel-individual-verify-buuton">撤销审核</a>
+            </div>
+            <div class="individual-faild">
+                <div class="individual-faild-title item-content">
+                    <div class="item-inner">
+                        <div class="item-title label">拒绝理由</div>
+                        <div class="item-input individual-faild-content">照片不够清晰</div>
+                    </div>
+                </div>
+                <a href="views/identityAuthentication.html" class="button close-popup resubmit-individual-verify-buuton">重新提交审核资料</a>
+            </div>
+            <div class="individual-succ">
+                <!--<div class="individual-title item-content">认证信息</div>-->
+                <div class="item-content succ-border">
+                    <div class="item-inner">
+                        <div class="item-title label">姓名</div>
+                        <div class="item-input individual-authentication-name"></div>
+                    </div>
+                </div>
+                <div class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title label" style="width:35%">身份证号码</div>
+                        <div class="item-input individual-authentication-number"></div>
+                    </div>
+                </div>
+                <a href="views/identityAuthentication.html" class="close-popup individual-succ-button">升级为企业认证</a>
+            </div>
+        </div>
+        <div class="company-authentication">
+            <div class="item-content title">
+                <!-- <div class="item-inner">
+                    <div class="item-title label">状态类型</div>
+                    <div class="item-input">个人认证</div>
+                </div> -->
+                企业认证
+            </div>
+            <div class="item-content faild-border">
+                <div class="item-inner">
+                    <div class="item-title label">状态</div>
+                    <div class="item-input company-authentication-status-text">
+                        <span class="iconfont icon-info"></span>
+                        <span class="iconfont icon-tick"></span>
+                        <span class="text"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="company-ing">
+                <p class="individual-info-text">我们将尽快完成审核工作</p>
+                <p class="individual-info-text">请耐心等待</p>
+                <a class="button cancel-company-verify-buuton">撤销审核</a>
+            </div>
+            <div class="company-faild">
+                <div class="company-faild-title item-content">
+                    <div class="item-inner">
+                        <div class="item-title label">拒绝理由</div>
+                        <div class="item-input company-faild-content">照片不够清晰</div>
+                    </div>
+                </div>
+                <a href="views/identityAuthentication.html" class="button close-popup resubmit-company-verify-buuton">重新提交审核资料</a>
+            </div>
+            <div class="company-succ">
+                <!--<div class="individual-title item-content">认证信息</div>-->
+                <div class="item-content succ-border">
+                    <div class="item-inner">
+                        <div class="item-title label">企业名称</div>
+                        <div class="item-input company-authentication-name"></div>
+                    </div>
+                </div>
+                <div class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title label" style="width:35%">营业执照号码</div>
+                        <div class="item-input company-authentication-number"></div>
+                    </div>
+                </div>
+                <a href="views/identityAuthentication.html" class="close-popup company-succ-button">去个人认证</a>
+            </div>
+        </div>
+    </div>
+</div>

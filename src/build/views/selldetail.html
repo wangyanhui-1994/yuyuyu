@@ -1,0 +1,208 @@
+<div class="navbar">
+    <div class="navbar-inner navbar-on-center detail-text">
+        <div class="left sliding">
+            <a class="home-tabbar-logo filter-tabbar iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding">出售详情</div>
+        <div class="right sliding">
+            <a class="detail-more" onclick="apiCount('btn_nav_more')">
+                <span class="iconfont icon-more"></span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="page swipeback page-selldetail" data-page="selldetail">
+    <div class="page-content pull-to-refresh-content sell-detail-refresh">
+        <div class="pull-to-refresh-layer">
+            <div class="preloader"></div>
+            <div class="pull-to-refresh-arrow"></div>
+        </div>
+        <div class="sell-vue-box">
+            <div class="selldetail-info">
+                <div class="sell-detail-img">
+                    <img :src="getImgUrl" class="lazy">
+                </div>
+                <div class="sell-product" v-if="demandInfoSale && !demandInfoSale.hasSpotGoods && (demandInfoSale.marketTime*1000 > new Date().getTime())">
+                    <span class="iconfont icon-sell-time"></span>
+                    <div class="sell-product-info">{{getMarketTimeStr(demandInfoSale.marketTime)}}</div>
+                </div>
+                <div class="first">
+                    <div class="sell-detail-header">
+                        <div class="sold-out-pic" v-if="demandInfo.closed">
+                            <img src="./img/ic_soldout.png" alt="">
+                        </div>
+                        <p class="sell-detail-name">
+                            <span>{{demandInfo.title || demandInfo.fishTypeName}}</span>
+                        </p>
+                        <p class="sell-detail-address" v-if="demandInfo.provinceName">
+                            <span class="city-name">
+                            <i class="iconfont icon-map"></i>
+                            <b>{{demandInfo.provinceName + demandInfo.cityName}}</b>
+                        </span>
+                        <span class="city-distance" v-if="getRangeText && getRangeText > 200">| 距离你<i>{{getRangeText}}</i>公里</span>
+                        <span class="city-distance" v-if="getRangeText && !(getRangeText > 200)">| 离你很近</span>
+                        </p>
+                        <p class="sell-detail-price">
+                            <!-- <span class="info-price" :class="{'not-Auth': !getPrice}">{{getPrice || 'x.xx元'}}</span> -->
+                            <span class="info-price" :class="{'not-Auth': !getPrice}">{{getPrice}}</span>
+                            <span class="info-release-time">{{timeDifference(demandInfo.sort)}}</span>
+                        </p>
+                        <!-- <a class="go-certification"
+                           v-if="('价格面议' != getPrice) && (!isLogin || !currentUserInfo.nameAuthentication) && !isMineInfo"
+                           @click="isLogin ? goAuthPage() : login()">
+                            <span>完成实名认证后即可查看价格，现在去认证</span>
+                            <div class="arrow-certification"><i></i></div>
+                        </a> -->
+                    </div>
+                </div>
+                <p class="info-tages-list" v-if="(!!descriptionTags && descriptionTags.length) || (demandInfoSale && (demandInfoSale.fishCarService || demandInfoSale.pollutionFree))">
+                    <span v-if="demandInfoSale && demandInfoSale.pollutionFree" class="iconfont icon-auto-end">无药残</span>
+                    <span v-if="demandInfoSale && demandInfoSale.fishCarService" class="iconfont icon-auto-end">提供鱼车服务</span>
+                    <span class="iconfont icon-auto-end" v-for="item in descriptionTags">{{item.tagName}}</span>
+                </p>
+                <div class="assure-deal" v-if="demandGuaranteed">
+                    <div class="btn"><img src="img/danbaoicon.png" alt=""><span>担保交易</span></div>
+                    鱼大大担保交易，购买更放心
+                </div>
+            </div>
+            <div class="selldetail-cert" v-if="certList && certList.list && certList.list.length">
+                <div class="selldetail-cert-title"><i class="title-label-border"></i>相关证书</div>
+                <div class="selldetail-cert-list" onclick="apiCount('cell_certificate')">
+                    <a class="iconfont icon-right open-cert-button" v-for="item in certList.list" @click="catCert(item.path || item.url)">
+                        <span class="cert-label" :class="getCertInfo(item.type).classes">
+                            {{getCertInfo(item.type).label}}
+                        </span>具备“{{getCertInfo(item.type).certName}}”-{{item.fish_type_name || item.fishTypeName}}
+                    </a>
+                </div>
+            </div>
+            <!-- deal info  -->
+            <div class="user-deal-info" v-if="isShowDeal">
+                <a @click="submitDeal()">
+                    <span class="iconfont icon-deal"></span>
+                    <div class="deal-title">已成交？提交成交信息</div>
+                    <div class="deal-text">让你看上去更靠谱<span class="iconfont icon-right"></span></div>
+                </a>
+            </div>
+            <div class="selldetail-user list-block media-list">
+                <a class="selldetail-userinfo item-content view-user-index" :href="'views/otherIndex.html?id=' + userInfo.id + '&currentUserId=' + userInfo.id">
+                    <div class="selldetail-user-pic item-media">
+                        <img src="img/defimg.png" :data-src="userInfo.imgUrl ? (userInfo.imgUrl + imgPath(8)) : 'img/defimg.png'" class="lazy" width="50px">
+                    </div>
+                    <div class="item-inner row">
+                        <div class="col-70">
+                            <div class="cat-list-title" :class="userInfo.tradesCount===0? 'title-top':''">
+                                <div class=" user-name" :class="'name-padding-'+userInfo.level" >
+                                    <span class="name-title">{{demandInfo.contactName || '匿名用户'}}</span>
+                                    <span class="star-box">
+                                        <i class="iconfont icon-collection-active" v-if="userInfo.level>0" v-for="item in levelArray(userInfo.level)"></i> 
+                                    </span>
+                                          
+                                </div>
+                            </div>
+                            <div v-if="userInfo.tradesCount" class="deal-number"><span>{{userInfo.tradesCount}}</span>笔成交</div>
+                        </div>
+                        <div class="col-30 iconfont icon-right">进店铺</div>
+                    </div>
+                </a>
+                <div class="sell-detail-auth" v-if="1 == userInfo.personalAuthenticationState || 1 == userInfo.enterpriseAuthenticationState">
+                    <span class="auth-individual" v-if="1 == userInfo.personalAuthenticationState">已个人认证</span>
+                    <span class="auth-company" v-if="1 == userInfo.enterpriseAuthenticationState">已企业认证</span>
+                    <span class="auth-fish" v-if="yu2le" @click="fishIdentify()">智能养殖 <i class="iconfont icon-question"></i></span>
+                </div>                
+                <div class="info-detail-go-member" @click="pointUp()">
+                    等级越高，代表越靠谱！
+                    <span>提升靠谱指数</span>
+                </div>
+            </div>
+            <div class="selldetail-info deal-info" v-if="demandGuaranteed">
+                <div class="selldetail-info-title"><i class="title-label-border"></i>担保交易</div>
+                <div class="deal-content">
+                    鱼大大将为您购买鱼苗的过程给予全程的客服协助，全力保障您的交易安全，推荐您使用鱼大大担保服务进行交易
+                </div>
+                <div class="gurrantee-info">
+                    <div class="item-content">
+                        <img src="img/kefu.png" alt="">
+                        <div>客服全程协助</div>
+                    </div>
+                    <div class="item-content">
+                        <img src="img/guanfang.png" alt="">
+                        <div>官方担保资金</div>
+                    </div>
+                    <div class="item-content">
+                        <img src="img/youzhi.png" alt="">
+                        <div>精选优质卖家</div>
+                    </div>
+                </div>
+                <a class="deal-more" href="views/transactionProcess/guaranteeDesc.html">
+                    了解更多>>
+                </a>
+            </div>
+
+            <div class="selldetail-info sell-detail-info">
+                <div class="selldetail-info-title"><i class="title-label-border"></i>详细信息</div>
+                <div class="row">
+                    <span class="col-30">品种：</span>
+                    <span class="col-70 selldetail-name">{{demandInfo.fishTypeName}}</span>
+                </div>
+                <div class="row" v-if="specText">
+                    <span class="col-30">规格：</span>
+                    <span class="col-70 selldetail-spec">{{specText}}</span>
+                </div>
+                <div class="row" v-if="demandInfo.stock">
+                    <span class="col-30">出售数量：</span>
+                    <span class="col-70 selldetail-stock">{{demandInfo.stock}}</span>
+                </div>
+                <div class="row">
+                    <span class="col-30">所在地区：</span>
+                    <span class="col-70 selldetail-address">{{(demandInfo.provinceName || '') + (demandInfo.cityName || '')}}</span>
+                </div>
+                <div class="row">
+                    <span class="col-30">价格：</span>
+                    <span class="col-70 selldetail-price buy-detail-price">{{getPrice}}</span>
+                    <!-- <span class="col-70 selldetail-price buy-detail-price">{{getPrice || 'x.xx元'}}</span> -->
+                </div>
+                <div class="row selldetail-description-box" v-if="demandInfo.describe">
+                    <span class="col-30">补充说明：</span>
+                    <span class="col-70 selldetail-description">{{demandInfo.describe}}</span>
+                </div>
+            </div>
+            <div class="sell-record-list" v-if="recordList.length">
+                <div class="record-list-title"><i class="title-label-border"></i>成交记录</div>
+                <div class="row">
+                    <span class="col-33">成交时间</span>
+                    <span class="col-33">销售地区</span>
+                    <span class="col-33">数量</span>
+                </div>
+                <div class="row recored-list-content" v-for="item in recordList">
+                    <span class="col-33">{{getYmdTime(item.tradeDate)}}</span>
+                    <span class="col-33">{{item.provinceName}}</span>
+                    <span class="col-33">{{item.quantity}}</span>
+                </div>
+                
+            </div>
+
+            <div class="sell-detail-img-list" v-if="demandInfo.imgs && JSON.parse(demandInfo.imgs).length">
+                <div class="sell-detail-img-title"><i class="title-label-border"></i>其他照片</div>
+                <div class="info-img-list">
+                    <img v-for="item in JSON.parse(demandInfo.imgs)"
+                         class="lazy"
+                         :data-src="item + '?x-oss-process=image/resize,w_400'"
+                         src="img/app_icon_108.png"
+                         @click="catPic(item)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="toolbar tabbar row selldetail-footer" :class="{'review': isReview, 'verify':isVerify, 'delete':isDelete, 'safira': isIos,'guaranteed':isGuaranteed}">
+        <div class="col-60 iconfont icon-review sell-detail-in-review">正在审核中，请等待</div>
+        <div class="col-60 iconfont icon-verify-faild sell-detail-verify-faild" @click="catRejectInfo()">审核不通过，点击查看原因</div>
+        <div class="col-30 iconfont icon-share" :class="{'icon-mine-guarantee':isGuaranteed && isMineInfo }" @click="shareInfo()"> {{isGuaranteed ? '分享':'分享给好友'}} </div>
+        <div class="col-30 iconfont icon-collection icon-collection-btn" v-if="!isMineInfo" :class="{'icon-collection-active': favorite}" @click="collectionAction()">收藏</div>
+        <div class="col-30 iconfont icon-refresh" v-if="isMineInfo" @click="isRefresh ? tipInfo() : refreshInfo()">{{isRefresh ? '今日已刷新' : '刷新信息'}}</div>
+        <div class="selldetail-guarantee" v-if="!isMineInfo && isGuaranteed" @click="purchaseAction()">
+            <div class="main">立即购买</div>
+        </div>
+        <div class="col-40 selldetail-call-phone" @click="callPhone()">电话联系</div>
+        <div class="col-40 selldetail-delete-info" @click="deleteInfo()">删除</div>
+    </div>
+</div>

@@ -1,0 +1,137 @@
+.page-release-succ,
+.page-submit-deal-succ {
+    .page-content {
+        padding-bottom: 0;
+    }
+
+    .release-succ-head {
+        .text-center;
+        padding: 2rem 0;
+
+        .iconfont {
+            font-size: 2.6rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            line-height: 3.5rem;
+            margin: 0 auto 1rem;
+            padding: 1rem;
+            border-radius: 50%;
+            background: @themeColor;
+            .text-shadow(@themeColor);
+            color: @text-fff;
+        }
+
+        div.release-succ-text {
+            font-size: 2rem;
+            color: @themeColor;
+            padding-bottom: 1rem;
+        }
+
+        p {
+            color: @text-name;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0 5%;
+            color: @text-category;
+            text-align: left;
+
+            i {
+                vertical-align: middle;
+                width: 0.6rem;
+                height: 0.6rem;
+                display: inline-block;
+                border-radius: 0.3rem;
+                background: @text-category;
+                margin-right: 0.5rem;
+                .ps-r;
+                top: -0.1rem;
+            }
+        }
+
+        .row {
+            width: 80%;
+            margin: 1rem auto 0;
+
+            .button {
+                border: 0;
+                height: 3rem;
+                line-height: 3rem;
+                background: @themeColor;
+                .text-shadow(@themeColor);
+                color: @text-fff;
+
+                &.first {
+                    background: @text-subtitle;
+                    .text-shadow(@text-subtitle);
+                }
+            }
+        }
+    }
+
+    .release-succ-list {
+        background: @bg-fff;
+        .text-shadow(@text-fff);
+        display: none;
+
+        &.show {
+            display: block;
+        }
+
+        & > .title {
+            color: @text-category;
+            line-height: 3rem;
+            .text-center;
+            border-bottom: 1px solid @border-da;
+
+            span.icon-down {
+                display: inline-block;
+                font-size: 1.6rem;
+                color: @text-category;
+                vertical-align: top;
+
+                &:before {
+                    margin-right: 1rem;
+                    font-size: 2rem;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        .list-view {
+            background: @bg-body;
+            .text-shadow(@bg-body);
+        }
+    }
+}
+
+.page-submit-deal-succ {
+    .release-succ-head {
+        background: @bg-fff;
+
+        p {
+            .text-center;
+            margin-bottom: 3.rem;
+        }
+
+        .release-succ-back-btn {
+            width: 40%;
+
+            a.button {
+                display: block;
+                width: 100%;
+                background: @bg-fff;
+                .text-shadow(@bg-fff);
+                color: @themeColor;
+                border: 1px solid @themeColor;
+            }
+        }
+    }
+
+    .release-succ-list {
+        display: block;
+        background: none;
+        padding: 1rem 3rem;
+        .text-center;
+        color: @text-category;
+    }
+}

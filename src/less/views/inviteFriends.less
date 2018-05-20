@@ -1,0 +1,508 @@
+.page-invite-friends,
+.page-my-shop,
+.page-share-my-trip {
+    &.page > .page-content {
+        background: @bg-fff;
+        padding: 7rem 3rem 2rem;
+
+        .invite-user {
+            height: 73%;
+            // padding-bottom: 6rem;
+        }
+
+        .invite-user-header {
+            .text-hidden;
+            .text-center;
+            background-image: linear-gradient(0deg, @bg-invite-end 0%, @bg-invite-start 100%);
+            background-image: -webkit-linear-gradient(top, @bg-invite-end 0%, @bg-invite-start 100%);
+            box-shadow: 0 0 10px 0 @bg-black-4;
+            color: @text-fff;
+            height: 46%;
+
+            .user-head-img {
+                width: 24%;
+                .auto;
+                display: inline-block;
+                // height: 52%;
+                p{
+                  width: 100%;
+                  height: 18%;
+                }
+                img {
+                    display: block;
+                    width: 100%;
+                    border-radius: 50%;
+                    border: 2px solid @bg-white-4;
+                    .box-size();
+                }
+            }
+
+            // .user-head-img::before {
+            //     content: '';
+            //     display: block;
+            //     height: 18%;
+            // }
+
+            .user-level,
+            .user-release-num {
+                width: 37%;
+                height: 52%;
+                font-size: 1.6rem;
+
+                span {
+                    font-size: 2.2rem;
+
+                    &.iconfont {
+                        font-size: 3rem;
+                        top: -0.5rem;
+                        .ps-r;
+                    }
+                }
+
+                p {
+                    margin: 0.3rem 0;
+
+                    &.level {
+                        .ps-r;
+                        top: -1rem;
+                    }
+                }
+            }
+
+            .user-level::before{
+                content: '';
+                display: block;
+                height: 20%;
+            }
+
+            .user-release-num::before{
+              content: '';
+              display: block;
+              height: 25%;
+            }
+
+            .invite-user-nickname {
+                font-size: 1.8rem;
+                .text-hidden;
+                width: 100%;
+                height: 18%;
+            }
+
+            .invite-user-nickname::before {
+                content: '';
+                display: block;
+                height: 6%;
+            }
+
+            .invite-user-auth-state {
+                padding-bottom: 3rem;
+                height: 22%;
+
+                span {
+                    display: inline-block;
+                    padding: 0.5rem 1rem;
+                    border: 1px solid @text-fff;
+                    border-radius: 0.3rem;
+                }
+            }
+
+            .invite-user-auth-state::before {
+                content: '';
+                display: block;
+                height: 7%;
+            }
+        }
+
+        .invite-user-code {
+            // margin-top: 3rem;
+            font-size: 1.3rem;
+            color: @text-name;
+            .ps-r;
+            // padding: 1rem 0 1rem 6.5rem;
+            p {
+                margin: 0;
+                line-height: 1.6;
+
+                span {
+                    color: @text-chushou;
+                }
+            }
+
+            img {
+                display: block;
+                .ps-a;
+                left: 0;
+                top: 0;
+                width: 6rem;
+            }
+        }
+
+        .bg-card-level,
+        .bg-card-pic,
+        canvas {
+            display: none;
+        }
+
+        .invite-share {
+            .text-center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            padding: 0 3rem;
+            width: 100%;
+            .box-size();
+            height: 27%;
+
+            & > p {
+                color: @text-invite-tip;
+                .ps-r;
+
+                span {
+                    .ps-r;
+                    display: inline-block;
+                    background: @text-fff;
+                    padding: 0 1rem;
+                }
+
+                &:before {
+                    content: ' ';
+                    width: 100%;
+                    .ps-a;
+                    left: 0;
+                    top: 0.9rem;
+                    height: 0;
+                    border-bottom: 1px solid @text-a9;
+                }
+            }
+
+            .invite-share-tab {
+                overflow: hidden;
+                // min-height: 8rem;
+                height: 70%;
+
+                .invite-share-items {
+                    width: 33.33%;
+                    height: 70%;
+                    float: left;
+                    .invite-share-items img {
+                        display: block;
+                        width: 4.5rem;
+                        margin: 0 auto;
+                    }
+                }
+                .invite-share-items::before{
+                  content: '';
+                  display: block;
+                  height: 12%;
+                }
+                .invite-share-items:nth-child(3)::before{
+                  content: '';
+                  display: block;
+                  height: 2%;
+                }
+                .weixin-friends img,
+                .weixin-friends-circle img {
+                    padding-top: 0;
+                }
+                .weixin-friends-circle img{
+                    width: 4rem;
+                    padding-bottom: 0.5rem;
+                }
+                .qq-friends .iconfont{
+                  vertical-align: top;
+                }
+                .qq-friends p{
+                  margin-top: .3rem;
+                }
+            }
+        }
+    }
+}
+
+.page-my-shop {
+    &.page > .page-content {
+        .invite-user {
+            // padding-bottom: 4rem;
+        }
+
+        .invite-user-header {
+            .invite-user-auth-state {
+                padding-bottom: 0;
+            }
+        }
+
+        .invite-user-code {
+            // padding-top: 8rem;
+            padding-left: 0;
+            // margin-top: 2rem;
+            height: 53%;
+
+            img {
+                width: 7rem;
+                display: block;
+                top: 15%;
+                left: 50%;
+                margin-left: -3.5rem;
+            }
+
+            p {
+                .text-center;
+            }
+
+            .invite-code {
+                height: 53%;
+            }
+
+            .invite-code::before {
+                content: '';
+                display: block;
+                height: 95%;
+            }
+        }
+
+        .invite-user-code::before {
+            content: '';
+            display: block;
+            height: 15%;
+        }
+    }
+}
+
+
+.page-invite-friends.page{
+  &.page > .page-content {
+      .invite-user {
+          height: 75%;
+      }
+
+      .invite-user-header {
+        p{
+          width: 100%;
+          height: 15%;
+        }
+          height: 56%;
+
+          .user-head-img {
+              width: 24%;
+              .auto;
+              display: inline-block;
+          }
+
+          // .user-head-img::before {
+          //     content: '';
+          //     display: block;
+          //     height: 18%;
+          // }
+
+          .user-level,
+          .user-release-num {
+              width: 37%;
+              height: 42%;
+              font-size: 1.6rem;
+          }
+
+          .user-level::before,
+          .user-release-num::before {
+              content: '';
+              display: block;
+              height: 20%;
+          }
+
+          .invite-user-nickname {
+              height: 15%;
+          }
+
+          .invite-user-nickname::before {
+              content: '';
+              display: block;
+              height: 6%;
+          }
+
+          .invite-user-auth-state {
+              padding-bottom: 0;
+              height: 17%;
+          }
+          .invite-user-auth-state::before{
+            content: '';
+            display: block;
+            height: 7%;
+          }
+          .invite-user-auth-state::before {
+              content: '';
+              display: block;
+              height: 7%;
+          }
+          .invite-user-number{
+            height: 24%;
+            i{
+                position: relative;
+                top: -2px;
+            }
+          }
+          .invite-user-number::before{
+            content: '';
+            display: block;
+            height: 12%;
+          }
+      }
+
+      .invite-user-code {
+        height: 40%;
+          p {
+              margin: 0;
+              line-height: 1.6;
+              span {
+                  color: @text-chushou;
+              }
+          }
+          img {
+              display: block;
+              .ps-a;
+              left: 0;
+              top: 22%;
+              width: 6rem;
+          }
+          .invite-user-friend{
+            height: 40%;
+          }
+          .invite-user-friend::before{
+            content: '';
+            display: block;
+            height: 80%;
+          }
+      }
+
+      .bg-card-level,
+      .bg-card-pic,
+      canvas {
+          display: none;
+      }
+
+      .invite-share {
+          .text-center;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          padding: 0 3rem;
+          width: 100%;
+          .box-size();
+          height: 27%;
+
+          & > p {
+              color: @text-invite-tip;
+              .ps-r;
+
+              span {
+                  .ps-r;
+                  display: inline-block;
+                  background: @text-fff;
+                  padding: 0 1rem;
+              }
+
+              &:before {
+                  content: ' ';
+                  width: 100%;
+                  .ps-a;
+                  left: 0;
+                  top: 0.9rem;
+                  height: 0;
+                  border-bottom: 1px solid @text-a9;
+              }
+          }
+
+          .invite-share-tab {
+              overflow: hidden;
+              // min-height: 8rem;
+              height: 70%;
+
+              .invite-share-items {
+                  width: 33.33%;
+                  height: 70%;
+                  float: left;
+                  .invite-share-items img {
+                      display: block;
+                      width: 4.5rem;
+                      margin: 0 auto;
+                  }
+              }
+              .invite-share-items::before{
+                content: '';
+                display: block;
+                height: 12%;
+              }
+              .invite-share-items:nth-child(3)::before{
+                content: '';
+                display: block;
+                height: 2%;
+              }
+              .weixin-friends img,
+              .weixin-friends-circle img {
+                  padding-top: 0;
+              }
+              .weixin-friends-circle img{
+                  width: 4rem;
+                  padding-bottom: 0.5rem;
+              }
+              .qq-friends .iconfont{
+                vertical-align: top;
+              }
+              .qq-friends p{
+                margin-top: .3rem;
+              }
+          }
+      }
+  }
+}
+
+.page-share-my-trip{
+  &.page > .page-content {
+      .share-trip-share {
+          .invite-share-tab {
+            .invite-share-items{
+              .icon-qq{
+                font-size: 4.25rem;
+              }
+            }
+              .weixin-friends img,
+              .weixin-friends-circle img {
+                  padding-top: 0;
+              }
+              .weixin-friends-circle img{
+                  width: 4rem;
+                  padding-bottom: 0.5rem;
+              }
+              .qq-friends .iconfont{
+                vertical-align: top;
+              }
+              .qq-friends p{
+                margin-top: 0rem;
+              }
+          }
+      }
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 400px) {
+    .page-invite-friends.page .page-content .invite-user-code {
+        padding-left: 7rem;
+    }
+
+
+}
+@media screen and (min-width: 320px) and (max-width: 350px) {
+  .invite-user-friend{
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 401px) and (max-width: 500px) {
+    .page-invite-friends.page .page-content .invite-user-header {
+        .user-release-num p,
+        .user-level p{
+            margin: 0.9rem 0;
+        }
+    }
+
+    .page-invite-friends.page .page-content .invite-user-code {
+        padding-left: 7.5rem;
+    }
+}

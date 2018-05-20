@@ -1,0 +1,75 @@
+div[data-page="fishCarTripList"],div[data-page="myFishCarDemandList"]{
+    background: @bg-f5;
+    .text-shadow(@bg-f5);
+    .navbar {
+        &:after {
+            display: none;
+        }
+    }
+    .collection-list-info{
+        padding: 0 2% 1rem;
+    }
+    .collection-list-empty {
+        padding-top: 6rem;
+        .text-center;
+        display: none;
+        .icon-copy {
+            width: 10rem;
+            height: 10rem;
+            border-radius: 5rem;
+            color: @text-fff;
+            font-size: 6rem;
+            .text-center;
+            line-height: 10rem;
+            background: @border-da;
+            margin: 0 auto;
+        }
+        p {
+            color: @text-category;
+            padding: 1rem 0 0.2rem;
+            font-size: 1.6rem;
+        }
+        .button {
+            width: 60%;
+            line-height: 4rem;
+            height: 4rem;
+            background: @themeColor;
+            .text-shadow(@themeColor);
+            border: 0;
+            color: @text-fff;
+            margin: 1rem auto;
+        }
+        a{
+            margin: 5rem auto 0;
+            display: block;
+            width:60%;
+            height: 4rem;
+            line-height: 4rem;
+            border-radius: 0.3rem;
+            color: @text-fff;
+            background: @themeColor;
+            .text-shadow(@themeColor);
+            font-size: 1.6rem;
+        }
+    }
+    .collection-empty-info {
+        color: @text-category;
+        .text-center;
+        display: none;
+        font-size: 1.6rem;
+    }
+    .swiper-wrapper {
+        .swiper-slide {
+            .preloader{
+                width: 2rem;
+                height: 2rem;
+                margin-top: -1rem;
+                margin-left: -1rem;
+            }
+        }
+    }
+    .infinite-scroll-preloader {
+        .ps-r;
+        height: 4rem;
+    }
+}

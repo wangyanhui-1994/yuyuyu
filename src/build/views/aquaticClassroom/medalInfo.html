@@ -1,0 +1,27 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding medal-name">勋章</div>
+        <div class="right sliding"></div>
+    </div>
+</div>
+<div class="page swipeback toolbar-through page-medal-info" data-page="medalInfo" >
+    <div class="page-content infinite-scroll vue-box"  :class="hasMedal?'bg-blue':'bg-empty' ">
+    	<div>
+            <div class="medal-des" >
+                <div class="des-title">
+                    <img :src="hasMedal? 'img/congratulation.png':'img/nomedal.png'" alt="">
+                </div>
+                <img :src="imgSrc" alt="" :class="hasMedal?'des-img':'empty-img'">
+                <div class="des-time">{{ hasMedal? medalTitle:medalInfo.name}}</div>
+                <div class="des-memo">
+                    <p>{{splitStart}}</p>
+                    <p>{{splitEnd}}</p>
+                </div>
+                <div class="share-btn" :class="{'hideCard':hideCard}" v-if="hasMedal" @click="toShare">给朋友炫耀</div>
+            </div>
+    	</div>
+    </div>
+</div>

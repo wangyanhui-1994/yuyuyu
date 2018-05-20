@@ -1,0 +1,30 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+            <a class="back iconfont icon-back">返回</a>
+        </div>
+        <div class="center sliding">选择日期</div>
+    </div>
+</div>
+<div class="page-choose-date page swipeback" data-page="chooseDate">
+    <div class="page-content vue-box">
+        <div class="exact-date">
+            <div class="exact-year">{{currentYear + '年'}}</div>
+            <div class="exact-year-info" v-for="item in prevDate">
+                <p class="exact-month">{{item + '月'}}</p>
+                <span v-for="(time, index) in timeObj"
+                      :class="{'m-r-0': (2 == index), 'disable': isDisable(item, time.val)}"
+                      @click="selectTime(item, time.val,time.text, isDisable(item, time.val), false)">{{time.text}}</span>
+            </div>
+        </div>
+        <div class="exact-date">
+            <div class="exact-year">{{(currentYear + 1) + '年'}}</div>
+            <div class="exact-year-info" v-for="item in nextDate">
+                <p class="exact-month">{{item + '月'}}</p>
+                <span v-for="(time, index) in timeObj"
+                      :class="2 == index && 'm-r-0'"
+                      @click="selectTime(item, time.val, time.text,false, true)">{{time.text}}</span>
+            </div>
+        </div>
+    </div>
+</div>

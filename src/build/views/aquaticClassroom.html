@@ -1,0 +1,113 @@
+<div class="navbar">
+    <div class="navbar-inner classroom-header">
+        <div class="header-search" >
+            <a href="views/aquaticSearch.html" class="component-search">
+                <span>
+                    <img src="img/ic_blue_search_bak.png" alt="">
+                    输入相关课程的关键字，如：机械
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="page no-swipeback no-animation page-aquatic-classroom" data-page="aquaticClassroom">
+    <div class="page-content infinite-scroll">
+        <div class="vue-box">
+        <!-- 头部开始 -->
+            <div class="class-header">
+                <div class="photo"><img :src="headUrl(studyInfo.headImg)" alt=""></div>
+                <div class="header-content">
+                    <a class="title article" @click="isLogin ? goArtical() : goLogin()">
+                        <div class="title-memo">
+                           <div v-if="!isLogin" class="look-artical">登录查看</div>
+                           <div v-if="isLogin"><span class="num">{{studyInfo.usefulInfoCount || '0'}}</span>篇</div>
+                        </div>
+                        <div >有用的文章</div>
+                        <div class="space-line"></div>
+                    </a>
+                    <a class="title learn-time" @click="isLogin ? goMedal() : login()">
+                        <div class="title-memo"><span class="num">{{studyInfo.medalCount || 0}}</span>个</div>
+                        <div >我的勋章</div>
+                        <div class="space-line"></div>
+                        <b class="collection" v-if="isMedalChanged">待领取</b>
+                    </a>
+                    <a class="title learn-time" href="views/aquaticRanking.html" onclick="apiCount('cell_education_rank')">
+                        <div class="title-memo" v-html="studySeconds"></div>
+                        <div >本周学习</div>
+                    </a>
+                    <!-- 排名留着 -->
+                    <!-- <a class="title level" href="views/aquaticRanking.html">
+                        <div class="title-memo">
+                            <div v-if="isLogin && studyInfo.rank">第<span class="num">{{studyInfo.rank}}</span>名</div>
+                            <div v-else>未上榜</div>
+                        </div>
+                        <div >本周学习</div>
+                    </a> -->
+                </div>
+                <div class="getrePortCard" @click="goScoreReport()" v-if="studyInfo.report">成绩单</div>
+            </div>
+            <div class="header-search header-hide" onclick="apiCount('textfield_search_education')">
+                <classroom-search class="search-content"></classroom-search>
+            </div>
+            <!-- <div class="header-search" :class="isSlide ? 'header-fixed':'header-hide'">
+                <classroom-search class="search-content"></classroom-search>
+            </div> -->
+            <!-- <div class="class-type" :class="isSlide? 'class-top':''"> -->
+        <!-- 头部结束 -->
+        <!-- 课程分类开始 -->
+            <div class="class-type" >
+                <div class="type-title">
+                    课程分类
+                </div>
+                <div class="type-content top-content">
+                    <a @click="goclassType(1)">
+                        <img src="img/tiaoshui.png" alt="">
+                    </a>
+                    <a @click="goclassType(3)">
+                        <img src="img/binghai.png" alt="">
+                    </a>
+                    <a @click="goclassType(8)">
+                        <img src="img/jixie.png" alt="">
+                    </a>
+                    <a @click="goclassType(16)" class="last-content">
+                        <img src="img/other.png" alt="">
+                    </a>
+                </div>
+                <div class="type-content">
+                    <a @click="goclassType(11)">
+                        <img src="img/yangzhi.png" alt="">
+                    </a>
+                    <a @click="goclassType(18)">
+                        <img src="img/hulianwang.png" alt="">
+                    </a>
+                    <a @click="goclassType(20)">
+                        <img src="img/qiantiao.png" alt="">
+                    </a>
+                    <a @click="goclassType(22)" class="last-content">
+                        <img src="img/zaolei.png" alt="">
+                    </a>
+                </div>  
+            </div>
+            <div class="type-line"><div class="line"></div></div>
+        <!-- 课程分类结束 -->
+        <!-- 每日必听开始 -->
+            <div class="class-learn">
+                <div class="type-title">
+                    每日必看
+                </div>
+                <div class="artical-list" onclick="apiCount('cell_tutor_list')">
+                    <classroom-article-item v-for="item in infoList" :item="item"></classroom-article-item>
+                </div>
+            </div>
+            <p class="show-all" v-if="showAll">已加载完毕</p>
+            <div class="infinite-scroll-preloader" v-if="!showAll">
+                <div class="preloader"></div>
+            </div>
+
+        <!-- 每日必听结束 -->
+        </div>
+    </div>
+    <div class="toolbar tabbar">
+        <tab-bar-component tab-index='4'><tab-bar-component/>
+    </div>
+</div>

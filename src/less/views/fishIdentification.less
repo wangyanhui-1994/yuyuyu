@@ -1,0 +1,118 @@
+.page-fish-identification .page-content {
+    .text-center;
+    font-size: 1.5rem;
+    line-height: 2.1rem;
+    background-color: @bg-fff;
+    .fish-identification-header {
+        height: 18.6rem;
+        background-color: @bg-fish-identify;
+        position: relative;
+        img {
+            position: absolute;
+            top: 3.5rem;
+            left: 50%;
+            margin-left: -3.3425rem;
+        }
+        .fish-platform {
+            height: 4.2rem;
+            width: 80%;
+            position: absolute;
+            left: 50%;
+            bottom: 3rem;
+            margin-left: -40%;
+            p {
+                margin: 0;
+                color: @bg-fff;
+            }
+        }
+    }
+    .fish-identification-content {
+        padding: 1.8rem 2.8rem 2.5rem;
+        p {
+            margin: 0;
+            color: @text-category;
+            .text-left;
+        }
+    }
+    .identification-logo {
+        height: 3.6rem;
+        padding: 0 2rem;
+        width: 100%;
+        box-sizing: border-box;
+        .col-50 {
+            display: inline-block;
+            width: 48%;
+            color: @text-category;
+            position: relative;
+            .item-media {
+                display: inline-block;
+                .icon-happy {
+                    font-size: 3.8rem;
+                    color: @bg-fish-identify;
+                    position: absolute;
+                    top: 0.5rem;
+                    left: 0;
+                }
+                .icon-fish-arrow {
+                    font-size: 4.5rem;
+                    color: @bg-fish-identify;
+                    position: absolute;
+                    top: 0.5rem;
+                    left: 0;
+                }
+            }
+            .item-inner {
+                display: inline-block;
+                padding-top: 0;
+                padding-right: 0;
+                padding-left: 2.2rem;
+                margin-left: 0;
+                position: absolute;
+                top: 0.8rem;
+                left: 1.4rem;
+                .content-title {
+                    font-size: 1.4rem;
+                    line-height: 2rem;
+                    margin-left: 0.5rem;
+                }
+            }
+            .item-inner::after {
+                height: 0;
+            }
+        }
+    }
+    .fish-identification-footer {
+        padding-top: 4.9rem;
+        .fish-identify-btn {
+            display: inline-block;
+            width: 70%;
+            background: @bg-fish-identify;
+            .text-shadow(@bg-fish-identify);
+            color: @bg-fff;
+            border: 0;
+            line-height: 3.5rem;
+            height: 3.5rem;
+        }
+        a.more {
+            margin-top: 1rem;
+            background: @text-test;
+            .text-shadow(@text-test);
+        } 
+    }
+    .identify-success {
+        padding: 0 2.8rem;
+        font-size: 1.5rem;
+        line-height: 2.1rem;
+        text-align: left;
+        p {
+            margin: 0;
+            color: @text-category;
+        }
+        .line {
+            width: 100%;
+            height: 0;
+            border-bottom: 0.1rem dashed @model-border;
+            margin-top: 1.8rem;
+        }
+    }
+}

@@ -1,0 +1,264 @@
+<div class="navbar">
+    <div class="navbar-inner navbar-on-center detail-text">
+        <div class="left sliding">
+            <a class="iconfont icon-back back">返回</a>
+        </div>
+        <div class="center sliding">订单详情</div>
+        <div class="right sliding contact-service">联系客服</div>
+    </div>
+</div>
+<div class="page swipeback toolbar-through page-order-details" data-page="orderDetails">
+    <div class="page-content pull-to-refresh-content">
+        <div class="pull-to-refresh-layer">
+            <div class="preloader"></div>
+            <div class="pull-to-refresh-arrow"></div>
+        </div>
+        <div class="vue-box">
+            <div class="order-header">
+                <!-- 线上待支付状态 -->
+                <div v-if="orderInfo.status == 4">
+                    <div class="header-state">等待支付</div>
+                    <div class="header-desc">
+                        <div class="guarantee">
+                            <span>资金将在鱼大大平台担保<img src="img/help.png" @click="goToGuarantee()"></span>
+                        </div>
+                        <!-- 没有图片用下面 -->
+                        <!-- <div class="desc-other">请在转账成功后上传凭证</div>  -->
+                    </div>
+                    <div class="header-btn">
+                        <!-- 两个button时显示此行 -->
+                        <div class="double-btn" v-if="userType == 2">
+                            <div class="btn wait" @click="callAppPay">立即付款</div>
+                            <div class="btn more-operate" @click="showCancelOrderActionSheet">更多操作</div>
+                        </div>
+
+                        <div class="double-btn" v-if="userType == 1">
+                            <div class="btn" @click="updatePrice">修改价格</div>
+                            <div class="btn more-operate" @click="closeOrder">关闭交易</div>
+                        </div>
+                        <!-- 两个button时显示此行 -->
+                        <!-- <div class="one-btn">
+                            <div class="btn">申请客服帮助</div>
+                        </div> -->
+                        
+                    </div>
+                </div>
+
+                <!-- 线上待发货 -->
+                <div v-if="orderInfo.status === 0">
+                    <div class="header-state">等待卖家发货</div>
+                    <div class="header-desc">
+                        <div class="guarantee">非金牌鱼苗专区时间以卖家为准</div>
+                    </div>
+                    <div class="header-btn">
+                        <div class="double-btn" v-if="userType == 2">
+                            <div class="btn" @click="expediting">催卖家发货</div>
+                            <div class="btn more-operate" @click="serviceHelp" v-if="!orderInfo.helpInfo">申请客服帮助</div>
+                        </div>
+
+                        <div class="one-btn" v-if="userType == 1">
+                            <div class="btn" @click="writeLogisticsInfo">填写物流信息</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 线上已发货，待确认 -->
+                <div v-if="orderInfo.status === 1">
+                    <div class="header-state">卖家已发货</div>
+                    <div class="header-desc" v-if="userType == 1">
+                        <div class="guarantee">买家确认收货后钱款即可到账，</div>
+                        <div class="guarantee">请尽快与买家联系</div>
+                    </div>
+                    <div class="header-desc" v-if="userType == 2">
+                        <div class="guarantee">还剩{{secondToDate(orderInfo.autoReceivingIn)}}确认收货</div>
+                    </div>
+
+                    <div class="header-btn">
+                        <div class="double-btn" v-if="userType == 2">
+                            <div class="btn wait" @click="confirmationReceipt">确认收货</div>
+                            <div class="btn more-operate" @click="serviceHelp" v-if="!orderInfo.helpInfo">申请客服帮助</div>
+                        </div>
+
+                        <div class="one-btn" v-if="userType == 1">
+                            <div class="btn" @click="contactBuyer">联系买家</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 线上确认收货，交易成功 -->
+                <div v-if="orderInfo.status === 2">
+                    <div class="header-state">交易成功</div>
+                    <div class="header-desc" v-if="userType == 1">
+                        <div class="guarantee">如有疑问请申请客服帮助</div>
+                    </div>
+                    <div class="header-desc" v-if="userType == 2">
+                        <div class="guarantee">恭喜完成一笔交易</div>
+                    </div>
+
+                    <div class="header-btn">
+                        <div class="double-btn" v-if="userType == 2">
+                            <div class="btn" @click="serviceHelp" v-if="!orderInfo.helpInfo">申请客服帮助</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 线上交易买家取消 -->
+                <div v-if="orderInfo.status === 3">
+                    <div class="header-state">交易取消</div>
+
+                    <div class="header-desc">
+                        <div class="guarantee">{{orderInfo.orderCancelReason }}</div>
+                    </div>
+
+                    <div class="header-btn">
+                        <div class="one-btn">
+                            <div class="btn" @click="deleteOrder">删除订单</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 线上交易卖家关闭交易 / 运营后台关闭交易 -->
+                <div v-if="orderInfo.status === 8 || orderInfo.status === 7">
+                    <div class="header-state">交易关闭</div>
+
+                    <div class="header-btn">
+                        <div class="one-btn">
+                            <div class="btn" @click="deleteOrder">删除订单</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 线下交易等待银行转账 -->
+                <div v-if="orderInfo.status === 5">
+                    <div v-if="userType == 2">
+                        <div class="header-state">等待银行转账</div>
+                        <div class="header-desc">
+                            <div class="guarantee">请在转账成功后上传凭证</div>
+                        </div>
+
+                        <div class="header-btn">
+                            <div class="double-btn" v-if="userType == 2">
+                                <div class="btn wait" @click="callUploadPayment">立即上传</div>
+                                <div class="btn more-operate" @click="showCancelOrderActionSheet">更多操作</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 对于买家而言此时是待付款 -->
+                    <div v-if="userType == 1">
+                        <div class="header-state">等待支付</div>
+                        <div class="header-desc">
+                            <div class="guarantee">
+                                <span>资金将在鱼大大平台担保<img src="img/help.png" ></span>
+                            </div>
+                        </div>
+                        <div class="header-btn">
+                            <div class="double-btn">
+                                <div class="btn" @click="updatePrice">修改价格</div>
+                                <div class="btn more-operate" @click="closeOrder">关闭交易</div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 线下交易转账待确认 -->
+                <div v-if="orderInfo.status === 6">
+                    <div v-if="userType == 2">
+                        <div class="header-state">转账待确认</div>
+                        <div class="header-desc">
+                            <div class="guarantee" v-if="userType == 2">转账凭证已提交</div>
+                            <div class="guarantee" v-if="userType == 2">我们将在一个工作日后确认，请耐心等待</div>
+                        </div>
+                    </div>
+
+                    <!-- 对于买家而言此时是待付款 -->
+                    <div v-if="userType == 1">
+                        <div class="header-state">等待支付</div>
+                        <div class="header-desc">
+                            <div class="guarantee">
+                                <span>资金将在鱼大大平台担保<img src="img/help.png" ></span>
+                            </div>
+                        </div>
+                        <div class="header-btn">
+                            <div class="double-btn">
+                                <div class="btn" @click="updatePrice">修改价格</div>
+                                <div class="btn more-operate" @click="closeOrder">关闭交易</div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="order-service" @click="goToHelp" v-if="isShowHelpInfo">
+                <div class="service-title">
+                    <span>客服帮助</span>
+                    <span class="tel">{{helpInfoStateText}} <img src="img/ic_arrow.svg" ></span>
+                </div>
+                <div class="service-desc">
+                    在问题未解决前，资金将保留在鱼大大平台，不会转账给不卖，以保障您的资金安全
+                </div>
+            </div>
+
+            <div class="m-t-5">
+                <div class="transport" v-if="orderInfo.deliveryInfo.deliveryOrderNo">
+                    <div class="transport-type">{{deliveryText.text}} <span class="time">{{deliveryText.time}}</span></div>
+                    <div class="transport-num">{{deliveryText.content}}</div>
+                </div>
+                <div class="offline-transfer" v-if="orderInfo.payType == 1" @click="goOffline">查看线下转账流程 <img src="img/ic_arrow.svg" ></div>
+                <div class="receive-info">
+                    <div class="receive-name">
+                        <span>收货人：{{orderInfo.receiverInfo.receiverName || '匿名用户'}}</span>
+                        <span class="phone">{{orderInfo.receiverInfo.receiverPhone}}</span>
+                    </div>
+                    <div class="receive-address word-break">收货地址：{{receiverAddress}}</div>
+                </div>
+            </div>
+
+            <div class="order-owner" @click="viewUserShop">
+                <div class="owner-name" v-if="userType == 1">
+                    <img src="img/ic_buyer.png" class="owner-img">
+                    {{userTypeText}}
+                    <span class="tel">联系他 <img src="img/ic_arrow.svg" ></span>
+                </div>
+
+                <div class="owner-name" v-if="userType == 2">
+                    <img src="img/shop_seller.png" class="owner-img">
+                    {{userTypeText}}
+                    <span class="tel">联系他 <img src="img/ic_arrow.svg" ></span>
+                </div>
+            </div>
+            <div class="info-item" @click="viewsGoodsInfo">
+                <div class="info-content">
+                    <img :src="picImg" >
+                    <div class="main-info">
+                        <div class="info-title">{{orderInfo.demandProductInfo.fishTypeName}}</div>
+                        <div class="info-price">{{specText}}</div>
+                    </div>
+                    <div class="info-num">{{orderInfo.demandProductInfo.num + orderInfo.demandProductInfo.unitText}}</div>
+                </div>
+            </div>
+            <div class="leave-message" v-if = "orderInfo.buyerRemark">
+                <span class="my-memo">我的留言：</span>
+                <span class="memo word-break">{{orderInfo.buyerRemark}}</span>
+            </div>
+            <div class="total-money">
+                <span class="total-name">实际付款：</span>
+                <span class="money">¥{{orderInfo.payTotalMoney | orderPriceFormatter}}</span>
+            </div>
+            <div class="detail-result">
+                <div class="order-num">
+                    <div class="num">订单编号：{{orderInfo.orderNo}}</div>
+                    <div class="copy" @click="copyResult">复制</div>
+                </div> 
+                <div v-for="item in orderInfo.operationLogs">
+                    <div class="order-num top" v-if="item.operationType == 1">创建时间：{{getDate(item.createTime, 'second')}}</div>
+                    <div class="order-num top" v-if="item.operationType == 4 || item.operationType == 12">支付时间：{{getDate(item.createTime, 'second')}}</div>
+                    <div class="order-num top word-break" v-if="item.operationType == 4">微信交易单号：{{orderInfo.channelOrderNo}}</div>
+                    <div class="order-num top" v-if="item.operationType == 12">转账单号：{{orderInfo.channelOrderNo}}</div>
+                    <div class="order-num top" v-if="item.operationType == 5">发货时间：{{getDate(orderInfo.deliveryInfo.deliveryStartTime, 'second')}}</div>
+                    <div class="order-num top" v-if="item.operationType == 3">成交时间：{{getDate(item.createTime, 'second')}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

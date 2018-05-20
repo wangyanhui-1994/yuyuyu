@@ -1,0 +1,38 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left sliding">
+            <a class="iconfont icon-back back"></a>
+        </div>
+        <div class="center sliding">
+        	 <a class="search-nav">
+        	    <img src="img/ic_blue_search.png" alt="">
+                <input type="text" placeholder="输入关键字" class="search-page-input">
+             </a>
+        </div>
+        <div class="right sliding search-button">
+            搜索
+        </div>
+    </div>
+</div>
+<div class="page swipeback toolbar-through page-aquatic-search" data-page="aquaticSearch">
+    <div class="page-content infinite-scroll">
+    	<div class="vue-box">
+            <div class="pull-to-refresh-layer" v-if ="infoList.length">
+                <div class="preloader"></div>
+                <div class="pull-to-refresh-arrow"></div>
+            </div>
+    		<div class="search-log" v-if="isCache">
+    			<classroom-search-cache-item v-for="str in listStr" :item = "str" :clear = "isClear" @clearSearch="clearSearch(str)" ></classroom-search-cache-item>
+    		</div>
+    		<div class="artical-list" v-if ="infoList.length" onclick="apiCount('cell_education_search_resultList')">
+                <classroom-article-item v-for="item in infoList" :item="item" :line-height-str="fuzzyCondition"></classroom-article-item>
+            </div>
+            <div v-if ="infoList.length">
+                <p class="show-all" v-if="showAll">已加载完毕</p>
+                <div class="infinite-scroll-preloader" v-if="!showAll && searchVal">
+                    <div class="preloader"></div>
+                </div>
+            </div> 
+    	</div>
+    </div>
+</div>

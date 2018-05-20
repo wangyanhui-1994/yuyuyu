@@ -1,0 +1,167 @@
+.page-aquatic-classroom{
+    // .text-shadow(@bg-fff);
+    .page-content{
+        padding: 0;
+
+        &.sticky-header{
+            .header-search{
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0;
+                z-index: 999;
+            }
+        }
+    }
+    .class-header{
+        background: #5ACC25;
+        background: gradient(linear,0 0,right 0,from(#5ACC25),to(#0BC54C));
+        background: -webkit-gradient(linear,0 0,right 0,from(#5ACC25),to(#0BC54C));
+        position: relative;
+        // padding-bottom: 4.25rem;
+        text-align: center;
+        .photo{
+            padding: 2.75rem 0 2.5rem;
+            img{
+                width: 4rem;
+                height: 4rem;
+                border-radius: 50%;
+                border: 3px solid @bg-fff;
+            }
+        }
+        .getrePortCard{
+            height: 2.9rem;
+            width: 6rem;
+            text-align: center;
+            line-height: 2.9rem;
+            position: absolute;
+            right: 1.5rem;
+            top: 0.75rem;
+            color: @bg-fff;
+            background: #FF7800;
+            border-radius: 4px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .header-content{
+            // overflow: hidden;
+            height: 4rem;
+            .title{
+                display: block;
+                float: left;
+                width: 33.3%;
+                font-size: 1.4rem;
+                color: rgba(255,255,255,0.70);
+                line-height: 1.7rem;
+                position: relative;
+                .title-memo{
+                    font-size: 1.7rem;
+                    color: @bg-fff;
+                    line-height: 1.8rem;
+                    margin-bottom: 0.5rem;
+                    .num{
+                        font-weight: bold;
+                    }
+                }
+                .space-line{
+                    height: 2rem;
+                    border-right: 1px solid @bg-fff;
+                    position: relative;
+                    top: -3rem;
+                }
+                &.learn-time{
+                    position: relative;
+                    .collection{
+                        display: inline-block;
+                        padding: 1rem .5rem;
+                        line-height: 0;
+                        color: @bg-fff;
+                        border-radius: 13px;
+                        font-size: 1.3rem;
+                        background: @btn-orange;
+                        position: absolute;
+                        right: 5%;
+                        top: -2.5rem;
+                    }
+                }
+            }
+        }
+
+    }
+    .header-search{
+        height: 4.25rem;
+        background: #5ACC25;
+        background: gradient(linear,0 0,right 0,from(#5ACC25),to(#0BC54C));
+        background: -webkit-gradient(linear,0 0,right 0,from(#5ACC25),to(#0BC54C));
+        position: relative;
+        padding: 0 4.6%;
+        box-sizing: border-box;
+        .search-content{
+            position: absolute;
+            bottom: -2rem;
+            width: 90.8%;
+            box-sizing: border-box;
+            box-shadow: 0 5px 20px 0 fade(@text-black,10);
+        }
+    }
+    .header-fixed{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+    }
+    .class-type{
+        padding: 3.6rem 0 1.5rem;
+        background: @bg-fff;
+        .type-title{
+            padding: 0 4.6%;
+            font-size: 1.5rem;
+            line-height: 2.1rem;
+            color: @bg-555;
+            font-weight: bold;
+        }
+        .type-content{
+            padding: 0 6%;
+            overflow: hidden;
+            &.top-content{
+                padding-top: 1.5rem;
+                padding-bottom: 1rem;
+            }
+            a{
+                display: block;
+                float: left;
+                width: 22.75%;
+                padding-right: 3%;
+                img{
+                    display: block;
+                    width: 100%;
+                }
+                &.last-content{
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+    .class-top{
+        padding-top: 8.2rem;
+    }
+    .type-line{
+        padding: 0 3.3%;
+        .line{
+            .border-bottom;
+        }
+    }
+    .class-learn{
+        background: @bg-fff;
+        padding-top: 1.5rem;
+        .type-title{
+            padding: 0 4.6%;
+            font-size: 1.5rem;
+            line-height: 2.1rem;
+            color: @bg-555;
+            font-weight: bold;
+        }
+    }
+}
+
+

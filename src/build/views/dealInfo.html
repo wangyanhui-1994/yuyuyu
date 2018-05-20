@@ -1,0 +1,93 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left sliding">
+            <a class="iconfont icon-back back deal-view-close">返回</a>
+        </div>
+        <div class="center sliding">提交成交信息</div>
+        <div class="right">
+        </div>
+    </div>
+</div>
+<div class="page swipeback page-deal-info" data-page="dealInfo">
+    <div class="page-content">
+        <div class="vue-box">
+            <!-- sell-info -->
+            <div class="list-block sell-info">
+                <div class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title label">{{typeText}}</div>
+                        <div class="item-input">
+                            <input type="text" class="select-status" readonly placeholder="请选择">
+                            <span class="iconfont icon-right"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- fish varieties -->
+            <div class="list-block fish-varieties">
+                <div class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title label">品种</div>
+                        <div class="item-input">
+                            <span>{{subData.fishTypeName}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title label">成交数量<span class="deal-recommend">推荐</span></div>
+                        <div class="item-input deal-number-unit">
+                            <input type="number" placeholder="请填写数量" class="deal-num">
+                            <input type="text" value="斤" readonly id="deal-unit">
+                            <span><i class="iconfont icon-triangle"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-content deal-arrow">
+                    <div class="item-inner">
+                        <div class="item-title label">交易地区</div>
+                        <div class="item-input">
+                            <input type="text" readonly placeholder="请选择" class="select-address">
+                            <span class="iconfont icon-right"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-content deal-arrow deal-time">
+                    <div class="item-inner">
+                        <div class="item-title label">成交时间</div>
+                        <div class="item-input">
+                            <input type="text" class="select-time" readonly placeholder="请选择">
+                            <span class="iconfont icon-right"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- deal  benefits-->
+            <div class="deal-benefits">
+                <p>好处</p>
+                <div class="row list-block deal-benefits-info">
+                    <div class="item-content col-50 myshow">
+                        <div class="item-media">
+                            <span class="iconfont icon-card"></span>
+                        </div>
+                        <div class="item-inner">
+                            <div class="deal-bene-title">个人主页显示</div>
+                            <div class="deal-bene-text">在你的店铺主页展示，增加信任度</div>
+                        </div>
+                    </div>
+                    <div class="item-content col-50 deal-user">
+                        <div class="item-media">
+                            <span class="iconfont icon-select"></span>
+                        </div>
+                        <div class="item-inner">
+                            <div class="deal-bene-title">成交用户专区</div>
+                            <div class="deal-bene-text">有机会再首页专区显示，增加曝光</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- submit button -->
+            <div class="confirm-button" @click="submitInfo()">确认提交</div>
+        </div>
+    </div>
+</div>
