@@ -1,11 +1,12 @@
-import fs from 'fs';
-import path from 'path';
-import webpack from 'webpack';
-import env from './src/config/development';
-
-import autoprefixer from 'autoprefixer';
+/* eslint-disable indent */
+let fs = require('fs');
+let path = require('path');
+let webpack = require('webpack');
+let env = require('./src/config/development');
+let autoprefixer = require('autoprefixer');
 
 const PROD = process.env.npm_lifecycle_event;
+console.log(PROD, '///////////');
 
 const staticBase = 'js/';
 const contentBase = './src/build';
@@ -71,11 +72,9 @@ let initConfig = {
         configFile: '.eslintrc' // Rules for eslint
     }
 };
-
 var writeObj = {
     date: new Date(Date.now() + 8 * 60 * 60 * 1000)
 };
-
 if (PROD === 'build'){
     fs.writeFile('./src/config/version.json', JSON.stringify(writeObj), (err) => {
         if (err) throw err;

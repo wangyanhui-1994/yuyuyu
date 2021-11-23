@@ -4,7 +4,7 @@ import config from './config';
 import {searchInit} from './js/search';
 import {filterInit} from './js/filter';
 import {selldetailInit} from './js/selldetail';
-import {buydetailInit} from './js/buydetail'
+import {buydetailInit} from './js/buydetail';
 import {releaseInit} from './js/release';
 import {releaseInfoInit} from './js/releaseInfo';
 import {loginInit} from './js/login';
@@ -383,6 +383,7 @@ $$('img.lazy').trigger('lazy');
 /*
  * 页面加载完成后根据name执行相应的controller
  * */
+// eslint-disable-next-line no-debugger
 f7.onPageInit('*', (page) => {
     if (page.name){
         f7.showIndicator();

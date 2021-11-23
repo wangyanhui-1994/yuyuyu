@@ -111,7 +111,7 @@ function homeBuyInit (f7, view, page){
 
                 const accessToken = store.get('accessToken');
                 let openUrl = link;
-                console.log(type)
+                console.log(type);
                 // benner链接有三种类型：远程模板， 内部模板， 外部链接
                 if (0 == type){
                     loginRequired && (openUrl += `/${accessToken}`);
