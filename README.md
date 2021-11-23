@@ -31,4 +31,5 @@ gulp: http://www.gulpjs.com.cn/
 test framework
 eslint 规范强制性
 mocha: https://cn.vuejs.org/v2/guide
+测试一下
 ```
